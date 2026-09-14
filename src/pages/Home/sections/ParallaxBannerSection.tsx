@@ -1,0 +1,71 @@
+import React from 'react';
+import { Link } from 'react-router-dom';
+import { ShieldCheck, CheckCircle2, ArrowRight, Phone, Sun } from 'lucide-react';
+import { Button } from '../../../components/ui/Button';
+
+export const ParallaxBannerSection: React.FC = () => {
+  return (
+    <section
+      className="relative bg-fixed bg-cover bg-center overflow-hidden"
+      style={{
+        backgroundImage:
+          "url('https://nealsolar.com/wp-content/uploads/2026/02/how-to-install-solar-panels-at-home.webp')",
+        backgroundAttachment: 'fixed',
+        backgroundPosition: 'center',
+        backgroundRepeat: 'no-repeat',
+        backgroundSize: 'cover',
+      }}
+    >
+      {/* Upper Div Overlay (h-full with dark scrim and backdrop blur) */}
+      <div className="w-full h-full min-h-90 lg:min-h-100 bg-black/70  flex items-center justify-center text-center py-20 lg:py-14 px-4 sm:px-6 lg:px-8 relative z-10">
+        
+      
+
+        {/* Upper Content */}
+        <div className="max-w-6xl mx-auto relative z-20 space-y-6">
+          
+
+          {/* Headline */}
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl xl:text-5xl font-extrabold text-white tracking-tight font-serif leading-[1.15]">
+            Built for Queensland Heat. <br />
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#ea580c] via-[#f37021] to-[#f59e0b]">
+              Engineered to Last Decades.
+            </span>
+          </h2>
+
+          {/* Narrative Story */}
+          <p className="mt-4 text-base sm:text-lg text-slate-100 leading-relaxed max-w-6xl mx-auto">
+            While cut-rate solar outfits liquidate and leave thousands with orphaned inverters, Sunny Solar remains 100% privately owned, debt-free, and dedicated to in-house master craftsmanship since 2011.
+          </p>
+
+        
+
+          {/* Action Buttons */}
+          <div className="pt-2 flex flex-wrap items-center justify-center gap-4">
+            <Button
+              to="/contact"
+              variant="primary"
+              size="lg"
+              className="rounded-xl shadow-xl shadow-orange-500/25 bg-linear-to-r from-[#ea580c] via-[#f37021] to-[#f59e0b] hover:from-[#c2410c] hover:to-[#ea580c] text-white border-0 font-bold px-8 py-2 transition-all duration-300 hover:shadow-orange-500/40 hover:-translate-y-0.5 text-base"
+              icon={<ArrowRight className="w-5 h-5" />}
+            >
+              Claim Your Free Solar Assessment
+            </Button>
+
+            <a
+              href="tel:1300786697"
+              className="inline-flex items-center gap-2.5 px-6 py-3 rounded-xl border border-white/20 hover:border-white/40 bg-white/10 hover:bg-white/20 text-white font-bold text-base backdrop-blur-md transition-all duration-300 hover:-translate-y-0.5"
+            >
+              <Phone className="w-4 h-4 text-[#f37021]" />
+              <span>Speak to Trent: 1300 SUNNY</span>
+            </a>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+  );
+};
+
+export default ParallaxBannerSection;
