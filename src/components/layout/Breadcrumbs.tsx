@@ -60,7 +60,7 @@ export const Breadcrumbs: React.FC<BreadcrumbsProps> = ({ customItems, className
           <React.Fragment key={index}>
             <ChevronRight className="w-3.5 h-3.5 text-slate-400 shrink-0" />
             {isLast || !item.href ? (
-              <span className="font-semibold text-slate-900 truncate max-w-[200px] sm:max-w-md">
+              <span className="font-semibold text-slate-900 truncate max-w-50 sm:max-w-md">
                 {item.label}
               </span>
             ) : (

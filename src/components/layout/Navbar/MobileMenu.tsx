@@ -53,7 +53,7 @@ export const MobileMenu: React.FC<MobileMenuProps> = ({ isOpen, onClose }) => {
         {/* Drawer Header */}
         <div className="p-4 border-b border-slate-100 flex items-center justify-between">
           <div className="flex items-center gap-2">
-            <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-[#f37021] to-[#ea580c] flex items-center justify-center text-white shadow-sm font-black text-lg">
+            <div className="w-9 h-9 rounded-xl bg-linear-to-br from-[#f37021] to-[#ea580c] flex items-center justify-center text-white shadow-sm font-black text-lg">
               ☀️
             </div>
             <div>
@@ -69,7 +69,7 @@ export const MobileMenu: React.FC<MobileMenuProps> = ({ isOpen, onClose }) => {
           <button
             type="button"
             onClick={onClose}
-            className="p-2.5 min-w-[44px] min-h-[44px] flex items-center justify-center rounded-xl text-slate-400 hover:text-slate-700 hover:bg-slate-100 transition-colors cursor-pointer"
+            className="p-2.5 min-w-11 min-h-11 flex items-center justify-center rounded-xl text-slate-400 hover:text-slate-700 hover:bg-slate-100 transition-colors cursor-pointer"
             aria-label="Close menu"
           >
             <X className="w-5 h-5" />
@@ -89,7 +89,7 @@ export const MobileMenu: React.FC<MobileMenuProps> = ({ isOpen, onClose }) => {
                     <button
                       type="button"
                       onClick={() => toggleSection(section.title)}
-                      className="w-full flex items-center justify-between py-3 min-h-[44px] text-left font-bold text-slate-800 hover:text-[#f37021] transition-colors text-base"
+                      className="w-full flex items-center justify-between py-3 min-h-11 text-left font-bold text-slate-800 hover:text-[#f37021] transition-colors text-base"
                     >
                       <span>{section.title}</span>
                       <ChevronDown
@@ -104,7 +104,7 @@ export const MobileMenu: React.FC<MobileMenuProps> = ({ isOpen, onClose }) => {
                         <Link
                           to={section.href}
                           onClick={onClose}
-                          className="block py-2.5 min-h-[44px] flex items-center text-xs font-bold text-[#f37021] hover:underline"
+                          className="block py-2.5 min-h-11 items-center text-xs font-bold text-[#f37021] hover:underline"
                         >
                           View {section.title} Overview →
                         </Link>
@@ -113,7 +113,7 @@ export const MobileMenu: React.FC<MobileMenuProps> = ({ isOpen, onClose }) => {
                             key={subItem.href}
                             to={subItem.href}
                             onClick={onClose}
-                            className="block py-2.5 min-h-[44px] flex items-center text-sm text-slate-600 hover:text-[#1d6327] font-medium"
+                            className="block py-2.5 min-h-11 items-center text-sm text-slate-600 hover:text-[#1d6327] font-medium"
                           >
                             {subItem.title}
                           </Link>
@@ -125,7 +125,7 @@ export const MobileMenu: React.FC<MobileMenuProps> = ({ isOpen, onClose }) => {
                   <Link
                     to={section.href}
                     onClick={onClose}
-                    className="block py-3 min-h-[44px] flex items-center font-bold text-slate-800 hover:text-[#f37021] transition-colors text-base"
+                    className="py-3 min-h-11 flex items-center font-bold text-slate-800 hover:text-[#f37021] transition-colors text-base"
                   >
                     {section.title}
                   </Link>
@@ -136,13 +136,13 @@ export const MobileMenu: React.FC<MobileMenuProps> = ({ isOpen, onClose }) => {
 
           {/* Quick Support and Legal Links */}
           <div className="pt-4 space-y-2 text-sm text-slate-500">
-            <Link to="/about/trent" onClick={onClose} className="block py-2.5 min-h-[44px] flex items-center hover:text-[#f37021]">
+            <Link to="/about/trent" onClick={onClose} className="block py-2.5 min-h-11 items-center hover:text-[#f37021]">
               Meet Trent (Founder Bio)
             </Link>
-            <Link to="/service-areas" onClick={onClose} className="block py-2.5 min-h-[44px] flex items-center hover:text-[#f37021]">
+            <Link to="/service-areas" onClick={onClose} className="block py-2.5 min-h-11 items-center hover:text-[#f37021]">
               Service Areas & Locations
             </Link>
-            <Link to="/faq" onClick={onClose} className="block py-2.5 min-h-[44px] flex items-center hover:text-[#f37021]">
+            <Link to="/faq" onClick={onClose} className="py-2.5 min-h-11 flex items-center hover:text-[#f37021]">
               Frequently Asked Questions
             </Link>
           </div>
@@ -156,7 +156,7 @@ export const MobileMenu: React.FC<MobileMenuProps> = ({ isOpen, onClose }) => {
             variant="primary"
             size="md"
             fullWidth
-            className="rounded-full bg-gradient-to-r from-[#ea580c] via-[#f37021] to-[#f59e0b] hover:from-[#c2410c] hover:to-[#ea580c] text-white border-0 shadow-lg shadow-orange-500/25"
+            className="rounded-full bg-linear-to-r from-[#ea580c] via-[#f37021] to-[#f59e0b] hover:from-[#c2410c] hover:to-[#ea580c] text-white border-0 shadow-lg shadow-orange-500/25"
             icon={<ArrowRight className="w-4 h-4" />}
           >
             Free Solar Assessment

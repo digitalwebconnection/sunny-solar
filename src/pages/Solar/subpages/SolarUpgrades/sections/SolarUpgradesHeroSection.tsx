@@ -7,8 +7,8 @@ export const SolarUpgradesHeroSection: React.FC = () => {
   return (
     <section className="relative bg-white text-slate-900 pt-14 pb-16 lg:pb-24 border-b border-slate-200/80 overflow-hidden">
       {/* Subtle atmospheric solar radiance */}
-      <div className="absolute -top-32 right-1/4 w-[600px] h-[350px] bg-amber-400/5 rounded-full blur-[140px] pointer-events-none" />
-      <div className="absolute bottom-10 -left-28 w-[450px] h-[300px] bg-emerald-400/5 rounded-full blur-[130px] pointer-events-none" />
+      <div className="absolute -top-32 right-1/4 w-150 h-87.5 bg-amber-400/5 rounded-full blur-[140px] pointer-events-none" />
+      <div className="absolute bottom-10 -left-28 w-112.5 h-75 bg-emerald-400/5 rounded-full blur-[130px] pointer-events-none" />
 
       {/* Subtle engineering blueprint dot grid backdrop */}
       <div
@@ -28,7 +28,7 @@ export const SolarUpgradesHeroSection: React.FC = () => {
           <div className="lg:col-span-7 space-y-6">
             <h1 className="text-3xl sm:text-4xl lg:text-5xl font-serif font-bold text-slate-950 tracking-tight leading-[1.12]">
               Upgrade & Re-Power Your{' '}
-              <span className="bg-gradient-to-r from-amber-500 via-amber-600 to-orange-500 bg-clip-text text-transparent">
+              <span className="bg-linear-to-r from-amber-500 via-amber-600 to-orange-500 bg-clip-text text-transparent">
                 Existing Solar Setup
               </span>
             </h1>
@@ -60,13 +60,13 @@ export const SolarUpgradesHeroSection: React.FC = () => {
           {/* Right Column: High-Resolution Authentic Imagery */}
           <div className="lg:col-span-5 relative">
             <div className="relative">
-              <div className="relative rounded-xl overflow-hidden border border-slate-200/90 shadow-2xl bg-slate-100 aspect-[4/3] group">
+              <div className="relative rounded-xl overflow-hidden border border-slate-200/90 shadow-2xl bg-slate-100 aspect-4/3 group">
                 <img
                   src="/images/about/gallery/electrician-mounting-inverter.jpg"
                   alt="Sunny Solar Master Electrician upgrading a solar inverter"
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent" />
+                <div className="absolute inset-0 bg-linear-to-t from-slate-950/80 via-transparent to-transparent" />
                 <div className="absolute bottom-5 left-5 right-5 text-white">
                   <span className="font-mono text-xs font-bold text-amber-400 uppercase tracking-wider">
                     Precision Upgrade

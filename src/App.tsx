@@ -13,7 +13,7 @@ export function App() {
         <ScrollToTop />
         <div className="flex flex-col min-h-screen selection:bg-amber-400 selection:text-slate-950 font-sans">
           <Navbar />
-          <main className="flex-grow">
+          <main className="grow">
             <AppRoutes />
           </main>
           <Footer />

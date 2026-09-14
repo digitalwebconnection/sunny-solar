@@ -53,7 +53,7 @@ export const SolarSystemsHeroSection: React.FC = () => {
           className="text-4xl sm:text-5xl lg:text-5xl font-serif font-bold text-slate-950 tracking-tight leading-[1.12] max-w-4xl mx-auto"
         >
           Engineered Solar Systems{' '} <br />
-          <span className="bg-gradient-to-r from-amber-500 via-orange-500 to-amber-600 bg-clip-text text-transparent">
+          <span className="bg-linear-to-r from-amber-500 via-orange-500 to-amber-600 bg-clip-text text-transparent">
             Built for Peak Yield.
           </span>
         </motion.h1>

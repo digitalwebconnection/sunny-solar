@@ -220,7 +220,7 @@ export const SolarHardwareComparisonSection: React.FC = () => {
                   alt={current.name}
                   className="w-full h-full object-cover"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-transparent to-transparent" />
+                <div className="absolute inset-0 bg-linear-to-t from-slate-950/70 via-transparent to-transparent" />
                 
                 {/* Image Overlay Banner */}
                 <div className="absolute bottom-4 left-4 right-4 flex items-end justify-between text-white">
@@ -306,7 +306,7 @@ export const SolarHardwareComparisonSection: React.FC = () => {
           </div>
 
           <div className="overflow-x-auto">
-            <table className="w-full text-left border-collapse min-w-[640px]">
+            <table className="w-full text-left border-collapse min-w-160">
               <thead>
                 <tr className="border-b-2 border-slate-900 text-lg font-mono uppercase tracking-wider">
                   <th className="py-4 px-4 text-slate-900 font-bold w-1/3">Key Evaluation Point</th>
