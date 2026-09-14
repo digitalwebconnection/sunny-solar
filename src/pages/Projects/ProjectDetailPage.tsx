@@ -237,7 +237,7 @@ export const ProjectDetailPage: React.FC = () => {
             {/* Previous Image Arrow */}
             <button
               onClick={handlePrevImage}
-              className="absolute left-4 top-1/2 -translate-y-1/2 z-10 w-11 h-11 rounded-full bg-slate-900/60 hover:bg-slate-900/90 backdrop-blur-md border border-white/20 text-white flex items-center justify-center transition-all duration-200 cursor-pointer opacity-0 group-hover:opacity-100 hover:scale-110"
+              className="absolute left-4 top-1/2 -translate-y-1/2 z-10 w-11 h-11 rounded-full bg-slate-900/60 hover:bg-slate-900/90 backdrop-blur-md border border-white/20 text-white flex items-center justify-center transition-all duration-200 cursor-pointer opacity-100 lg:opacity-0 lg:group-hover:opacity-100 hover:scale-110"
               aria-label="Previous image"
             >
               <ChevronLeft className="w-6 h-6" />
@@ -246,7 +246,7 @@ export const ProjectDetailPage: React.FC = () => {
             {/* Next Image Arrow */}
             <button
               onClick={handleNextImage}
-              className="absolute right-4 top-1/2 -translate-y-1/2 z-10 w-11 h-11 rounded-full bg-slate-900/60 hover:bg-slate-900/90 backdrop-blur-md border border-white/20 text-white flex items-center justify-center transition-all duration-200 cursor-pointer opacity-0 group-hover:opacity-100 hover:scale-110"
+              className="absolute right-4 top-1/2 -translate-y-1/2 z-10 w-11 h-11 rounded-full bg-slate-900/60 hover:bg-slate-900/90 backdrop-blur-md border border-white/20 text-white flex items-center justify-center transition-all duration-200 cursor-pointer opacity-100 lg:opacity-0 lg:group-hover:opacity-100 hover:scale-110"
               aria-label="Next image"
             >
               <ChevronRight className="w-6 h-6" />
@@ -279,6 +279,7 @@ export const ProjectDetailPage: React.FC = () => {
                     src={img.url}
                     alt={img.caption}
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                    loading="lazy"
                   />
                   <div className="absolute inset-0 bg-slate-950/20 group-hover:bg-transparent transition-colors" />
                   <span className="absolute bottom-1.5 left-2 right-2 text-[10px] font-bold text-white uppercase tracking-wider truncate drop-shadow-md">

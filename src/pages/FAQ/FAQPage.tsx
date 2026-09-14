@@ -47,7 +47,7 @@ export const FAQPage: React.FC = () => {
         <Accordion items={filteredItems} allowMultiple defaultOpenId={filteredItems[0]?.id} />
 
         {/* Still have questions banner */}
-        <div className="bg-white rounded-3xl border border-slate-200/80 p-8 text-center space-y-4 shadow-sm">
+        <div className="bg-white rounded-3xl border border-slate-200/80 p-5 sm:p-8 text-center space-y-4 shadow-sm">
           <h3 className="text-xl font-extrabold text-slate-900">
             Have a question not answered here?
           </h3>

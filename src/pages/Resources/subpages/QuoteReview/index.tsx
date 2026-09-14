@@ -16,8 +16,7 @@ export const QuoteReviewPage: React.FC = () => {
       {/* Section 3: Add Battery with Solar Quote Traps (No Calculator, Real Imagery, Non-Box) */}
       <QuoteReviewBatterySection />
 
-      {/* Section 4: Next Steps & Buying Checklist CTA */}
-      <QuoteReviewCTASection />
+
     </div>
   );
 };

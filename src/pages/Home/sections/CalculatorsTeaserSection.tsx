@@ -164,7 +164,7 @@ export const CalculatorsTeaserSection: React.FC = () => {
                 </div>
 
                 {/* Right: Key Benefit + Time + Arrow Action */}
-                <div className="flex items-center justify-between md:justify-end gap-4 sm:gap-6 shrink-0 pl-10 sm:pl-0 pt-2 sm:pt-0 border-t md:border-t-0 border-slate-100">
+                <div className="flex items-center justify-between md:justify-end gap-4 sm:gap-6 shrink-0 pl-0 sm:pl-10 pt-2 sm:pt-0 border-t md:border-t-0 border-slate-100">
                   <div className="hidden lg:block text-right">
                     <div className="text-xs font-bold text-slate-800">{row.highlight}</div>
                     <div className="text-[11px] text-slate-500 mt-0.5">⏱️ {row.timeEstimate}</div>

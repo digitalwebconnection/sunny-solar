@@ -75,7 +75,7 @@ export const CalculatorShell: React.FC<CalculatorShellProps> = ({
         </div>
 
         {/* Right Column: Results Panel */}
-        <div className="lg:col-span-5 bg-gradient-to-br from-slate-900 via-slate-900 to-slate-950 text-white rounded-3xl p-6 sm:p-8 shadow-xl border border-slate-800 relative overflow-hidden sticky top-28">
+        <div className="lg:col-span-5 bg-gradient-to-br from-slate-900 via-slate-900 to-slate-950 text-white rounded-3xl p-5 sm:p-8 shadow-xl border border-slate-800 relative overflow-hidden lg:sticky lg:top-28">
           {/* Ambient Glow */}
           <div className="absolute -top-24 -right-24 w-60 h-60 bg-amber-500/20 rounded-full blur-3xl pointer-events-none" />
           <div className="absolute -bottom-24 -left-24 w-60 h-60 bg-emerald-500/20 rounded-full blur-3xl pointer-events-none" />
@@ -93,7 +93,7 @@ export const CalculatorShell: React.FC<CalculatorShellProps> = ({
           </div>
 
           {/* Results Metric Grid */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5 mb-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-3.5 mb-6">
             {results.map((metric, idx) => (
               <div
                 key={idx}

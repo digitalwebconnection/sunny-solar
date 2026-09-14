@@ -16,8 +16,6 @@ export const BuyingChecklistPage: React.FC = () => {
       {/* Section 3: Add Battery with Solar Vetting Showcase (No Calculator, Real Imagery, Non-Box) */}
       <BuyingChecklistBatterySection />
 
-      {/* Section 4: Engineering Audit CTA & Next Steps */}
-      <BuyingChecklistCTASection />
     </div>
   );
 };

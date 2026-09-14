@@ -16,8 +16,6 @@ export const ElectricityBillReviewPage: React.FC = () => {
       {/* Section 3: Add Battery with Solar Tariff Trap Solution (No Calculator, Real Imagery, Non-Box) */}
       <ElectricityBillReviewBatterySection />
 
-      {/* Section 4: Quote Cross-Reference CTA */}
-      <ElectricityBillReviewCTASection />
     </div>
   );
 };

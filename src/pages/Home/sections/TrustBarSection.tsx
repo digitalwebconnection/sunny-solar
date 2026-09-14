@@ -146,7 +146,7 @@ export const TrustBarSection: React.FC = () => {
         </div>
 
         {/* Stats Grid - Centered & Balanced */}
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-0 divide-y sm:divide-y-0 sm:divide-x divide-slate-300/80">
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8 lg:gap-0 lg:divide-x divide-slate-300/80">
           {stats.map((stat, idx) => {
             const Icon = stat.icon;
             return (

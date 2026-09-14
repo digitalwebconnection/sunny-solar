@@ -18,13 +18,14 @@ export const TrentBioPage: React.FC = () => {
         <div className="bg-white rounded-3xl border border-slate-200/80 p-8 sm:p-12 shadow-sm grid grid-cols-1 md:grid-cols-12 gap-8 items-center">
           {/* Photo */}
           <div className="md:col-span-5">
-            <div className="rounded-3xl overflow-hidden shadow-xl aspect-[3/4] bg-slate-900 relative">
+            <div className="rounded-3xl overflow-hidden shadow-xl aspect-3/4 bg-slate-900 relative">
               <img
-                src="https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=800&q=80"
+                src="/images/about/trent-portrait.jpg"
                 alt="Trent Palmer, Founder of Sunny Solar"
                 className="w-full h-full object-cover"
+                loading="lazy"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent" />
+              <div className="absolute inset-0 bg-linear-to-t from-slate-950/80 via-transparent to-transparent" />
               <div className="absolute bottom-4 left-4 right-4 text-white text-center">
                 <span className="font-extrabold text-lg block">Trent Palmer</span>
                 <span className="text-xs text-amber-400">Founder & Managing Director</span>

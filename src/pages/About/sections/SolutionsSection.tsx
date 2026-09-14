@@ -32,8 +32,7 @@ export const SolutionsSection: React.FC = () => {
       title: 'Adani & Polycab Partner',
       description:
         'Authorized partner delivering Tier-1 PV modules and world-class on-grid solar inverters.',
-      bgImage:
-        'https://images.unsplash.com/photo-1508514177221-188b1cf16e9d?w=800&auto=format&fit=crop&q=80',
+      bgImage: '/images/solutions/adani-polycab.jpg',
     },
     {
       icon: <Building2 className="w-9 h-9 text-sky-600 stroke-[1.8]" />,
@@ -41,8 +40,7 @@ export const SolutionsSection: React.FC = () => {
       title: '1-Box Solar KIT (1-25 kW)',
       description:
         'Complete turnkey box with all components ready for fast rooftop solar PV installation.',
-      bgImage:
-        'https://images.unsplash.com/photo-1613665813446-82a78c468a1d?w=800&auto=format&fit=crop&q=80',
+      bgImage: '/images/solutions/solar-kit.jpg',
     },
     {
       icon: <Award className="w-9 h-9 text-amber-500 stroke-[1.8]" />,
@@ -50,8 +48,7 @@ export const SolutionsSection: React.FC = () => {
       title: 'Trained In-House Engineers',
       description:
         'Dedicated team of certified engineers supporting solar installers and system integrators.',
-      bgImage:
-        'https://images.unsplash.com/photo-1624397640148-949b1732bb0a?w=800&auto=format&fit=crop&q=80',
+      bgImage: '/images/solutions/engineers.jpg',
     },
     {
       icon: <TrendingUp className="w-9 h-9 text-sky-600 stroke-[1.8]" />,
@@ -59,8 +56,7 @@ export const SolutionsSection: React.FC = () => {
       title: 'DISCOM Net-Metering',
       description:
         'Sanctioned net-metering & generation meters (Secure & L&T DLMS Class 0.5S) with CTs.',
-      bgImage:
-        'https://images.unsplash.com/photo-1545259741-2ea3ebf61fa3?w=800&auto=format&fit=crop&q=80',
+      bgImage: '/images/solutions/net-metering.jpg',
     },
   ];
 
@@ -82,7 +78,7 @@ export const SolutionsSection: React.FC = () => {
           One Stop Solution for All
           <br />
           <span className="text-slate-900">Solar Rooftop </span>
-          <span className="bg-gradient-to-r from-amber-500 via-orange-500 to-amber-600 bg-clip-text text-transparent">
+          <span className="bg-linear-to-r from-amber-500 via-orange-500 to-amber-600 bg-clip-text text-transparent">
             Projects
           </span>
         </motion.h2>
@@ -104,7 +100,7 @@ export const SolutionsSection: React.FC = () => {
                   alt={card.title}
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out "
                 />
-                <div className="absolute inset-0 bg-gradient-to-b from-black/10 via-black/55 to-black/80 " />
+                <div className="absolute inset-0 bg-linear-to-b from-black/10 via-black/55 to-black/80 " />
               </div>
 
               {/* Upper Content Layer */}

@@ -163,13 +163,13 @@ export const SavingsPillarsSection: React.FC = () => {
         <div className="grid grid-cols-1 lg:grid-cols-12 items-center">
           
           {/* Visual Image Container Left */}
-          <div className="lg:col-span-6 relative min-h-[300px] sm:min-h-[360px] h-full">
+          <div className="lg:col-span-6 relative min-h-75 sm:min-h-90 h-full">
             <img
-              src="https://www.zonenergy.com.au/images/homepage/10kW%20Solar%20panel%20system.png"
+              src="/images/savings/10kw-solar-panel-system.png"
               alt="Solar net metering and bi-directional energy flow"
               className="absolute inset-0 w-full h-full object-cover object-center"
             />
-            <div className="absolute inset-0 bg-gradient-to-r from-slate-950/70 via-transparent to-slate-900 lg:bg-gradient-to-r lg:from-transparent lg:to-slate-900" />
+            <div className="absolute inset-0 bg-linear-to-r from-slate-950/70 via-transparent to-slate-900 lg:bg-linear-to-r lg:from-transparent lg:to-slate-900" />
             
             <div className="absolute bottom-4 left-4 sm:bottom-6 sm:left-6 backdrop-blur-md bg-slate-950/80 p-3  border border-white/20">
               <span className="text-xs font-bold text-amber-400 uppercase tracking-wider block">Real Flow Topology</span>

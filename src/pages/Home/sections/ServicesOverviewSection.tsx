@@ -73,10 +73,10 @@ export const ServicesOverviewSection: React.FC = () => {
           {/* Right Column: Sleek Modern Visual Showcase */}
           <div className="lg:col-span-6 relative">
             {/* Offset Decorative Layered Backdrop */}
-            <div className="absolute -bottom-4 -right-4 w-full h-full rounded-xl bg-gradient-to-br  from-[#1d6327]/10 via-amber-500/20 to-[#f37021]/25 border border-slate-200/50 -z-10" />
+            <div className="absolute -bottom-4 -right-4 w-full h-full rounded-xl bg-gradient-to-br  from-[#1d6327]/10 via-amber-500/20 to-[#f37021]/25 border border-slate-200/50 -z-10 hidden lg:block" />
 
             {/* Ambient Background Aura */}
-            <div className="absolute -top-6 -left-6 w-84 h-84 bg-[#1d6327]/50 rounded-full blur-2xl -z-10" />
+            <div className="absolute -top-6 -left-6 w-84 h-84 bg-[#1d6327]/50 rounded-full blur-2xl -z-10 hidden lg:block" />
 
             {/* Main Image Frame */}
             <div className="relative rounded-xl overflow-hidden shadow-2xl shadow-slate-900/10 border-2 border-white bg-slate-100 aspect-4/4 group">
@@ -84,6 +84,7 @@ export const ServicesOverviewSection: React.FC = () => {
                 src={heroBg}
                 alt="Sunny Solar Master Electrician Installing Solar & Battery"
                 className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700 ease-out"
+                loading="lazy"
               />
 
               {/* Floating Verified Badge (Top Right) */}

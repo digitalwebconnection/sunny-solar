@@ -15,7 +15,7 @@ export const LocationDetailPage: React.FC = () => {
   }
 
   return (
-    <div className="min-h-screen bg-slate-50 pb-20">
+    <div className="min-h-screen bg-slate-50 pb-20 pt-24 sm:pt-28">
       <Breadcrumbs
         customItems={[
           { label: 'Service Areas', href: '/service-areas' },
@@ -37,7 +37,7 @@ export const LocationDetailPage: React.FC = () => {
 
           <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-slate-950 leading-tight">
             Solar & Battery Installations in{' '}
-            <span className="bg-gradient-to-r from-amber-500 to-orange-500 bg-clip-text text-transparent">
+            <span className="bg-linear-to-r from-amber-500 to-orange-500 bg-clip-text text-transparent">
               {area.name}
             </span>
           </h1>
@@ -114,7 +114,7 @@ export const LocationDetailPage: React.FC = () => {
               <span className="font-bold text-slate-800">Local Crew:</span> {area.installerCount}
             </div>
           </div>
-        </div>
+        </div> 
 
         {/* Local CTA */}
         <div className="bg-slate-900 text-white rounded-3xl p-8 sm:p-12 border border-slate-800 text-center space-y-4">

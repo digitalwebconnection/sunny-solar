@@ -9,7 +9,7 @@ export interface ReviewCardProps {
 
 export const ReviewCard: React.FC<ReviewCardProps> = ({ review }) => {
   return (
-    <div className="bg-white rounded-2xl border border-slate-200/80 p-6 shadow-sm hover:shadow-lg transition-all duration-300 flex flex-col justify-between">
+    <div className="bg-white rounded-2xl border border-slate-200/80 p-4 sm:p-6 shadow-sm hover:shadow-lg transition-all duration-300 flex flex-col justify-between">
       <div>
         {/* Top Header */}
         <div className="flex items-center justify-between gap-2 mb-3">

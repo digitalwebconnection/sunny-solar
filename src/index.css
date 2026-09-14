@@ -145,3 +145,41 @@
     opacity: var(--opacity, 0);
   }
 }
+
+/* Prevent iOS Safari auto-zoom on input focus (requires font-size >= 16px on mobile/tablet) */
+@media (max-width: 1023px) {
+  input,
+  textarea,
+  select {
+    font-size: 16px;
+  }
+}
+
+/* Respect prefers-reduced-motion: disable heavy CSS animations */
+@media (prefers-reduced-motion: reduce) {
+  .flip-char {
+    animation: none !important;
+  }
+
+  .flip-char::before,
+  .flip-char::after {
+    animation: none !important;
+  }
+
+  .animate-megamenu {
+    animation: none !important;
+  }
+}
+
+/* Fix iOS Safari parallax: background-attachment:fixed causes jank/breaks on touch */
+@supports (-webkit-touch-callout: none) {
+  .bg-fixed {
+    background-attachment: scroll !important;
+  }
+}
+
+@media (max-width: 1023px) {
+  .bg-fixed {
+    background-attachment: scroll !important;
+  }
+}

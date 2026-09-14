@@ -18,7 +18,7 @@ export const ArticleCard: React.FC<ArticleCardProps> = ({
       to={`${basePath}/${article.slug}`}
       className="group bg-white rounded-lg border border-slate-200/80 overflow-hidden shadow-lg hover:shadow-xl shadow-black/50 hover:border-amber-400/80 transition-all duration-300 flex flex-col cursor-pointer"
     >
-      <div className="relative h-48 overflow-hidden bg-slate-100">
+      <div className="relative aspect-[16/9] lg:aspect-auto lg:h-48 overflow-hidden bg-slate-100">
         <img
           src={article.imageUrl}
           alt={article.title}

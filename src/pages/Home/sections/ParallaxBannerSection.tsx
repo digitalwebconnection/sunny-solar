@@ -9,7 +9,7 @@ export const ParallaxBannerSection: React.FC = () => {
       className="relative bg-fixed bg-cover bg-center overflow-hidden"
       style={{
         backgroundImage:
-          "url('https://nealsolar.com/wp-content/uploads/2026/02/how-to-install-solar-panels-at-home.webp')",
+          "url('/images/home/parallax-solar-home.webp')",
         backgroundAttachment: 'fixed',
         backgroundPosition: 'center',
         backgroundRepeat: 'no-repeat',
@@ -28,7 +28,7 @@ export const ParallaxBannerSection: React.FC = () => {
           {/* Headline */}
           <h2 className="text-3xl sm:text-4xl lg:text-5xl xl:text-5xl font-extrabold text-white tracking-tight font-serif leading-[1.15]">
             Built for Queensland Heat. <br />
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#ea580c] via-[#f37021] to-[#f59e0b]">
+            <span className="text-transparent bg-clip-text bg-linear-to-r from-[#ea580c] via-[#f37021] to-[#f59e0b]">
               Engineered to Last Decades.
             </span>
           </h2>
@@ -46,7 +46,7 @@ export const ParallaxBannerSection: React.FC = () => {
               to="/contact"
               variant="primary"
               size="lg"
-              className="rounded-xl shadow-xl shadow-orange-500/25 bg-linear-to-r from-[#ea580c] via-[#f37021] to-[#f59e0b] hover:from-[#c2410c] hover:to-[#ea580c] text-white border-0 font-bold px-8 py-2 transition-all duration-300 hover:shadow-orange-500/40 hover:-translate-y-0.5 text-base"
+              className="rounded-xl shadow-xl shadow-orange-500/25 bg-linear-to-r from-[#ea580c] via-[#f37021] to-[#f59e0b] hover:from-[#c2410c] hover:to-[#ea580c] text-white border-0 font-bold px-8 py-3.5 lg:py-2 transition-all duration-300 hover:shadow-orange-500/40 hover:-translate-y-0.5 text-base"
               icon={<ArrowRight className="w-5 h-5" />}
             >
               Claim Your Free Solar Assessment

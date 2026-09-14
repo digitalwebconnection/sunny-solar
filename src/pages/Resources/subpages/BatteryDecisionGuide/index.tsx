@@ -16,8 +16,7 @@ export const BatteryDecisionGuidePage: React.FC = () => {
       {/* Section 3: Add Battery with Solar Sweet Spot Showcase (No Calculator, Real Imagery, Non-Box) */}
       <BatteryDecisionGuideBatterySection />
 
-      {/* Section 4: Engineering Feasibility CTA */}
-      <BatteryDecisionGuideCTASection />
+  
     </div>
   );
 };

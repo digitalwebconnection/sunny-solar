@@ -82,7 +82,7 @@ export const FAQSection: React.FC = () => {
                     {faq.question}
                   </span>
                   <div
-                    className={`w-7 h-7 rounded-full flex items-center justify-center shrink-0 transition-transform duration-200 ${
+                    className={`w-9 h-9 lg:w-7 lg:h-7 rounded-full flex items-center justify-center shrink-0 transition-transform duration-200 ${
                       isOpen
                         ? 'rotate-180 bg-[#ea580c] text-white'
                         : 'bg-slate-100 text-slate-600'

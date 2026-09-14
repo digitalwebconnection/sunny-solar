@@ -41,7 +41,7 @@ export const Footer: React.FC = () => {
             {/* Brand */}
             <div className="">
               <Link to="/" className="inline-flex items-center  ">
-                <img src={logo} alt="Sunny Solar" className="w-53 max-w-full" />
+                <img src={logo} alt="Sunny Solar" className="w-40 sm:w-53 max-w-full" />
               </Link>
               
             </div>
@@ -110,7 +110,7 @@ export const Footer: React.FC = () => {
                       target="_blank"
                       rel="noopener noreferrer"
                       aria-label={`Follow Sunny Solar on ${social.label}`}
-                      className="w-9 h-9 rounded-full border border-slate-300 flex items-center justify-center text-slate-500 hover:bg-[#ea580c] hover:border-[#ea580c] hover:text-white transition-all duration-200"
+                      className="w-11 h-11 lg:w-9 lg:h-9 rounded-full border border-slate-300 flex items-center justify-center text-slate-500 hover:bg-[#ea580c] hover:border-[#ea580c] hover:text-white transition-all duration-200"
                     >
                       <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
                         <path d={social.path} />
@@ -199,7 +199,7 @@ export const Footer: React.FC = () => {
 
       {/* Bottom Bar */}
       <div className="bg-[#0a1420] border-t border-white/5">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-white/90">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-white/90 text-center sm:text-left">
           <span>© {new Date().getFullYear()} Sunny Solar Energy Pty Ltd. All rights reserved.</span>
           <div className="flex flex-wrap items-center justify-center gap-4">
             <Link to="/legal/privacy-policy" className="underline underline-offset-2 hover:text-white transition-colors">Privacy Policy</Link>

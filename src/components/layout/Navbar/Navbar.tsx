@@ -100,7 +100,7 @@ export const Navbar: React.FC = () => {
         className={`w-full transition-all duration-300 ${isScrolled
             ? 'bg-[#ffffff]/95 backdrop-blur-xl text-black shadow-2xl py-1'
             : isHomePage
-              ? 'bg-gradient-to-b backdrop-blur-xs from-slate-950/60 via-slate-950/20 to-transparent py-3 sm:py-1 text-black'
+              ? 'bg-linear-to-b backdrop-blur-xs from-slate-950/60 via-slate-950/20 to-transparent py-3 sm:py-1 text-black'
               : 'bg-[#ffffff]/90 backdrop-blur-md py-1 text-black'
           }`}
       >
@@ -174,7 +174,7 @@ export const Navbar: React.FC = () => {
               to="/get-started/free-assessment"
               variant="primary"
               size="md"
-              className="hidden sm:inline-flex rounded-full text-xs uppercase tracking-wider font-extrabold shadow-lg shadow-orange-500/25 bg-gradient-to-r from-[#ea580c] via-[#f37021] to-[#f59e0b] hover:from-[#c2410c] hover:to-[#ea580c] text-white border-0"
+              className="hidden sm:inline-flex rounded-full text-xs uppercase tracking-wider font-extrabold shadow-lg shadow-orange-500/25 bg-linear-to-r from-[#ea580c] via-[#f37021] to-[#f59e0b] hover:from-[#c2410c] hover:to-[#ea580c] text-white border-0"
               icon={<ArrowRight className="w-4 h-4" />}
             >
               Free Assessment
@@ -184,8 +184,8 @@ export const Navbar: React.FC = () => {
             <button
               type="button"
               onClick={() => setMobileMenuOpen(true)}
-              className={`p-2 rounded-xl transition-colors lg:hidden cursor-pointer ${
-                isScrolled ? 'text-slate-900 hover:bg-slate-100' : 'text-white hover:bg-white/10'
+              className={`p-2.5 min-w-11 min-h-11 flex items-center justify-center rounded-xl transition-colors lg:hidden cursor-pointer ${
+                isScrolled || !isHomePage ? 'text-slate-900 hover:bg-slate-100' : 'text-white hover:bg-white/10'
               }`}
               aria-label="Open navigation menu"
             >

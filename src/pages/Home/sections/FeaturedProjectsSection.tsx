@@ -33,8 +33,7 @@ const builderReasons: BuilderReason[] = [
     description:
       'We coordinate directly with your site supervisor. Pre-wire rough-ins are executed cleanly during framing, and roof work is sequenced smoothly to eliminate construction roadblocks.',
     highlight: '100% On-Time Site Handover',
-    bgImage:
-      'https://www.tatapower.com/adobe/dynamicmedia/deliver/dm-p-oid--xoiKJFyY4kqwBXocriZrmRglbhyjMgNeoZG4whF-UwrRwMKccPcsDJ-OoCe9x0BAmBgFBk2V-X3i-zKQ4pMX1IF8I-9HkzGNa9bKmTaOU0MImcMpEx9Ah6w_zpck9PZaYj-IAc_hhrRjm9VZu3lzTQ/body-01.png?quality=85&preferwebp=true',
+    bgImage: '/images/builder/builder-schedule-sync.png',
     icon: Clock,
     iconBg: 'bg-orange-500/10',
     iconColor: 'text-[#f37021]',
@@ -49,8 +48,7 @@ const builderReasons: BuilderReason[] = [
     description:
       'Never risk your builder reputation on rushed third-party contractors. Trent Palmer and our in-house master electricians handle every cable, inverter mount, and isolator to the highest standard.',
     highlight: 'QBCC Licensed • CEC Retailer #A4892',
-    bgImage:
-      'https://images.unsplash.com/photo-1621905251189-08b45d6a269e?auto=format&fit=crop&w=1000&q=80',
+    bgImage: '/images/builder/builder-master-trades.jpg',
     icon: ShieldCheck,
     iconBg: 'bg-emerald-500/10',
     iconColor: 'text-[#1d6327]',
@@ -65,8 +63,7 @@ const builderReasons: BuilderReason[] = [
     description:
       'No unsightly external surface conduits ruining your architectural elevation. We route DC cabling through internal wall cavities and install premium all-black tier-1 panels with sleek flush mounting.',
     highlight: 'Preserves Facade Street Appeal',
-    bgImage:
-      'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR4FkymbzwfOUnBNx-bmEKyyBMC37lrrnq0Xc6S4atxcXpiRXry38rckX5y&s=10',
+    bgImage: '/images/builder/builder-design-integrity.jpg',
     icon: Sparkles,
     iconBg: 'bg-amber-500/10',
     iconColor: 'text-[#f59e0b]',
@@ -81,8 +78,7 @@ const builderReasons: BuilderReason[] = [
     description:
       'Certificates of Electrical Safety and Form 15 / Form 16 design and inspection certificates are issued within 24 hours of fit-off—enabling fast, uninhibited private certifier approvals.',
     highlight: 'AS/NZS 3000 & 5033 Certified',
-    bgImage:
-      'https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=1000&q=80',
+    bgImage: '/images/builder/builder-certifier-ready.jpg',
     icon: FileCheck2,
     iconBg: 'bg-emerald-500/10',
     iconColor: 'text-[#1d6327]',
@@ -97,8 +93,7 @@ const builderReasons: BuilderReason[] = [
     description:
       'At practical completion, we walk the new homeowner through their smart monitoring app and system operation. We take full ownership of warranty queries so you never field post-handover solar questions.',
     highlight: '25-Year Direct Workmanship Warranty',
-    bgImage:
-      'https://images.unsplash.com/photo-1558002038-1055907df827?auto=format&fit=crop&w=1000&q=80',
+    bgImage: '/images/builder/builder-zero-callbacks.jpg',
     icon: UserCheck,
     iconBg: 'bg-orange-500/10',
     iconColor: 'text-[#f37021]',
@@ -113,8 +108,7 @@ const builderReasons: BuilderReason[] = [
     description:
       'We provide custom solar sizing and PV generation modeling during your drafting stage, helping your plans easily meet NCC 2022 energy efficiency and Whole-of-Home 7-star compliance targets.',
     highlight: 'Drafting & Plan Takeoff Support',
-    bgImage:
-      'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1000&q=80',
+    bgImage: '/images/builder/builder-ncc-compliant.jpg',
     icon: Zap,
     iconBg: 'bg-amber-500/10',
     iconColor: 'text-[#f59e0b]',
@@ -126,10 +120,10 @@ const builderReasons: BuilderReason[] = [
 
 export const FeaturedProjectsSection: React.FC = () => {
   return (
-    <section className="py-20 lg:py-14 bg-gradient-to-b from-white via-slate-50/60 to-white relative overflow-hidden border-t border-slate-200/70">
+    <section className="py-20 lg:py-14 bg-linear-to-b from-white via-slate-50/60 to-white relative overflow-hidden border-t border-slate-200/70">
       {/* Ambient background glows */}
-      <div className="absolute top-1/4 right-0 w-[500px] h-[500px] bg-[#f37021]/5 rounded-full blur-3xl pointer-events-none" />
-      <div className="absolute bottom-10 left-0 w-[500px] h-[500px] bg-[#1d6327]/5 rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute top-1/4 right-0 w-125 h-125 bg-[#f37021]/5 rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute bottom-10 left-0 w-125 h-125 bg-[#1d6327]/5 rounded-full blur-3xl pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
@@ -139,7 +133,7 @@ export const FeaturedProjectsSection: React.FC = () => {
 
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[#18181b] tracking-tight font-serif leading-[1.15]">
             Why Queensland Builders Choose <br />
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#ea580c] via-[#f37021] to-[#f59e0b]">
+            <span className="text-transparent bg-clip-text bg-linear-to-r from-[#ea580c] via-[#f37021] to-[#f59e0b]">
               Sunny Solar
             </span>
           </h2>
@@ -156,17 +150,18 @@ export const FeaturedProjectsSection: React.FC = () => {
             return (
               <div
                 key={reason.id}
-                className="bg-white rounded-xl p-4 border border-slate-300/80 hover:border-[#f37021]/60 shadow-xl shadow-black/40 hover:shadow-2xl hover:shadow-slate-950/20 hover:-translate-y-1.5 transition-all duration-500 relative overflow-hidden group flex flex-col justify-between cursor-default min-h-[300px]"
+                className="bg-white rounded-xl p-4 border border-slate-300/80 hover:border-[#f37021]/60 shadow-xl shadow-black/40 hover:shadow-2xl hover:shadow-slate-950/20 hover:-translate-y-1.5 transition-all duration-500 relative overflow-hidden group flex flex-col justify-between cursor-default min-h-75"
               >
                 {/* Hover Background Image with Dark Scrim Overlay */}
-                <div className="absolute inset-0 z-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none">
+                <div className="absolute inset-0 z-0 opacity-0 group-hover:opacity-100 active:opacity-100 transition-opacity duration-500 pointer-events-none">
                   <img
                     src={reason.bgImage}
                     alt={reason.title}
                     className="w-full h-full object-cover object-center scale-110 group-hover:scale-100 transition-transform duration-700 ease-out"
+                    loading="lazy"
                   />
                   {/* Dark gradient overlay ensures crystal-clear readability on hover */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-slate-950/65 via-slate-950/45 to-slate-950/35 " />
+                  <div className="absolute inset-0 bg-linear-to-t from-slate-950/65 via-slate-950/45 to-slate-950/35 " />
                   {/* Subtle solar glow at corner */}
                   <div className="absolute -top-10 -right-10 w-40 h-40 bg-[#f37021]/25 rounded-full blur-xl" />
                 </div>

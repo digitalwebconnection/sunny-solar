@@ -11,8 +11,30 @@ export interface MobileMenuProps {
 
 export const MobileMenu: React.FC<MobileMenuProps> = ({ isOpen, onClose }) => {
   const [expandedSection, setExpandedSection] = useState<string | null>(null);
+  const [isVisible, setIsVisible] = useState(false);
 
-  if (!isOpen) return null;
+  // Animate in/out
+  React.useEffect(() => {
+    if (isOpen) {
+      // Small delay to allow DOM to render before animating
+      requestAnimationFrame(() => setIsVisible(true));
+    } else {
+      setIsVisible(false);
+    }
+  }, [isOpen]);
+
+  // Keep mounted briefly for exit animation
+  const [shouldRender, setShouldRender] = React.useState(false);
+  React.useEffect(() => {
+    if (isOpen) {
+      setShouldRender(true);
+    } else {
+      const timer = setTimeout(() => setShouldRender(false), 300);
+      return () => clearTimeout(timer);
+    }
+  }, [isOpen]);
+
+  if (!shouldRender) return null;
 
   const toggleSection = (title: string) => {
     setExpandedSection((prev) => (prev === title ? null : title));
@@ -22,12 +44,12 @@ export const MobileMenu: React.FC<MobileMenuProps> = ({ isOpen, onClose }) => {
     <div className="fixed inset-0 z-50 lg:hidden">
       {/* Backdrop */}
       <div
-        className="fixed inset-0 bg-slate-950/60 backdrop-blur-sm transition-opacity"
+        className={`fixed inset-0 bg-slate-950/60 backdrop-blur-sm transition-opacity duration-300 ${isVisible ? 'opacity-100' : 'opacity-0'}`}
         onClick={onClose}
       />
 
       {/* Drawer */}
-      <div className="fixed inset-y-0 right-0 max-w-sm w-full bg-white shadow-2xl z-50 flex flex-col overflow-y-auto">
+      <div className={`fixed inset-y-0 right-0 w-[85vw] max-w-sm bg-white shadow-2xl z-50 flex flex-col overflow-y-auto transition-transform duration-300 ease-out ${isVisible ? 'translate-x-0' : 'translate-x-full'}`}>
         {/* Drawer Header */}
         <div className="p-4 border-b border-slate-100 flex items-center justify-between">
           <div className="flex items-center gap-2">
@@ -47,7 +69,7 @@ export const MobileMenu: React.FC<MobileMenuProps> = ({ isOpen, onClose }) => {
           <button
             type="button"
             onClick={onClose}
-            className="p-2 rounded-xl text-slate-400 hover:text-slate-700 hover:bg-slate-100 transition-colors cursor-pointer"
+            className="p-2.5 min-w-[44px] min-h-[44px] flex items-center justify-center rounded-xl text-slate-400 hover:text-slate-700 hover:bg-slate-100 transition-colors cursor-pointer"
             aria-label="Close menu"
           >
             <X className="w-5 h-5" />
@@ -67,7 +89,7 @@ export const MobileMenu: React.FC<MobileMenuProps> = ({ isOpen, onClose }) => {
                     <button
                       type="button"
                       onClick={() => toggleSection(section.title)}
-                      className="w-full flex items-center justify-between py-2 text-left font-bold text-slate-800 hover:text-[#f37021] transition-colors text-base"
+                      className="w-full flex items-center justify-between py-3 min-h-[44px] text-left font-bold text-slate-800 hover:text-[#f37021] transition-colors text-base"
                     >
                       <span>{section.title}</span>
                       <ChevronDown
@@ -78,11 +100,11 @@ export const MobileMenu: React.FC<MobileMenuProps> = ({ isOpen, onClose }) => {
                     </button>
 
                     {isExpanded && section.children && (
-                      <div className="pl-3 mt-1 space-y-1 border-l-2 border-[#f37021]">
+                      <div className="pl-3 mt-1 space-y-0.5 border-l-2 border-[#f37021]">
                         <Link
                           to={section.href}
                           onClick={onClose}
-                          className="block py-1.5 text-xs font-bold text-[#f37021] hover:underline"
+                          className="block py-2.5 min-h-[44px] flex items-center text-xs font-bold text-[#f37021] hover:underline"
                         >
                           View {section.title} Overview →
                         </Link>
@@ -91,7 +113,7 @@ export const MobileMenu: React.FC<MobileMenuProps> = ({ isOpen, onClose }) => {
                             key={subItem.href}
                             to={subItem.href}
                             onClick={onClose}
-                            className="block py-1.5 text-sm text-slate-600 hover:text-[#1d6327] font-medium"
+                            className="block py-2.5 min-h-[44px] flex items-center text-sm text-slate-600 hover:text-[#1d6327] font-medium"
                           >
                             {subItem.title}
                           </Link>
@@ -103,7 +125,7 @@ export const MobileMenu: React.FC<MobileMenuProps> = ({ isOpen, onClose }) => {
                   <Link
                     to={section.href}
                     onClick={onClose}
-                    className="block py-2 font-bold text-slate-800 hover:text-[#f37021] transition-colors text-base"
+                    className="block py-3 min-h-[44px] flex items-center font-bold text-slate-800 hover:text-[#f37021] transition-colors text-base"
                   >
                     {section.title}
                   </Link>
@@ -114,13 +136,13 @@ export const MobileMenu: React.FC<MobileMenuProps> = ({ isOpen, onClose }) => {
 
           {/* Quick Support and Legal Links */}
           <div className="pt-4 space-y-2 text-sm text-slate-500">
-            <Link to="/about/trent" onClick={onClose} className="block py-1 hover:text-[#f37021]">
+            <Link to="/about/trent" onClick={onClose} className="block py-2.5 min-h-[44px] flex items-center hover:text-[#f37021]">
               Meet Trent (Founder Bio)
             </Link>
-            <Link to="/service-areas" onClick={onClose} className="block py-1 hover:text-[#f37021]">
+            <Link to="/service-areas" onClick={onClose} className="block py-2.5 min-h-[44px] flex items-center hover:text-[#f37021]">
               Service Areas & Locations
             </Link>
-            <Link to="/faq" onClick={onClose} className="block py-1 hover:text-[#f37021]">
+            <Link to="/faq" onClick={onClose} className="block py-2.5 min-h-[44px] flex items-center hover:text-[#f37021]">
               Frequently Asked Questions
             </Link>
           </div>

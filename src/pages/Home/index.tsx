@@ -6,6 +6,7 @@ import { TrustBarSection } from './sections/TrustBarSection';
 import { CalculatorsTeaserSection } from './sections/CalculatorsTeaserSection';
 import { ParallaxBannerSection } from './sections/ParallaxBannerSection';
 import { ServiceAreasTeaserSection } from './sections/ServiceAreasTeaserSection';
+import { TestimonialsSliderSection } from './sections/TestimonialsSliderSection';
 import { FAQSection } from './sections/FAQSection';
 
 export const HomePage: React.FC = () => {
@@ -18,6 +19,7 @@ export const HomePage: React.FC = () => {
       <CalculatorsTeaserSection />
       <ParallaxBannerSection />
       <ServiceAreasTeaserSection />
+      <TestimonialsSliderSection />
       <FAQSection />
     </div>
   );

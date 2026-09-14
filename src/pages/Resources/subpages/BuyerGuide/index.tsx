@@ -16,8 +16,7 @@ export const BuyerGuidePage: React.FC = () => {
       {/* Section 3: Add Battery with Solar Synergy (No Calculator, Real Imagery, Non-Box) */}
       <BuyerGuideBatterySection />
 
-      {/* Section 4: Next Steps & Audit CTA */}
-      <BuyerGuideCTASection />
+
     </div>
   );
 };

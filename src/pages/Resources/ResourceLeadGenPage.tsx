@@ -75,7 +75,7 @@ export const ResourceLeadGenPage: React.FC<ResourceLeadGenPageProps> = ({ guideK
           </div>
 
           {/* Right: Lead Capture Form */}
-          <div className="lg:col-span-5 bg-white rounded-3xl border border-slate-200/80 p-8 shadow-xl relative sticky top-28">
+          <div className="lg:col-span-5 bg-white rounded-3xl border border-slate-200/80 p-5 sm:p-8 shadow-xl relative lg:sticky lg:top-28">
             {submitted ? (
               <div className="py-12 text-center space-y-4">
                 <div className="w-16 h-16 rounded-full bg-emerald-100 text-emerald-600 flex items-center justify-center mx-auto">
@@ -116,7 +116,7 @@ export const ResourceLeadGenPage: React.FC<ResourceLeadGenPageProps> = ({ guideK
                       placeholder="Jane Smith"
                       value={formData.name}
                       onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                      className="w-full pl-10 pr-4 py-2.5 rounded-xl border border-slate-300 text-sm focus:outline-none focus:ring-2 focus:ring-amber-500 bg-white"
+                      className="w-full pl-10 pr-4 py-2.5 rounded-xl border border-slate-300 text-base lg:text-sm focus:outline-none focus:ring-2 focus:ring-amber-500 bg-white"
                     />
                   </div>
                 </div>
@@ -131,7 +131,7 @@ export const ResourceLeadGenPage: React.FC<ResourceLeadGenPageProps> = ({ guideK
                       placeholder="jane@example.com.au"
                       value={formData.email}
                       onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                      className="w-full pl-10 pr-4 py-2.5 rounded-xl border border-slate-300 text-sm focus:outline-none focus:ring-2 focus:ring-amber-500 bg-white"
+                      className="w-full pl-10 pr-4 py-2.5 rounded-xl border border-slate-300 text-base lg:text-sm focus:outline-none focus:ring-2 focus:ring-amber-500 bg-white"
                     />
                   </div>
                 </div>
@@ -145,7 +145,7 @@ export const ResourceLeadGenPage: React.FC<ResourceLeadGenPageProps> = ({ guideK
                       placeholder="0400 000 000"
                       value={formData.phone}
                       onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                      className="w-full pl-10 pr-4 py-2.5 rounded-xl border border-slate-300 text-sm focus:outline-none focus:ring-2 focus:ring-amber-500 bg-white"
+                      className="w-full pl-10 pr-4 py-2.5 rounded-xl border border-slate-300 text-base lg:text-sm focus:outline-none focus:ring-2 focus:ring-amber-500 bg-white"
                     />
                   </div>
                 </div>
@@ -158,7 +158,7 @@ export const ResourceLeadGenPage: React.FC<ResourceLeadGenPageProps> = ({ guideK
                     placeholder="e.g. Robina 4226"
                     value={formData.postcode}
                     onChange={(e) => setFormData({ ...formData, postcode: e.target.value })}
-                    className="w-full px-4 py-2.5 rounded-xl border border-slate-300 text-sm focus:outline-none focus:ring-2 focus:ring-amber-500 bg-white"
+                    className="w-full px-4 py-2.5 rounded-xl border border-slate-300 text-base lg:text-sm focus:outline-none focus:ring-2 focus:ring-amber-500 bg-white"
                   />
                 </div>
 

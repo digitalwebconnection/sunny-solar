@@ -11,14 +11,14 @@ export const HeroSection: React.FC = () => {
           loop
           muted
           playsInline
-     
+
           className="w-full h-full object-cover object-center"
         >
           <source
             src={heroBg}
             type="video/mp4"
           />
-         
+
         </video>
 
         {/* Ambient Dark Overlay for Navbar Contrast */}
