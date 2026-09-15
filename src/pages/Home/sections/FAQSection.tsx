@@ -44,12 +44,12 @@ export const FAQSection: React.FC = () => {
         
         {/* Section Header */}
         <div className="text-center max-w-2xl mx-auto mb-12">
-          <span className="inline-block text-xs font-bold uppercase tracking-wider text-[#1d6327] bg-emerald-50 border border-emerald-200 px-3.5 py-1.5 rounded-full mb-4">
+          <span className="inline-block text-xs font-bold uppercase tracking-wider text-[#265e11] bg-emerald-50 border border-emerald-200 px-3.5 py-1.5 rounded-full mb-4">
             Frequently Asked Questions
           </span>
           <h2 className="text-3xl sm:text-4xl font-extrabold text-[#18181b] font-serif tracking-tight">
             Got Questions?{' '} <br />
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#ea580c] via-[#f37021] to-[#f59e0b]">
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#ed5001] via-[#f06e02] to-[#f4a304]">
               We’ve Got Answers.
             </span>
           </h2>
@@ -68,7 +68,7 @@ export const FAQSection: React.FC = () => {
                 key={index}
                 className={`border rounded-xl transition-all duration-200 ${
                   isOpen
-                    ? 'border-[#f37021]/50 bg-orange-50/20 shadow-xs'
+                    ? 'border-[#ed5001]/50 bg-orange-50/20 shadow-xs'
                     : 'border-slate-200 bg-white hover:border-slate-300'
                 }`}
               >
@@ -84,7 +84,7 @@ export const FAQSection: React.FC = () => {
                   <div
                     className={`w-9 h-9 lg:w-7 lg:h-7 rounded-full flex items-center justify-center shrink-0 transition-transform duration-200 ${
                       isOpen
-                        ? 'rotate-180 bg-[#ea580c] text-white'
+                        ? 'rotate-180 bg-[#ed5001] text-white'
                         : 'bg-slate-100 text-slate-600'
                     }`}
                   >

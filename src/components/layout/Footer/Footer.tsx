@@ -50,13 +50,13 @@ export const Footer: React.FC = () => {
             <div>
               <h4 className="text-lg font-semibold text-[#18181b] font-serif mb-4">Quick Links</h4>
               <ul className="space-y-2.5 text-sm text-slate-700">
-                <li><Link to="/about" className="hover:text-[#ea580c] transition-colors">About Us</Link></li>
-                <li><Link to="/solar" className="hover:text-[#ea580c] transition-colors">Solar Solutions</Link></li>
-                <li><Link to="/batteries" className="hover:text-[#ea580c] transition-colors">Battery Storage</Link></li>
-                <li><Link to="/existing-solar" className="hover:text-[#ea580c] transition-colors">Existing Solar Solutions</Link></li>
-               <li><Link to="/reviews" className="hover:text-[#ea580c] transition-colors">Customer Reviews</Link></li>
-                <li><Link to="/faq" className="hover:text-[#ea580c] transition-colors">FAQs</Link></li>
-                <li><Link to="/contact" className="hover:text-[#ea580c] transition-colors">Contact Us</Link></li>
+                <li><Link to="/about" className="hover:text-[#ed5001] transition-colors">About Us</Link></li>
+                <li><Link to="/solar" className="hover:text-[#ed5001] transition-colors">Solar Solutions</Link></li>
+                <li><Link to="/batteries" className="hover:text-[#ed5001] transition-colors">Battery Storage</Link></li>
+                <li><Link to="/existing-solar" className="hover:text-[#ed5001] transition-colors">Existing Solar Solutions</Link></li>
+               <li><Link to="/reviews" className="hover:text-[#ed5001] transition-colors">Customer Reviews</Link></li>
+                <li><Link to="/faq" className="hover:text-[#ed5001] transition-colors">FAQs</Link></li>
+                <li><Link to="/contact" className="hover:text-[#ed5001] transition-colors">Contact Us</Link></li>
               </ul>
             </div>
 
@@ -64,13 +64,13 @@ export const Footer: React.FC = () => {
             <div>
               <h4 className="text-lg font-semibold text-[#18181b] font-serif mb-4">Our Services</h4>
               <ul className="space-y-2.5 text-sm text-slate-700">
-                <li><Link to="/solar/systems" className="hover:text-[#ea580c] transition-colors">Residential Solar Systems</Link></li>
-                <li><Link to="/solar/installation" className="hover:text-[#ea580c] transition-colors">Professional Solar Installation</Link></li>
-                <li><Link to="/batteries/solar-batteries" className="hover:text-[#ea580c] transition-colors">Tesla &amp; Sungrow Batteries</Link></li>
-                <li><Link to="/batteries/solar-plus-battery" className="hover:text-[#ea580c] transition-colors">Solar + Battery Packages</Link></li>
-                <li><Link to="/batteries/battery-backup" className="hover:text-[#ea580c] transition-colors">Blackout Protection &amp; EPS</Link></li>
-               <li><Link to="/existing-solar/health-check" className="hover:text-[#ea580c] transition-colors">24-Point Solar Health Check</Link></li>
-                <li><Link to="/existing-solar/add-battery" className="hover:text-[#ea580c] transition-colors">Add Battery to Existing Solar</Link></li>
+                <li><Link to="/solar/systems" className="hover:text-[#ed5001] transition-colors">Residential Solar Systems</Link></li>
+                <li><Link to="/solar/installation" className="hover:text-[#ed5001] transition-colors">Professional Solar Installation</Link></li>
+                <li><Link to="/batteries/solar-batteries" className="hover:text-[#ed5001] transition-colors">Tesla &amp; Sungrow Batteries</Link></li>
+                <li><Link to="/batteries/solar-plus-battery" className="hover:text-[#ed5001] transition-colors">Solar + Battery Packages</Link></li>
+                <li><Link to="/batteries/battery-backup" className="hover:text-[#ed5001] transition-colors">Blackout Protection &amp; EPS</Link></li>
+               <li><Link to="/existing-solar/health-check" className="hover:text-[#ed5001] transition-colors">24-Point Solar Health Check</Link></li>
+                <li><Link to="/existing-solar/add-battery" className="hover:text-[#ed5001] transition-colors">Add Battery to Existing Solar</Link></li>
               </ul>
             </div>
 
@@ -78,23 +78,23 @@ export const Footer: React.FC = () => {
             <div>
               <h4 className="text-lg font-semibold text-[#18181b] font-serif mb-4">Contact Us</h4>
               <div className="space-y-3.5 text-sm text-slate-700">
-                <Link to="/service-areas" className="flex items-start gap-2.5 hover:text-[#ea580c] transition-colors group">
-                  <MapPin className="w-4 h-4 text-[#ea580c] mt-0.5 shrink-0 group-hover:scale-110 transition-transform" />
+                <Link to="/service-areas" className="flex items-start gap-2.5 hover:text-[#ed5001] transition-colors group">
+                  <MapPin className="w-4 h-4 text-[#ed5001] mt-0.5 shrink-0 group-hover:scale-110 transition-transform" />
                   <span>Gold Coast &amp; Brisbane Head Offices, Queensland, Australia</span>
                 </Link>
-                <a href="tel:1300786697" className="flex items-center gap-2.5 hover:text-[#ea580c] transition-colors">
-                  <Phone className="w-4 h-4 text-[#ea580c] shrink-0" />
+                <a href="tel:1300786697" className="flex items-center gap-2.5 hover:text-[#ed5001] transition-colors">
+                  <Phone className="w-4 h-4 text-[#ed5001] shrink-0" />
                   1300 SUNNY (786 697)
                 </a>
-                <a href="mailto:hello@sunnysolar.com.au" className="flex items-center gap-2.5 hover:text-[#ea580c] transition-colors">
-                  <Mail className="w-4 h-4 text-[#ea580c] shrink-0" />
+                <a href="mailto:hello@sunnysolar.com.au" className="flex items-center gap-2.5 hover:text-[#ed5001] transition-colors">
+                  <Mail className="w-4 h-4 text-[#ed5001] shrink-0" />
                   hello@sunnysolar.com.au
                 </a>
 
                 <div className="pt-1">
                   <Link
                     to="/service-areas"
-                    className="inline-flex items-center gap-1 text-xs font-semibold text-[#ea580c] hover:text-[#c2410c] transition-colors"
+                    className="inline-flex items-center gap-1 text-xs font-semibold text-[#ed5001] hover:text-[#c84300] transition-colors"
                   >
                     <span>View all serviced areas</span>
                     <ArrowRight className="w-3 h-3" />
@@ -110,7 +110,7 @@ export const Footer: React.FC = () => {
                       target="_blank"
                       rel="noopener noreferrer"
                       aria-label={`Follow Sunny Solar on ${social.label}`}
-                      className="w-11 h-11 lg:w-9 lg:h-9 rounded-full border border-slate-300 flex items-center justify-center text-slate-500 hover:bg-[#ea580c] hover:border-[#ea580c] hover:text-white transition-all duration-200"
+                      className="w-11 h-11 lg:w-9 lg:h-9 rounded-full border border-slate-300 flex items-center justify-center text-slate-500 hover:bg-[#ed5001] hover:border-[#ed5001] hover:text-white transition-all duration-200"
                     >
                       <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
                         <path d={social.path} />
@@ -205,7 +205,7 @@ export const Footer: React.FC = () => {
             <Link to="/legal/privacy-policy" className="underline underline-offset-2 hover:text-white transition-colors">Privacy Policy</Link>
             <Link to="/legal/terms-conditions" className="underline underline-offset-2 hover:text-white transition-colors">Terms &amp; Conditions</Link>
             <Link to="/legal/terms-of-trade" className="underline underline-offset-2 hover:text-white transition-colors">Terms of Trade</Link>
-            <span>Brand &amp; Website by <a href="https://digitalwebconnection.com" target="_blank" rel="noopener noreferrer" className="text-[#ea580c] font-semibold hover:text-[#f59e0b] transition-colors">Digital Web Connection</a></span>
+            <span>Brand &amp; Website by <a href="https://digitalwebconnection.com" target="_blank" rel="noopener noreferrer" className="text-[#ed5001] font-semibold hover:text-[#f4a304] transition-colors">Digital Web Connection</a></span>
           </div>
         </div>
       </div>

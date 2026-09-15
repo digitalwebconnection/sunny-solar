@@ -12,11 +12,13 @@ import {
   ShieldCheck,
 } from 'lucide-react';
 import { Button } from '../../../components/ui/Button';
+import { submitToWeb3Forms } from '../../../utils/web3forms';
 
 export const FreeAssessmentFormSection: React.FC = () => {
   const [submitted, setSubmitted] = useState<boolean>(false);
   const [referenceId, setReferenceId] = useState<string>('');
   const [isSubmitting, setIsSubmitting] = useState<boolean>(false);
+  const [submitError, setSubmitError] = useState<string>('');
   const [consultType, setConsultType] = useState<'satellite' | 'onsite' | 'phone'>('satellite');
 
   const [formData, setFormData] = useState({
@@ -128,7 +130,7 @@ export const FreeAssessmentFormSection: React.FC = () => {
     }, 600);
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
     // Mark all as touched
@@ -164,14 +166,38 @@ export const FreeAssessmentFormSection: React.FC = () => {
     }
 
     setIsSubmitting(true);
+    setSubmitError('');
 
-    // Simulate authenticated submission & generation of security reference code
-    setTimeout(() => {
-      const randomCode = Math.floor(100000 + Math.random() * 900000);
-      setReferenceId(`QLD-${randomCode}`);
+    const randomCode = Math.floor(100000 + Math.random() * 900000);
+    const refCode = `QLD-${randomCode}`;
+    setReferenceId(refCode);
+
+    try {
+      const res = await submitToWeb3Forms({
+        name: formData.name,
+        email: formData.email,
+        phone: formData.phone,
+        suburb: formData.suburb,
+        service: formData.service,
+        consult_type: consultType,
+        message: formData.message || 'No additional message',
+        reference_id: refCode,
+        page: 'Free Solar Assessment Form',
+      }, {
+        subject: `New Free Assessment Request - ${formData.name} (${formData.suburb}) [${refCode}]`,
+        from_name: 'Sunny Solar Assessment',
+      });
+
       setIsSubmitting(false);
-      setSubmitted(true);
-    }, 850);
+      if (res.success) {
+        setSubmitted(true);
+      } else {
+        setSubmitError(res.message || 'Error submitting assessment request. Please try again.');
+      }
+    } catch (err: any) {
+      setIsSubmitting(false);
+      setSubmitError('Failed to send request. Please check your internet connection and try again.');
+    }
   };
 
   return (
@@ -604,6 +630,13 @@ export const FreeAssessmentFormSection: React.FC = () => {
 
                 {/* Submit Button with Loading State */}
                 <div className="pt-1">
+                  {submitError && (
+                    <div className="p-3 rounded-xl bg-red-50 border border-red-200 text-red-700 text-xs flex items-center gap-2">
+                      <AlertCircle className="w-4 h-4 shrink-0 text-red-500" />
+                      <span>{submitError}</span>
+                    </div>
+                  )}
+
                   <Button
                     type="submit"
                     variant="primary"

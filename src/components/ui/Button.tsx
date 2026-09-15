@@ -33,10 +33,10 @@ export const Button: React.FC<ButtonProps> = ({
   };
 
   const variantStyles = {
-    primary: 'bg-gradient-to-r from-amber-500 via-amber-600 to-orange-500 text-white hover:from-amber-600 hover:to-orange-600 focus:ring-amber-500 shadow-amber-500/25 hover:shadow-lg hover:shadow-amber-500/35 border border-amber-400/20',
+    primary: 'bg-linear-to-r from-[#ed5001] via-[#f06e02] to-[#f4a304] text-white hover:from-[#c84300] hover:to-[#ed5001] focus:ring-[#ed5001] shadow-[#ed5001]/25 hover:shadow-lg hover:shadow-[#ed5001]/35 border border-[#f4a304]/20',
     secondary: 'bg-slate-900 text-white hover:bg-slate-800 focus:ring-slate-900 shadow-slate-900/20 hover:shadow-lg hover:shadow-slate-900/30 border border-slate-800',
-    'accent-green': 'bg-emerald-600 text-white hover:bg-emerald-700 focus:ring-emerald-500 shadow-emerald-600/25 hover:shadow-lg hover:shadow-emerald-600/35 border border-emerald-500/20',
-    outline: 'border-2 border-slate-300 text-slate-700 hover:border-amber-500 hover:text-amber-600 bg-transparent focus:ring-amber-500',
+    'accent-green': 'bg-[#265e11] text-white hover:bg-[#1c470d] focus:ring-[#265e11] shadow-[#265e11]/25 hover:shadow-lg hover:shadow-[#265e11]/35 border border-[#265e11]/20',
+    outline: 'border-2 border-slate-300 text-slate-700 hover:border-[#ed5001] hover:text-[#ed5001] bg-transparent focus:ring-[#ed5001]',
     ghost: 'text-slate-600 hover:text-slate-900 hover:bg-slate-100 bg-transparent focus:ring-slate-400 shadow-none',
   };
 

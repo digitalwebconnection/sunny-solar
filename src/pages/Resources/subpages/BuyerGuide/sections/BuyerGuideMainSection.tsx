@@ -2,9 +2,12 @@ import React, { useState } from 'react';
 import { Badge } from '../../../../../components/ui/Badge';
 import { Button } from '../../../../../components/ui/Button';
 import { BookOpen, CheckCircle2, ShieldCheck, Mail, User, Phone, Download, FileText, Sparkles } from 'lucide-react';
+import { submitToWeb3Forms } from '../../../../../utils/web3forms';
 
 export const BuyerGuideMainSection: React.FC = () => {
   const [submitted, setSubmitted] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [errorMessage, setErrorMessage] = useState('');
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -12,9 +15,28 @@ export const BuyerGuideMainSection: React.FC = () => {
     postcode: '',
   });
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setSubmitted(true);
+    setIsSubmitting(true);
+    setErrorMessage('');
+
+    const res = await submitToWeb3Forms({
+      name: formData.name,
+      email: formData.email,
+      phone: formData.phone,
+      postcode: formData.postcode,
+      page: 'Solar & Battery Buyer Guide E-Book',
+    }, {
+      subject: `New Buyer Guide Download Request - ${formData.name} (${formData.postcode})`,
+      from_name: 'Sunny Solar Buyer Guide',
+    });
+
+    setIsSubmitting(false);
+    if (res.success) {
+      setSubmitted(true);
+    } else {
+      setErrorMessage(res.message || 'Error submitting request. Please try again.');
+    }
   };
 
   return (
@@ -168,15 +190,22 @@ export const BuyerGuideMainSection: React.FC = () => {
                 />
               </div>
 
+              {errorMessage && (
+                <div className="p-2 rounded bg-red-50 border border-red-200 text-red-600 text-xs text-center">
+                  {errorMessage}
+                </div>
+              )}
+
               <div className="pt-2">
                 <Button
                   type="submit"
                   variant="primary"
                   size="md"
                   fullWidth
+                  disabled={isSubmitting}
                   icon={<Download className="w-4 h-4" />}
                 >
-                  Download Complete Guide (PDF)
+                  {isSubmitting ? 'Submitting to Web3Forms...' : 'Download Complete Guide (PDF)'}
                 </Button>
               </div>
 

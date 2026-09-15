@@ -36,9 +36,9 @@ const builderReasons: BuilderReason[] = [
     bgImage: '/images/builder/builder-schedule-sync.png',
     icon: Clock,
     iconBg: 'bg-orange-500/10',
-    iconColor: 'text-[#f37021]',
+    iconColor: 'text-[#ed5001]',
     badgeBg: 'bg-orange-50',
-    badgeColor: 'text-[#ea580c]',
+    badgeColor: 'text-[#ed5001]',
     badgeBorder: 'border-orange-200/60',
   },
   {
@@ -51,9 +51,9 @@ const builderReasons: BuilderReason[] = [
     bgImage: '/images/builder/builder-master-trades.jpg',
     icon: ShieldCheck,
     iconBg: 'bg-emerald-500/10',
-    iconColor: 'text-[#1d6327]',
+    iconColor: 'text-[#265e11]',
     badgeBg: 'bg-emerald-50',
-    badgeColor: 'text-[#1d6327]',
+    badgeColor: 'text-[#265e11]',
     badgeBorder: 'border-emerald-200/60',
   },
   {
@@ -66,9 +66,9 @@ const builderReasons: BuilderReason[] = [
     bgImage: '/images/builder/builder-design-integrity.jpg',
     icon: Sparkles,
     iconBg: 'bg-amber-500/10',
-    iconColor: 'text-[#f59e0b]',
+    iconColor: 'text-[#f4a304]',
     badgeBg: 'bg-amber-50',
-    badgeColor: 'text-[#b45309]',
+    badgeColor: 'text-[#ed5001]',
     badgeBorder: 'border-amber-200/60',
   },
   {
@@ -81,9 +81,9 @@ const builderReasons: BuilderReason[] = [
     bgImage: '/images/builder/builder-certifier-ready.jpg',
     icon: FileCheck2,
     iconBg: 'bg-emerald-500/10',
-    iconColor: 'text-[#1d6327]',
+    iconColor: 'text-[#265e11]',
     badgeBg: 'bg-emerald-50',
-    badgeColor: 'text-[#1d6327]',
+    badgeColor: 'text-[#265e11]',
     badgeBorder: 'border-emerald-200/60',
   },
   {
@@ -96,9 +96,9 @@ const builderReasons: BuilderReason[] = [
     bgImage: '/images/builder/builder-zero-callbacks.jpg',
     icon: UserCheck,
     iconBg: 'bg-orange-500/10',
-    iconColor: 'text-[#f37021]',
+    iconColor: 'text-[#ed5001]',
     badgeBg: 'bg-orange-50',
-    badgeColor: 'text-[#ea580c]',
+    badgeColor: 'text-[#ed5001]',
     badgeBorder: 'border-orange-200/60',
   },
   {
@@ -122,8 +122,8 @@ export const FeaturedProjectsSection: React.FC = () => {
   return (
     <section className="py-20 lg:py-14 bg-linear-to-b from-white via-slate-50/60 to-white relative overflow-hidden border-t border-slate-200/70">
       {/* Ambient background glows */}
-      <div className="absolute top-1/4 right-0 w-125 h-125 bg-[#f37021]/5 rounded-full blur-3xl pointer-events-none" />
-      <div className="absolute bottom-10 left-0 w-125 h-125 bg-[#1d6327]/5 rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute top-1/4 right-0 w-125 h-125 bg-[#ed5001]/5 rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute bottom-10 left-0 w-125 h-125 bg-[#265e11]/5 rounded-full blur-3xl pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
@@ -133,7 +133,7 @@ export const FeaturedProjectsSection: React.FC = () => {
 
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[#18181b] tracking-tight font-serif leading-[1.15]">
             Why Queensland Builders Choose <br />
-            <span className="text-transparent bg-clip-text bg-linear-to-r from-[#ea580c] via-[#f37021] to-[#f59e0b]">
+            <span className="text-transparent bg-clip-text bg-linear-to-r from-[#ed5001] via-[#f06e02] to-[#f4a304]">
               Sunny Solar
             </span>
           </h2>
@@ -150,7 +150,7 @@ export const FeaturedProjectsSection: React.FC = () => {
             return (
               <div
                 key={reason.id}
-                className="bg-white rounded-xl p-4 border border-slate-300/80 hover:border-[#f37021]/60 shadow-xl shadow-black/40 hover:shadow-2xl hover:shadow-slate-950/20 hover:-translate-y-1.5 transition-all duration-500 relative overflow-hidden group flex flex-col justify-between cursor-default min-h-75"
+                className="bg-white rounded-xl p-4 border border-slate-300/80 hover:border-[#ed5001]/60 shadow-xl shadow-black/40 hover:shadow-2xl hover:shadow-slate-950/20 hover:-translate-y-1.5 transition-all duration-500 relative overflow-hidden group flex flex-col justify-between cursor-default min-h-75"
               >
                 {/* Hover Background Image with Dark Scrim Overlay */}
                 <div className="absolute inset-0 z-0 opacity-0 group-hover:opacity-100 active:opacity-100 transition-opacity duration-500 pointer-events-none">
@@ -163,7 +163,7 @@ export const FeaturedProjectsSection: React.FC = () => {
                   {/* Dark gradient overlay ensures crystal-clear readability on hover */}
                   <div className="absolute inset-0 bg-linear-to-t from-slate-950/65 via-slate-950/45 to-slate-950/35 " />
                   {/* Subtle solar glow at corner */}
-                  <div className="absolute -top-10 -right-10 w-40 h-40 bg-[#f37021]/25 rounded-full blur-xl" />
+                  <div className="absolute -top-10 -right-10 w-40 h-40 bg-[#ed5001]/25 rounded-full blur-xl" />
                 </div>
 
                 {/* Top Badge & Number */}
@@ -199,7 +199,7 @@ export const FeaturedProjectsSection: React.FC = () => {
 
                 {/* Bottom Highlight Key */}
                 <div className="relative z-10 mt-6 pt-4 border-t border-slate-100 group-hover:border-white/15 flex items-center gap-2 text-xs font-semibold text-slate-800 group-hover:text-slate-100 transition-colors duration-300">
-                  <CheckCircle2 className="w-4 h-4 text-[#1d6327] group-hover:text-[#22c55e] shrink-0 transition-colors duration-300" />
+                  <CheckCircle2 className="w-4 h-4 text-[#265e11] group-hover:text-[#265e11] shrink-0 transition-colors duration-300" />
                   <span>{reason.highlight}</span>
                 </div>
               </div>

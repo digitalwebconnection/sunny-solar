@@ -4,6 +4,7 @@ import { PageHeader } from '../../components/layout/PageHeader';
 import { Badge } from '../../components/ui/Badge';
 import { Button } from '../../components/ui/Button';
 import { Download, Check, ShieldCheck, Mail, User, Phone, CheckCircle2, FileText } from 'lucide-react';
+import { submitToWeb3Forms } from '../../utils/web3forms';
 
 export interface ResourceLeadGenPageProps {
   guideKey: keyof typeof resourcesData;
@@ -12,6 +13,8 @@ export interface ResourceLeadGenPageProps {
 export const ResourceLeadGenPage: React.FC<ResourceLeadGenPageProps> = ({ guideKey }) => {
   const guide = resourcesData[guideKey];
   const [submitted, setSubmitted] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [errorMessage, setErrorMessage] = useState('');
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -19,9 +22,30 @@ export const ResourceLeadGenPage: React.FC<ResourceLeadGenPageProps> = ({ guideK
     postcode: '',
   });
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setSubmitted(true);
+    setIsSubmitting(true);
+    setErrorMessage('');
+
+    const res = await submitToWeb3Forms({
+      name: formData.name,
+      email: formData.email,
+      phone: formData.phone,
+      postcode: formData.postcode,
+      resource_title: guide.title,
+      resource_format: guide.format,
+      page: 'Resource Lead Gen Page',
+    }, {
+      subject: `New Resource Download (${guide.title}) - ${formData.name}`,
+      from_name: 'Sunny Solar Resources',
+    });
+
+    setIsSubmitting(false);
+    if (res.success) {
+      setSubmitted(true);
+    } else {
+      setErrorMessage(res.message || 'Error submitting request. Please try again.');
+    }
   };
 
   return (
@@ -162,15 +186,22 @@ export const ResourceLeadGenPage: React.FC<ResourceLeadGenPageProps> = ({ guideK
                   />
                 </div>
 
+                {errorMessage && (
+                  <div className="p-2 rounded bg-red-50 border border-red-200 text-red-600 text-xs text-center">
+                    {errorMessage}
+                  </div>
+                )}
+
                 <div className="pt-2">
                   <Button
                     type="submit"
                     variant="primary"
                     size="lg"
                     fullWidth
+                    disabled={isSubmitting}
                     icon={<Download className="w-4 h-4" />}
                   >
-                    {guide.ctaText}
+                    {isSubmitting ? 'Submitting to Web3Forms...' : guide.ctaText}
                   </Button>
                 </div>
 

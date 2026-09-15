@@ -2,9 +2,12 @@ import React, { useState } from 'react';
 import { Badge } from '../../../../../components/ui/Badge';
 import { Button } from '../../../../../components/ui/Button';
 import { FileSearch, CheckCircle2, ShieldCheck, Mail, User, Phone, Upload, TrendingDown, DollarSign } from 'lucide-react';
+import { submitToWeb3Forms } from '../../../../../utils/web3forms';
 
 export const ElectricityBillReviewMainSection: React.FC = () => {
   const [submitted, setSubmitted] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [errorMessage, setErrorMessage] = useState('');
   const [fileName, setFileName] = useState<string | null>(null);
   const [formData, setFormData] = useState({
     name: '',
@@ -15,9 +18,31 @@ export const ElectricityBillReviewMainSection: React.FC = () => {
     notes: '',
   });
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setSubmitted(true);
+    setIsSubmitting(true);
+    setErrorMessage('');
+
+    const res = await submitToWeb3Forms({
+      name: formData.name,
+      email: formData.email,
+      phone: formData.phone,
+      postcode: formData.postcode,
+      quarterly_bill: formData.quarterlyBill,
+      notes: formData.notes || 'None provided',
+      attached_bill_filename: fileName || 'None attached',
+      page: 'Electricity Bill Review Page',
+    }, {
+      subject: `New Electricity Bill Review Request - ${formData.name} (${formData.postcode})`,
+      from_name: 'Sunny Solar Bill Review',
+    });
+
+    setIsSubmitting(false);
+    if (res.success) {
+      setSubmitted(true);
+    } else {
+      setErrorMessage(res.message || 'Error submitting request. Please try again.');
+    }
   };
 
   const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -211,15 +236,22 @@ export const ElectricityBillReviewMainSection: React.FC = () => {
                 </label>
               </div>
 
+              {errorMessage && (
+                <div className="p-2 rounded bg-red-50 border border-red-200 text-red-600 text-xs text-center">
+                  {errorMessage}
+                </div>
+              )}
+
               <div className="pt-1">
                 <Button
                   type="submit"
                   variant="primary"
                   size="md"
                   fullWidth
+                  disabled={isSubmitting}
                   icon={<FileSearch className="w-4 h-4" />}
                 >
-                  Submit Bill for Free Review
+                  {isSubmitting ? 'Submitting to Web3Forms...' : 'Submit Bill for Free Review'}
                 </Button>
               </div>
 

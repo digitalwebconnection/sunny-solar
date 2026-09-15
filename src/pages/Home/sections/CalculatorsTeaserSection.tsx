@@ -39,10 +39,10 @@ const calculatorRows: CalculatorRow[] = [
     highlight: '~78% Bill Reduction',
     timeEstimate: '60 seconds',
     icon: DollarSign,
-    iconColor: 'text-[#f37021]',
+    iconColor: 'text-[#ed5001]',
     iconBg: 'bg-orange-50 border-orange-200/70',
     badgeBg: 'bg-orange-50',
-    badgeColor: 'text-[#ea580c]',
+    badgeColor: 'text-[#ed5001]',
     badgeBorder: 'border-orange-200/70',
   },
   {
@@ -56,10 +56,10 @@ const calculatorRows: CalculatorRow[] = [
     highlight: 'Tailored kW Fit',
     timeEstimate: '90 seconds',
     icon: Layers,
-    iconColor: 'text-[#1d6327]',
+    iconColor: 'text-[#265e11]',
     iconBg: 'bg-emerald-50 border-emerald-200/70',
     badgeBg: 'bg-emerald-50',
-    badgeColor: 'text-[#1d6327]',
+    badgeColor: 'text-[#265e11]',
     badgeBorder: 'border-emerald-200/70',
   },
   {
@@ -73,10 +73,10 @@ const calculatorRows: CalculatorRow[] = [
     highlight: 'Peak Tariff Defense',
     timeEstimate: '90 seconds',
     icon: BatteryCharging,
-    iconColor: 'text-[#ea580c]',
+    iconColor: 'text-[#ed5001]',
     iconBg: 'bg-orange-50 border-orange-200/70',
     badgeBg: 'bg-orange-50',
-    badgeColor: 'text-[#ea580c]',
+    badgeColor: 'text-[#ed5001]',
     badgeBorder: 'border-orange-200/70',
   },
   {
@@ -90,10 +90,10 @@ const calculatorRows: CalculatorRow[] = [
     highlight: '3.2 – 4.5 Year Payback',
     timeEstimate: '2 minutes',
     icon: Clock,
-    iconColor: 'text-[#1d6327]',
+    iconColor: 'text-[#265e11]',
     iconBg: 'bg-emerald-50 border-emerald-200/70',
     badgeBg: 'bg-emerald-50',
-    badgeColor: 'text-[#1d6327]',
+    badgeColor: 'text-[#265e11]',
     badgeBorder: 'border-emerald-200/70',
   },
 ];
@@ -102,8 +102,8 @@ export const CalculatorsTeaserSection: React.FC = () => {
   return (
     <section className="py-16 lg:py-14 bg-white relative overflow-hidden border-t border-slate-200/70">
       {/* Subtle ambient light accents */}
-      <div className="absolute top-1/4 -left-20 w-80 h-80 bg-[#1d6327]/5 rounded-full blur-3xl pointer-events-none" />
-      <div className="absolute bottom-10 -right-20 w-80 h-80 bg-[#f37021]/5 rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute top-1/4 -left-20 w-80 h-80 bg-[#265e11]/5 rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute bottom-10 -right-20 w-80 h-80 bg-[#ed5001]/5 rounded-full blur-3xl pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
@@ -111,7 +111,7 @@ export const CalculatorsTeaserSection: React.FC = () => {
         <div className="text-center max-w-5xl mx-auto mb-12 sm:mb-14">
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[#18181b] tracking-tight font-serif leading-[1.15]">
             Know Your Numbers Before <br />
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#ea580c] via-[#f37021] to-[#f59e0b]">
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#ed5001] via-[#f06e02] to-[#f4a304]">
               Speaking to Anyone
             </span>
           </h2>
@@ -134,7 +134,7 @@ export const CalculatorsTeaserSection: React.FC = () => {
                 {/* Left: Number + Icon + Title + Description */}
                 <div className="flex items-start sm:items-center gap-4 sm:gap-6 min-w-0 flex-1">
                   {/* Number Watermark */}
-                  <span className="text-sm font-mono font-bold text-slate-300 group-hover:text-[#ea580c] transition-colors shrink-0 pt-1 sm:pt-0">
+                  <span className="text-sm font-mono font-bold text-slate-300 group-hover:text-[#ed5001] transition-colors shrink-0 pt-1 sm:pt-0">
                     {row.number}
                   </span>
 
@@ -148,7 +148,7 @@ export const CalculatorsTeaserSection: React.FC = () => {
                   {/* Title & Description */}
                   <div className="min-w-0">
                     <div className="flex flex-wrap items-center gap-2.5 mb-1">
-                      <h3 className="text-base sm:text-lg font-bold text-slate-900 group-hover:text-[#ea580c] transition-colors leading-snug">
+                      <h3 className="text-base sm:text-lg font-bold text-slate-900 group-hover:text-[#ed5001] transition-colors leading-snug">
                         {row.title}
                       </h3>
                       <span
@@ -170,7 +170,7 @@ export const CalculatorsTeaserSection: React.FC = () => {
                     <div className="text-[11px] text-slate-500 mt-0.5">⏱️ {row.timeEstimate}</div>
                   </div>
 
-                  <div className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-white group-hover:bg-gradient-to-r group-hover:from-[#ea580c] group-hover:to-[#f37021] text-slate-800 group-hover:text-white border border-slate-200 group-hover:border-transparent font-bold text-xs sm:text-sm shadow-xs transition-all duration-300 group-hover:shadow-md">
+                  <div className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-white group-hover:bg-gradient-to-r group-hover:from-[#ed5001] group-hover:to-[#f06e02] text-slate-800 group-hover:text-white border border-slate-200 group-hover:border-transparent font-bold text-xs sm:text-sm shadow-xs transition-all duration-300 group-hover:shadow-md">
                     <span>Launch</span>
                     <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
                   </div>
@@ -184,7 +184,7 @@ export const CalculatorsTeaserSection: React.FC = () => {
         <div className="mt-10 sm:mt-12 text-center">
           <Link
             to="/calculators"
-            className="inline-flex items-center gap-2 px-7 py-3 rounded-xl bg-gradient-to-r from-[#ea580c] via-[#f37021] to-[#f59e0b] hover:from-[#c2410c] hover:to-[#ea580c] text-white font-bold text-sm shadow-md shadow-orange-500/20 hover:shadow-orange-500/35 hover:-translate-y-0.5 transition-all duration-300"
+            className="inline-flex items-center gap-2 px-7 py-3 rounded-xl bg-gradient-to-r from-[#ed5001] via-[#f06e02] to-[#f4a304] hover:from-[#c84300] hover:to-[#ed5001] text-white font-bold text-sm shadow-md shadow-[#ed5001]/20 hover:shadow-[#ed5001]/35 hover:-translate-y-0.5 transition-all duration-300"
           >
             <span>Explore All 8 Specialized Calculators</span>
             <ArrowRight className="w-4 h-4" />

@@ -53,14 +53,14 @@ export const MobileMenu: React.FC<MobileMenuProps> = ({ isOpen, onClose }) => {
         {/* Drawer Header */}
         <div className="p-4 border-b border-slate-100 flex items-center justify-between">
           <div className="flex items-center gap-2">
-            <div className="w-9 h-9 rounded-xl bg-linear-to-br from-[#f37021] to-[#ea580c] flex items-center justify-center text-white shadow-sm font-black text-lg">
+            <div className="w-9 h-9 rounded-xl bg-linear-to-br from-[#ed5001] to-[#f06e02] flex items-center justify-center text-white shadow-sm font-black text-lg">
               ☀️
             </div>
             <div>
               <span className="font-extrabold text-slate-900 tracking-tight block leading-tight">
                 Sunny Solar
               </span>
-              <span className="text-[10px] text-[#1d6327] font-bold uppercase tracking-wider block">
+              <span className="text-[10px] text-[#265e11] font-bold uppercase tracking-wider block">
                 Residential & Battery
               </span>
             </div>
@@ -89,22 +89,22 @@ export const MobileMenu: React.FC<MobileMenuProps> = ({ isOpen, onClose }) => {
                     <button
                       type="button"
                       onClick={() => toggleSection(section.title)}
-                      className="w-full flex items-center justify-between py-3 min-h-11 text-left font-bold text-slate-800 hover:text-[#f37021] transition-colors text-base"
+                      className="w-full flex items-center justify-between py-3 min-h-11 text-left font-bold text-slate-800 hover:text-[#ed5001] transition-colors text-base"
                     >
                       <span>{section.title}</span>
                       <ChevronDown
                         className={`w-4 h-4 transition-transform ${
-                          isExpanded ? 'rotate-180 text-[#f37021]' : 'text-slate-400'
+                          isExpanded ? 'rotate-180 text-[#ed5001]' : 'text-slate-400'
                         }`}
                       />
                     </button>
 
                     {isExpanded && section.children && (
-                      <div className="pl-3 mt-1 space-y-0.5 border-l-2 border-[#f37021]">
+                      <div className="pl-3 mt-1 space-y-0.5 border-l-2 border-[#ed5001]">
                         <Link
                           to={section.href}
                           onClick={onClose}
-                          className="block py-2.5 min-h-11 items-center text-xs font-bold text-[#f37021] hover:underline"
+                          className="block py-2.5 min-h-11 items-center text-xs font-bold text-[#ed5001] hover:underline"
                         >
                           View {section.title} Overview →
                         </Link>
@@ -113,7 +113,7 @@ export const MobileMenu: React.FC<MobileMenuProps> = ({ isOpen, onClose }) => {
                             key={subItem.href}
                             to={subItem.href}
                             onClick={onClose}
-                            className="block py-2.5 min-h-11 items-center text-sm text-slate-600 hover:text-[#1d6327] font-medium"
+                            className="block py-2.5 min-h-11 items-center text-sm text-slate-600 hover:text-[#265e11] font-medium"
                           >
                             {subItem.title}
                           </Link>
@@ -125,7 +125,7 @@ export const MobileMenu: React.FC<MobileMenuProps> = ({ isOpen, onClose }) => {
                   <Link
                     to={section.href}
                     onClick={onClose}
-                    className="py-3 min-h-11 flex items-center font-bold text-slate-800 hover:text-[#f37021] transition-colors text-base"
+                    className="py-3 min-h-11 flex items-center font-bold text-slate-800 hover:text-[#ed5001] transition-colors text-base"
                   >
                     {section.title}
                   </Link>
@@ -136,13 +136,13 @@ export const MobileMenu: React.FC<MobileMenuProps> = ({ isOpen, onClose }) => {
 
           {/* Quick Support and Legal Links */}
           <div className="pt-4 space-y-2 text-sm text-slate-500">
-            <Link to="/about/trent" onClick={onClose} className="block py-2.5 min-h-11 items-center hover:text-[#f37021]">
+            <Link to="/about/trent" onClick={onClose} className="block py-2.5 min-h-11 items-center hover:text-[#ed5001]">
               Meet Trent (Founder Bio)
             </Link>
-            <Link to="/service-areas" onClick={onClose} className="block py-2.5 min-h-11 items-center hover:text-[#f37021]">
+            <Link to="/service-areas" onClick={onClose} className="block py-2.5 min-h-11 items-center hover:text-[#ed5001]">
               Service Areas & Locations
             </Link>
-            <Link to="/faq" onClick={onClose} className="py-2.5 min-h-11 flex items-center hover:text-[#f37021]">
+            <Link to="/faq" onClick={onClose} className="py-2.5 min-h-11 flex items-center hover:text-[#ed5001]">
               Frequently Asked Questions
             </Link>
           </div>
@@ -156,7 +156,7 @@ export const MobileMenu: React.FC<MobileMenuProps> = ({ isOpen, onClose }) => {
             variant="primary"
             size="md"
             fullWidth
-            className="rounded-full bg-linear-to-r from-[#ea580c] via-[#f37021] to-[#f59e0b] hover:from-[#c2410c] hover:to-[#ea580c] text-white border-0 shadow-lg shadow-orange-500/25"
+            className="rounded-full bg-linear-to-r from-[#ed5001] via-[#f06e02] to-[#f4a304] hover:from-[#c84300] hover:to-[#ed5001] text-white border-0 shadow-lg shadow-[#ed5001]/25"
             icon={<ArrowRight className="w-4 h-4" />}
           >
             Free Solar Assessment
@@ -165,22 +165,22 @@ export const MobileMenu: React.FC<MobileMenuProps> = ({ isOpen, onClose }) => {
           <div className="pt-2 text-xs text-slate-500 space-y-1.5">
             <a
               href="tel:1300786697"
-              className="flex items-center gap-2 text-slate-700 font-semibold hover:text-[#f37021]"
+              className="flex items-center gap-2 text-slate-700 font-semibold hover:text-[#ed5001]"
             >
-              <Phone className="w-3.5 h-3.5 text-[#f37021]" />
+              <Phone className="w-3.5 h-3.5 text-[#ed5001]" />
               1300 SUNNY (1300 786 697)
             </a>
             <a
               href="mailto:hello@sunnysolar.com.au"
               className="flex items-center gap-2 text-slate-500 hover:text-slate-800"
             >
-              <Mail className="w-3.5 h-3.5 text-[#f37021]" />
+              <Mail className="w-3.5 h-3.5 text-[#ed5001]" />
               hello@sunnysolar.com.au
             </a>
           </div>
 
-          <div className="flex items-center gap-1.5 text-[11px] text-[#1d6327] font-medium pt-1">
-            <ShieldCheck className="w-3.5 h-3.5 text-[#22c55e] shrink-0" />
+          <div className="flex items-center gap-1.5 text-[11px] text-[#265e11] font-medium pt-1">
+            <ShieldCheck className="w-3.5 h-3.5 text-[#265e11] shrink-0" />
             <span>CEC Approved Solar Retailer #A4892</span>
           </div>
         </div>

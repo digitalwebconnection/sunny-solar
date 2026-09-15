@@ -49,8 +49,8 @@ export const Navbar: React.FC = () => {
       >
         <div className="max-w-7xl mx-auto flex items-center justify-between">
           <div className="flex items-center gap-4">
-            <span className="flex items-center gap-1.5 text-[#f97316] font-semibold">
-              <ShieldCheck className="w-3.5 h-3.5 text-[#22c55e]" />
+            <span className="flex items-center gap-1.5 text-[#ed5001] font-semibold">
+              <ShieldCheck className="w-3.5 h-3.5 text-[#265e11]" />
               CEC Approved Solar Retailer
             </span>
             <span
@@ -74,8 +74,8 @@ export const Navbar: React.FC = () => {
               to="/service-areas"
               className={`transition-colors hidden sm:inline ${
                 isScrolled || !isHomePage
-                  ? 'text-slate-200 hover:text-[#f37021]'
-                  : 'text-slate-700 hover:text-[#f37021]'
+                  ? 'text-slate-200 hover:text-[#ed5001]'
+                  : 'text-slate-700 hover:text-[#ed5001]'
               }`}
             >
               Gold Coast • Brisbane • Sunshine Coast
@@ -84,11 +84,11 @@ export const Navbar: React.FC = () => {
               href="tel:1300786697"
               className={`flex items-center gap-1.5 font-bold transition-colors ${
                 isScrolled || !isHomePage
-                  ? 'text-white hover:text-[#f37021]'
-                  : 'text-slate-900 hover:text-[#f37021]'
+                  ? 'text-white hover:text-[#ed5001]'
+                  : 'text-slate-900 hover:text-[#ed5001]'
               }`}
             >
-              <Phone className="w-3.5 h-3.5 text-[#f37021]" />
+              <Phone className="w-3.5 h-3.5 text-[#ed5001]" />
               <span>1300 SUNNY (786 697)</span>
             </a>
           </div>
@@ -100,7 +100,7 @@ export const Navbar: React.FC = () => {
         className={`w-full transition-all duration-300 ${isScrolled
             ? 'bg-[#ffffff]/95 backdrop-blur-xl text-black shadow-2xl py-1'
             : isHomePage
-              ? 'bg-linear-to-b backdrop-blur-xs from-slate-950/60 via-slate-950/20 to-transparent py-3 sm:py-1 text-black'
+              ? 'bg-white  py-3 sm:py-1 text-black'
               : 'bg-[#ffffff]/90 backdrop-blur-md py-1 text-black'
           }`}
       >
@@ -137,13 +137,13 @@ export const Navbar: React.FC = () => {
                     className={`px-2 py-1 rounded-lg text-base font-semibold tracking-wide flex items-center gap-1.5 transition-all duration-150 ${
                       isActive
                         ? isScrolled
-                          ? 'text-[#1d6327] bg-[#1d6327]/10 font-bold'
-                          : 'text-[#04722d] bg-white/15 font-bold'
+                          ? 'text-[#265e11] bg-[#265e11]/10 font-bold'
+                          : 'text-[#265e11] bg-white/15 font-bold'
                         : isMenuOpen
-                        ? 'text-[#f37021] bg-orange-50/80 font-semibold'
+                        ? 'text-[#ed5001] bg-orange-50/80 font-semibold'
                         : isScrolled
-                        ? 'text-[#18181b] hover:text-[#f37021] hover:bg-orange-50/60'
-                        : 'text-black hover:text-[#f37021] hover:bg-white/10'
+                        ? 'text-[#18181b] hover:text-[#ed5001] hover:bg-orange-50/60'
+                        : 'text-black hover:text-[#ed5001] hover:bg-white/10'
                     }`}
                   >
                     <span>{section.title}</span>
@@ -151,14 +151,14 @@ export const Navbar: React.FC = () => {
                       <ChevronDown
                         className={`w-3.5 h-3.5 transition-transform duration-200 ${
                           isMenuOpen
-                            ? 'rotate-180 text-[#f37021]'
+                            ? 'rotate-180 text-[#ed5001]'
                             : isActive
                             ? isScrolled
-                              ? 'text-[#1d6327]'
-                              : 'text-[#22c55e]'
+                              ? 'text-[#265e11]'
+                              : 'text-[#265e11]'
                             : isScrolled
-                            ? 'text-[#18181b]/70 group-hover:text-[#f37021]'
-                            : 'text-black/80 group-hover:text-[#f37021]'
+                            ? 'text-[#18181b]/70 group-hover:text-[#ed5001]'
+                            : 'text-black/80 group-hover:text-[#ed5001]'
                         }`}
                       />
                     )}
@@ -174,7 +174,7 @@ export const Navbar: React.FC = () => {
               to="/get-started/free-assessment"
               variant="primary"
               size="md"
-              className="hidden sm:inline-flex rounded-full text-xs uppercase tracking-wider font-extrabold shadow-lg shadow-orange-500/25 bg-linear-to-r from-[#ea580c] via-[#f37021] to-[#f59e0b] hover:from-[#c2410c] hover:to-[#ea580c] text-white border-0"
+              className="hidden sm:inline-flex rounded-full text-xs uppercase tracking-wider font-extrabold shadow-lg shadow-[#ed5001]/25 bg-linear-to-r from-[#ed5001] via-[#f06e02] to-[#f4a304] hover:from-[#c84300] hover:to-[#ed5001] text-white border-0"
               icon={<ArrowRight className="w-4 h-4" />}
             >
               Free Assessment

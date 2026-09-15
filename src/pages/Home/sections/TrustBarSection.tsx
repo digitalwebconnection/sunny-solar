@@ -91,7 +91,7 @@ export const TrustBarSection: React.FC = () => {
       suffix: '+',
       decimals: 0,
       label: 'Homes & Sites Powered',
-      iconColor: 'text-[#f37021] fill-[#f37021]/15',
+      iconColor: 'text-[#ed5001] fill-[#ed5001]/15',
       iconBg: 'bg-orange-50/90 border-orange-200/70',
     },
     {
@@ -100,7 +100,7 @@ export const TrustBarSection: React.FC = () => {
       suffix: '+ Years',
       decimals: 0,
       label: 'Master Electrician Owned',
-      iconColor: 'text-[#1d6327]',
+      iconColor: 'text-[#265e11]',
       iconBg: 'bg-emerald-50/90 border-emerald-200/70',
     },
     {
@@ -109,7 +109,7 @@ export const TrustBarSection: React.FC = () => {
       suffix: ' Years',
       decimals: 0,
       label: 'Performance Guarantee',
-      iconColor: 'text-[#ea580c]',
+      iconColor: 'text-[#ed5001]',
       iconBg: 'bg-orange-50/90 border-orange-200/70',
     },
     {
@@ -126,8 +126,8 @@ export const TrustBarSection: React.FC = () => {
   return (
     <section className="bg-white py-14 lg:py-16 relative overflow-hidden">
       {/* Subtle ambient light accents */}
-      <div className="absolute top-0 left-1/4 w-72 h-72 bg-[#1d6327]/5 rounded-full blur-3xl pointer-events-none" />
-      <div className="absolute bottom-0 right-1/4 w-72 h-72 bg-[#f37021]/5 rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute top-0 left-1/4 w-72 h-72 bg-[#265e11]/5 rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute bottom-0 right-1/4 w-72 h-72 bg-[#ed5001]/5 rounded-full blur-3xl pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
@@ -135,7 +135,7 @@ export const TrustBarSection: React.FC = () => {
         <div className="text-center max-w-6xl mx-auto mb-12 sm:mb-14">
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-serif font-extrabold text-[#18181b] tracking-tight leading-[1.15]">
             Real Numbers. <br />
-            <span className="text-transparent bg-clip-text bg-linear-to-r from-[#ea580c] via-[#f37021] to-[#f59e0b]">
+            <span className="text-transparent bg-clip-text bg-linear-to-r from-[#ed5001] via-[#f06e02] to-[#f4a304]">
               Proven Performance.
             </span>
           </h2>
@@ -162,7 +162,7 @@ export const TrustBarSection: React.FC = () => {
                 </div>
 
                 {/* Animated Number */}
-                <div className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[#18181b] tracking-tight font-serif leading-none group-hover:text-[#ea580c] transition-colors mb-2 tabular-nums">
+                <div className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[#18181b] tracking-tight font-serif leading-none group-hover:text-[#ed5001] transition-colors mb-2 tabular-nums">
                   <AnimatedCounter
                     target={stat.target}
                     suffix={stat.suffix}

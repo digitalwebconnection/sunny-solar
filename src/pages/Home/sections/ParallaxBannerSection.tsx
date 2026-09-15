@@ -28,7 +28,7 @@ export const ParallaxBannerSection: React.FC = () => {
           {/* Headline */}
           <h2 className="text-3xl sm:text-4xl lg:text-5xl xl:text-5xl font-extrabold text-white tracking-tight font-serif leading-[1.15]">
             Built for Queensland Heat. <br />
-            <span className="text-transparent bg-clip-text bg-linear-to-r from-[#ea580c] via-[#f37021] to-[#f59e0b]">
+            <span className="text-transparent bg-clip-text bg-linear-to-r from-[#ed5001] via-[#f06e02] to-[#f4a304]">
               Engineered to Last Decades.
             </span>
           </h2>
@@ -46,7 +46,7 @@ export const ParallaxBannerSection: React.FC = () => {
               to="/contact"
               variant="primary"
               size="lg"
-              className="rounded-xl shadow-xl shadow-orange-500/25 bg-linear-to-r from-[#ea580c] via-[#f37021] to-[#f59e0b] hover:from-[#c2410c] hover:to-[#ea580c] text-white border-0 font-bold px-8 py-3.5 lg:py-2 transition-all duration-300 hover:shadow-orange-500/40 hover:-translate-y-0.5 text-base"
+              className="rounded-xl shadow-xl shadow-[#ed5001]/25 bg-linear-to-r from-[#ed5001] via-[#f06e02] to-[#f4a304] hover:from-[#c84300] hover:to-[#ed5001] text-white border-0 font-bold px-8 py-3.5 lg:py-2 transition-all duration-300 hover:shadow-[#ed5001]/40 hover:-translate-y-0.5 text-base"
               icon={<ArrowRight className="w-5 h-5" />}
             >
               Claim Your Free Solar Assessment
@@ -56,7 +56,7 @@ export const ParallaxBannerSection: React.FC = () => {
               href="tel:1300786697"
               className="inline-flex items-center gap-2.5 px-6 py-3 rounded-xl border border-white/20 hover:border-white/40 bg-white/10 hover:bg-white/20 text-white font-bold text-base backdrop-blur-md transition-all duration-300 hover:-translate-y-0.5"
             >
-              <Phone className="w-4 h-4 text-[#f37021]" />
+              <Phone className="w-4 h-4 text-[#ed5001]" />
               <span>Speak to Trent: 1300 SUNNY</span>
             </a>
           </div>

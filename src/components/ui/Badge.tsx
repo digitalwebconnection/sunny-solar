@@ -23,9 +23,9 @@ export const Badge: React.FC<BadgeProps> = ({
   };
 
   const variants = {
-    amber: 'bg-amber-100 text-amber-900 border border-amber-300/60',
-    emerald: 'bg-emerald-100 text-emerald-900 border border-emerald-300/60',
-    navy: 'bg-slate-900 text-amber-300 border border-slate-700',
+    amber: 'bg-orange-50 text-[#c84300] border border-[#f4a304]/40',
+    emerald: 'bg-[#f1f8ee] text-[#265e11] border border-[#265e11]/30',
+    navy: 'bg-slate-900 text-[#f4a304] border border-slate-700',
     slate: 'bg-slate-100 text-slate-700 border border-slate-200',
     outline: 'bg-transparent text-slate-700 border border-slate-300',
   };

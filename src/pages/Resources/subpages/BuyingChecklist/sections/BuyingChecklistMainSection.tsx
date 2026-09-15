@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { 
-  CheckSquare, 
   Check, 
   Download, 
   ShieldCheck, 
@@ -9,88 +8,49 @@ import {
   FileText, 
   Sparkles, 
   CheckCircle2, 
-  HelpCircle,
-  Clock
+  ExternalLink
 } from 'lucide-react';
 import { Button } from '../../../../../components/ui/Button';
+import { generateBuyingChecklistPdf, ChecklistItemData } from '../../../../../utils/generateChecklistPdf';
+import { submitToWeb3Forms } from '../../../../../utils/web3forms';
 
-interface CheckItem {
-  id: string;
-  category: string;
-  title: string;
-  description: string;
-}
-
-const CHECKLIST_ITEMS: CheckItem[] = [
+export const CHECKLIST_ITEMS: ChecklistItemData[] = [
   {
     id: 'c1',
     category: 'Contract & Pricing',
     title: 'Is the quote fully fixed with zero variation clauses?',
-    description: 'Ensure switchboard upgrades, double-storey surcharges, and steep roof pitch fees are explicitly included in writing.',
+    description: 'Ensure switchboard upgrades and steep roof pitch fees are explicitly included in writing.',
   },
   {
     id: 'c2',
-    category: 'Contract & Pricing',
-    title: 'Are STC federal government rebates itemized up-front?',
-    description: 'Verify the exact point-of-sale discount deducted from your invoice ($2,500–$3,200 depending on system kW).',
+    category: 'Installer Credentials',
+    title: 'Does the company use in-house master electricians?',
+    description: 'Avoid retailers who auction your installation contract off to cut-rate third-party sub-contractors.',
   },
   {
     id: 'c3',
-    category: 'Contract & Pricing',
-    title: 'Is there a full refund clause if grid export approval is denied?',
-    description: 'DNSPs (Energex/Ergon) must approve your inverter capacity before installation begins.',
+    category: 'Installer Credentials',
+    title: 'Is the installer CEC Accredited (Clean Energy Council)?',
+    description: "Ask for the electrician's personal CEC accreditation number and verify it on the official national registry.",
   },
   {
     id: 'c4',
-    category: 'Installer Credentials',
-    title: 'Does the company use in-house master electricians?',
-    description: 'Avoid retailers who auction your installation contract off to cut-rate third-party sub-contractor crews.',
-  },
-  {
-    id: 'c5',
-    category: 'Installer Credentials',
-    title: 'Is the installer CEC Accredited (Clean Energy Council)?',
-    description: 'Ask for the electrician’s personal CEC accreditation number and verify it on the official national registry.',
-  },
-  {
-    id: 'c6',
     category: 'Hardware & Design',
     title: 'Are solar panels genuine Tier-1 BloombergNEF modules?',
-    description: 'Confirm N-Type TOPCon or heterojunction technology with positive power tolerance (+0 to +5W).',
+    description: 'Confirm N-Type TOPCon technology and proven inverters with direct Australian technical support offices.',
   },
-  {
-    id: 'c7',
-    category: 'Hardware & Design',
-    title: 'Is the inverter brand proven with an Australian support office?',
-    description: 'Look for established Tier-1 manufacturers (Sungrow, Fronius, Enphase, SolarEdge) with local tech support.',
-  },
-  {
-    id: 'c8',
-    category: 'Hardware & Design',
-    title: 'Does the system layout account for shading and orientation?',
-    description: 'Split East/West roof layouts often deliver superior self-consumption compared to pure North arrays.',
-  },
-  {
-    id: 'c9',
-    category: 'Warranty & Support',
-    title: 'Is there an independent 10-year workmanship guarantee?',
-    description: 'Distinguish between hardware manufacturer warranties (panels) and the retailer’s own labor guarantee for roof leaks.',
-  },
-  {
-    id: 'c10',
-    category: 'Warranty & Support',
-    title: 'Who covers warranty labor if the installer ceases trading?',
-    description: 'Ensure hardware warranties are supported directly in Australia by the manufacturer, not an overseas trading entity.',
-  },
+ 
 ];
 
 export const BuyingChecklistMainSection: React.FC = () => {
   const [checkedItems, setCheckedItems] = useState<Record<string, boolean>>({
     c1: true,
+    c2: true,
     c4: true,
-    c6: true,
   });
   const [submitted, setSubmitted] = useState(false);
+  const [isGenerating, setIsGenerating] = useState(false);
+  const [downloadInfo, setDownloadInfo] = useState<{ url: string; filename: string } | null>(null);
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -107,7 +67,62 @@ export const BuyingChecklistMainSection: React.FC = () => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    setSubmitted(true);
+    setIsGenerating(true);
+
+    try {
+      const result = generateBuyingChecklistPdf({
+        formData,
+        items: CHECKLIST_ITEMS,
+        checkedMap: checkedItems,
+      });
+
+      setDownloadInfo({
+        url: result.url,
+        filename: result.filename,
+      });
+      setSubmitted(true);
+
+      // Submit lead to Web3Forms email
+      submitToWeb3Forms({
+        name: formData.name,
+        email: formData.email,
+        postcode: formData.postcode,
+        verified_count: `${checkedCount} of ${totalCount} (${progressPercent}%)`,
+        page: 'Buying Checklist PDF Download',
+      }, {
+        subject: `New Buying Checklist Download - ${formData.name} (${formData.postcode})`,
+        from_name: 'Sunny Solar Resources',
+      }).catch((err) => console.error('Web3Forms lead error:', err));
+    } catch (err) {
+      console.error('Error generating PDF:', err);
+    } finally {
+      setIsGenerating(false);
+    }
+  };
+
+  const handleDownloadAgain = () => {
+    const result = generateBuyingChecklistPdf({
+      formData,
+      items: CHECKLIST_ITEMS,
+      checkedMap: checkedItems,
+    });
+    setDownloadInfo({
+      url: result.url,
+      filename: result.filename,
+    });
+  };
+
+  const handleOpenPdf = () => {
+    if (downloadInfo?.url) {
+      window.open(downloadInfo.url, '_blank');
+    } else {
+      const result = generateBuyingChecklistPdf({
+        formData,
+        items: CHECKLIST_ITEMS,
+        checkedMap: checkedItems,
+      });
+      window.open(result.url, '_blank');
+    }
   };
 
   return (
@@ -117,16 +132,10 @@ export const BuyingChecklistMainSection: React.FC = () => {
         {/* Simple & Premium Header */}
         <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-4 pb-6 border-b border-slate-200 mb-8">
           <div>
-            <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-amber-600 mb-1.5">
-              <CheckSquare className="w-4 h-4" />
-              <span>Independent Homeowner Library • 2025 Edition</span>
-            </div>
             <h2 className="text-2xl sm:text-3xl lg:text-4xl font-serif font-bold text-slate-950 tracking-tight">
-              15 Critical Questions to Vet Any Solar Quote
+              Critical Questions to Vet Any Solar Quote
             </h2>
-            <p className="text-sm text-slate-600 mt-1.5 max-w-2xl leading-relaxed">
-              Engineered by master electricians to give you an unfair advantage. Review key inspection items below or download the complete 6-page printable guide with word-for-word scripts to ask salespeople.
-            </p>
+            
           </div>
 
           <div className="flex items-center gap-3 bg-white px-4 py-2.5 rounded-lg border border-slate-200 shadow-2xs self-start lg:self-auto shrink-0">
@@ -134,7 +143,7 @@ export const BuyingChecklistMainSection: React.FC = () => {
               <FileText className="w-5 h-5" />
             </div>
             <div>
-              <span className="text-xs font-bold text-slate-900 block">Printable 6-Page PDF</span>
+              <span className="text-xs font-bold text-slate-900 block">Printable Checklist (PDF)</span>
               <span className="text-[11px] text-slate-500 font-medium">Free instant download</span>
             </div>
           </div>
@@ -144,7 +153,7 @@ export const BuyingChecklistMainSection: React.FC = () => {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-start">
           
           {/* Left: Interactive Checklist */}
-          <div className="lg:col-span-7 space-y-6">
+          <div className="lg:col-span-7 space-y-4">
             
             {/* Interactive Progress Bar */}
             <div className="bg-slate-50 rounded-lg border border-slate-200 p-4 sm:p-5 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
@@ -153,7 +162,7 @@ export const BuyingChecklistMainSection: React.FC = () => {
                   Interactive Vetting Progress
                 </span>
                 <span className="text-sm font-semibold text-slate-600">
-                  {checkedCount} of {totalCount} critical criteria verified
+                  {checkedCount} of {totalCount} critical criteria verified ({progressPercent}%)
                 </span>
               </div>
               <div className="w-full sm:w-48 bg-slate-200 h-2.5 rounded-full overflow-hidden">
@@ -172,7 +181,7 @@ export const BuyingChecklistMainSection: React.FC = () => {
                   <div
                     key={item.id}
                     onClick={() => toggleItem(item.id)}
-                    className={`cursor-pointer rounded-lg border p-4 sm:p-5 transition-all duration-200 flex items-start gap-3.5 select-none ${
+                    className={`cursor-pointer rounded-lg border p-4 sm:p-4.5 transition-all duration-200 flex items-start gap-3.5 select-none ${
                       isChecked 
                         ? 'bg-amber-50/40 border-amber-300/90 shadow-2xs' 
                         : 'bg-white border-slate-200 hover:border-slate-300 hover:shadow-2xs'
@@ -196,6 +205,11 @@ export const BuyingChecklistMainSection: React.FC = () => {
                           {item.category}
                         </span>
                         <span className="text-xs text-slate-400 font-medium">#{index + 1}</span>
+                        {isChecked && (
+                          <span className="text-[10px] font-bold text-emerald-700 bg-emerald-50 border border-emerald-200 px-1.5 py-0.2 rounded ml-auto">
+                            Verified
+                          </span>
+                        )}
                       </div>
                       <h4 className={`text-sm sm:text-base font-serif font-bold ${isChecked ? 'text-slate-900' : 'text-slate-800'}`}>
                         {item.title}
@@ -209,33 +223,77 @@ export const BuyingChecklistMainSection: React.FC = () => {
               })}
             </div>
 
-            <div className="p-4 rounded-lg bg-slate-100/80 border border-slate-200 text-xs text-slate-600 flex items-center gap-3">
-              <ShieldCheck className="w-5 h-5 text-emerald-600 shrink-0" />
-              <span>
-                <strong>Master Electrician Guarantee:</strong> Never sign a contract on the spot. Legitimate Australian installers give you 7–14 days to review engineering drawings and DNSP connection offers.
-              </span>
-            </div>
+         
 
           </div>
 
           {/* Right: Sleek Download Card */}
           <div className="lg:col-span-5 bg-white rounded-lg border border-slate-300 p-6 sm:p-8 shadow-lg lg:sticky lg:top-24">
             {submitted ? (
-              <div className="py-8 text-center space-y-4">
-                <div className="w-14 h-14 rounded-full bg-emerald-100 text-emerald-600 flex items-center justify-center mx-auto">
-                  <CheckCircle2 className="w-7 h-7" />
+              <div className="py-6 text-center space-y-4">
+                <div className="w-14 h-14 rounded-full bg-emerald-100 text-emerald-600 flex items-center justify-center mx-auto shadow-sm">
+                  <CheckCircle2 className="w-8 h-8" />
                 </div>
-                <h3 className="text-2xl font-serif font-bold text-slate-900">Checklist On Its Way!</h3>
-                <p className="text-sm text-slate-600 max-w-sm mx-auto leading-relaxed">
-                  We've sent the complete 6-page printable PDF to <span className="font-semibold text-slate-800">{formData.email}</span>.
-                </p>
-                <div className="pt-3">
+                
+                <div>
+                  <h3 className="text-2xl font-serif font-bold text-slate-900">Checklist Downloaded!</h3>
+                  <p className="text-xs text-emerald-700 font-medium mt-1">
+                    Generated with your live answers ({checkedCount} of {totalCount} verified)
+                  </p>
+                </div>
+
+                <div className="bg-slate-50 p-4 rounded-lg border border-slate-200 text-left text-xs space-y-1.5 text-slate-700">
+                  <div className="flex justify-between">
+                    <span className="text-slate-500 font-medium">Prepared For:</span>
+                    <span className="font-bold text-slate-900">{formData.name}</span>
+                  </div>
+                  <div className="flex justify-between">
+                    <span className="text-slate-500 font-medium">Email:</span>
+                    <span className="font-bold text-slate-900">{formData.email}</span>
+                  </div>
+                  <div className="flex justify-between">
+                    <span className="text-slate-500 font-medium">Suburb / Postcode:</span>
+                    <span className="font-bold text-slate-900">{formData.postcode}</span>
+                  </div>
+                  <div className="flex justify-between">
+                    <span className="text-slate-500 font-medium">Document:</span>
+                    <span className="font-bold text-amber-700">Printable Checklist (PDF)</span>
+                  </div>
+                </div>
+
+                <div className="pt-2 space-y-2.5">
+                  <Button
+                    type="button"
+                    variant="primary"
+                    size="md"
+                    fullWidth
+                    icon={<Download className="w-4 h-4" />}
+                    onClick={handleDownloadAgain}
+                    className="shadow-md hover:shadow-lg transition-all"
+                  >
+                    Download PDF Again
+                  </Button>
+
+                  <Button
+                    type="button"
+                    variant="outline"
+                    size="md"
+                    fullWidth
+                    icon={<ExternalLink className="w-4 h-4" />}
+                    onClick={handleOpenPdf}
+                    className="border-slate-300 text-slate-700 hover:bg-slate-100 transition-all"
+                  >
+                    Open / Print PDF in Browser
+                  </Button>
+                </div>
+
+                <div className="pt-3 border-t border-slate-100">
                   <button
                     type="button"
                     onClick={() => setSubmitted(false)}
                     className="text-xs text-amber-600 font-bold hover:underline cursor-pointer"
                   >
-                    Send to a different email
+                    Edit details or verify more criteria
                   </button>
                 </div>
               </div>
@@ -247,10 +305,10 @@ export const BuyingChecklistMainSection: React.FC = () => {
                     <span>Free Instant Download</span>
                   </div>
                   <h3 className="text-xl sm:text-2xl font-serif font-bold text-slate-950 mt-2.5">
-                    Get the Printable 6-Page PDF
+                    Get the Printable Checklist (PDF)
                   </h3>
                   <p className="text-xs text-slate-500 mt-1 leading-relaxed">
-                    Includes word-for-word scripts to ask salespeople, contract review red flags, and our quote comparison worksheet.
+                    Personalized with your audit answers, contact details, and the critical questions to vet any solar quote.
                   </p>
                 </div>
 
@@ -304,21 +362,22 @@ export const BuyingChecklistMainSection: React.FC = () => {
                     variant="primary"
                     size="lg"
                     fullWidth
+                    disabled={isGenerating}
                     icon={<Download className="w-4 h-4" />}
-                    className="shadow-md hover:shadow-lg transition-all"
+                    className="shadow-md hover:shadow-lg transition-all cursor-pointer"
                   >
-                    Download Free Checklist (PDF)
+                    {isGenerating ? 'Generating PDF...' : 'Download Free Checklist (PDF)'}
                   </Button>
                 </div>
 
                 <div className="pt-2 text-center text-[11px] text-slate-400 space-y-1">
-                  <p>Instant PDF access • 100% Free • No unsolicited calls</p>
+                  <p>Instant PDF access • 100% Free • Includes your checked criteria</p>
                 </div>
               </form>
             )}
           </div>
 
-      </div>
+        </div>
 
       </div>
     </section>
