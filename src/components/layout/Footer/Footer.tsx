@@ -188,9 +188,8 @@ export const Footer: React.FC = () => {
 
             {/* Licence Numbers */}
             <div className="text-center lg:text-right">
-              <span className="text-xs font-semibold text-white/50 uppercase tracking-wider block mb-1">Electrical Licence Numbers</span>
-              <span className="text-xs text-white/70 font-medium tracking-wide">
-                QLD 83912 &nbsp;·&nbsp; NSW 347763C &nbsp;·&nbsp; SA PGE 297740 &nbsp;·&nbsp; VIC 38433
+              <span className="text-sm text-white/90  tracking-wide">
+                  ©2026 <span className=' font-bold'>SUNNY SOLAR PTY LTD</span> ABN 81 675 563 274
               </span>
             </div>
           </div>
