@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
+import { useNavigate } from 'react-router-dom';
 import {
   Phone,
   Mail,
@@ -10,11 +11,19 @@ import {
   Lock,
   Loader2,
   ShieldCheck,
+  UploadCloud,
+  FileText,
+  X,
 } from 'lucide-react';
 import { Button } from '../../../components/ui/Button';
 import { submitToWeb3Forms } from '../../../utils/web3forms';
 
 export const FreeAssessmentFormSection: React.FC = () => {
+  const navigate = useNavigate();
+  const fileInputRef = useRef<HTMLInputElement | null>(null);
+  const [billFile, setBillFile] = useState<File | null>(null);
+  const [isDraggingFile, setIsDraggingFile] = useState<boolean>(false);
+
   const [submitted, setSubmitted] = useState<boolean>(false);
   const [referenceId, setReferenceId] = useState<string>('');
   const [isSubmitting, setIsSubmitting] = useState<boolean>(false);
@@ -29,6 +38,35 @@ export const FreeAssessmentFormSection: React.FC = () => {
     service: 'New Solar Installation',
     message: '',
   });
+
+  const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    if (e.target.files && e.target.files[0]) {
+      const file = e.target.files[0];
+      if (file.size <= 15 * 1024 * 1024) {
+        setBillFile(file);
+      } else {
+        alert('File size exceeds 15MB limit. Please upload a smaller file.');
+      }
+    }
+  };
+
+  const handleDrop = (e: React.DragEvent) => {
+    e.preventDefault();
+    setIsDraggingFile(false);
+    if (e.dataTransfer.files && e.dataTransfer.files[0]) {
+      const file = e.dataTransfer.files[0];
+      if (file.size <= 15 * 1024 * 1024) {
+        setBillFile(file);
+      } else {
+        alert('File size exceeds 15MB limit. Please upload a smaller file.');
+      }
+    }
+  };
+
+  const removeBillFile = () => {
+    setBillFile(null);
+    if (fileInputRef.current) fileInputRef.current.value = '';
+  };
 
   const [authorizedConsent, setAuthorizedConsent] = useState<boolean>(false);
   const [isHumanVerified, setIsHumanVerified] = useState<boolean>(false);
@@ -182,6 +220,7 @@ export const FreeAssessmentFormSection: React.FC = () => {
         consult_type: consultType,
         message: formData.message || 'No additional message',
         reference_id: refCode,
+        bill_attached: billFile ? `${billFile.name} (${(billFile.size / 1024).toFixed(1)} KB)` : 'None attached',
         page: 'Free Solar Assessment Form',
       }, {
         subject: `New Free Assessment Request - ${formData.name} (${formData.suburb}) [${refCode}]`,
@@ -191,6 +230,7 @@ export const FreeAssessmentFormSection: React.FC = () => {
       setIsSubmitting(false);
       if (res.success) {
         setSubmitted(true);
+        navigate('/thank-you');
       } else {
         setSubmitError(res.message || 'Error submitting assessment request. Please try again.');
       }
@@ -547,6 +587,78 @@ export const FreeAssessmentFormSection: React.FC = () => {
                     onChange={(e) => handleFieldChange('message', e.target.value)}
                     className="w-full px-4 py-2 rounded-xl border border-slate-300 text-sm focus:outline-none focus:ring-2 focus:ring-amber-500 bg-white"
                   />
+                </div>
+
+                {/* Drag-and-Drop Electricity Bill Upload (Optional) */}
+                <div>
+                  <div className="flex items-center justify-between mb-1.5">
+                    <label className="block text-xs font-semibold text-slate-700">
+                      Upload Recent Electricity Bill (Optional)
+                    </label>
+                    <span className="text-[11px] text-emerald-700 font-semibold bg-emerald-50 px-2 py-0.5 rounded-full border border-emerald-200/60">
+                      Exact 100% Offset Audit
+                    </span>
+                  </div>
+
+                  {!billFile ? (
+                    <div
+                      onDragOver={(e) => {
+                        e.preventDefault();
+                        setIsDraggingFile(true);
+                      }}
+                      onDragLeave={() => setIsDraggingFile(false)}
+                      onDrop={handleDrop}
+                      onClick={() => fileInputRef.current?.click()}
+                      className={`border-2 border-dashed rounded-xl p-4 text-center cursor-pointer transition-all ${
+                        isDraggingFile
+                          ? 'border-[#ed5001] bg-orange-50/50'
+                          : 'border-slate-300 hover:border-amber-500 hover:bg-slate-50/70 bg-white'
+                      }`}
+                    >
+                      <input
+                        ref={fileInputRef}
+                        type="file"
+                        accept=".pdf,.png,.jpg,.jpeg"
+                        onChange={handleFileChange}
+                        className="hidden"
+                      />
+                      <div className="flex flex-col items-center justify-center gap-1.5 pointer-events-none">
+                        <div className="w-8 h-8 rounded-full bg-amber-500/10 text-[#ed5001] flex items-center justify-center">
+                          <UploadCloud className="w-4 h-4" />
+                        </div>
+                        <p className="text-xs font-medium text-slate-800">
+                          <span className="font-bold text-[#ed5001]">Click to upload</span> or drag and drop your bill
+                        </p>
+                        <span className="text-[11px] text-slate-500">
+                          PDF, PNG, JPG up to 15MB • 100% confidential & secure
+                        </span>
+                      </div>
+                    </div>
+                  ) : (
+                    <div className="flex items-center justify-between p-3 rounded-xl border border-emerald-300 bg-emerald-50/60">
+                      <div className="flex items-center gap-2.5 min-w-0">
+                        <div className="w-8 h-8 rounded-lg bg-emerald-100 text-emerald-700 flex items-center justify-center shrink-0">
+                          <FileText className="w-4 h-4" />
+                        </div>
+                        <div className="min-w-0">
+                          <p className="text-xs font-bold text-slate-900 truncate">
+                            {billFile.name}
+                          </p>
+                          <span className="text-[11px] text-slate-500">
+                            {(billFile.size / 1024).toFixed(1)} KB • Ready for engineering review
+                          </span>
+                        </div>
+                      </div>
+                      <button
+                        type="button"
+                        onClick={removeBillFile}
+                        className="p-1.5 rounded-lg text-slate-400 hover:text-red-500 hover:bg-red-50 transition-colors cursor-pointer"
+                        title="Remove file"
+                      >
+                        <X className="w-4 h-4" />
+                      </button>
+                    </div>
+                  )}
                 </div>
 
                 {/* Anti-Bot / Human Verification Authentication Check */}

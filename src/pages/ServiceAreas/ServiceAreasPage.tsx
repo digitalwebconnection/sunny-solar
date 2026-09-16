@@ -4,6 +4,7 @@ import { PageHeader } from '../../components/layout/PageHeader';
 import { serviceAreasData } from '../../data/serviceAreasData';
 import { Badge } from '../../components/ui/Badge';
 import { Button } from '../../components/ui/Button';
+import { PostcodeEligibilityChecker } from '../../components/common/PostcodeEligibilityChecker';
 import { MapPin, Sun, Zap, ArrowRight, ShieldCheck, CheckCircle2 } from 'lucide-react';
 
 export const ServiceAreasPage: React.FC = () => {
@@ -27,6 +28,9 @@ export const ServiceAreasPage: React.FC = () => {
       />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-12 space-y-12">
+        {/* Interactive Postcode Lookup */}
+        <PostcodeEligibilityChecker />
+
         {/* Locations Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {serviceAreasData.map((area) => (

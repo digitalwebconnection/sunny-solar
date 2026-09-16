@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { 
   ArrowRight, 
@@ -62,6 +63,7 @@ export const HeroSection: React.FC = () => {
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [errorMessage, setErrorMessage] = useState('');
   const [phraseIndex, setPhraseIndex] = useState(0);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const timer = setInterval(() => {
@@ -95,6 +97,7 @@ export const HeroSection: React.FC = () => {
     setIsSubmitting(false);
     if (res.success) {
       setIsSubmitted(true);
+      navigate('/thank-you');
     } else {
       setErrorMessage(res.message || 'Error submitting request. Please try again.');
     }
