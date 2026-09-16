@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import { ChevronDown } from 'lucide-react';
+import { Link } from 'react-router-dom';
+import { ChevronDown, ArrowRight } from 'lucide-react';
 import { Badge } from '@/components/ui/Badge';
 
 export const SolarSystemsFAQSection: React.FC = () => {
@@ -69,6 +70,31 @@ export const SolarSystemsFAQSection: React.FC = () => {
               </div>
             );
           })}
+        </div>
+
+        {/* Bottom Navigation Links */}
+        <div className="mt-10 pt-6 border-t border-slate-200 flex flex-wrap items-center justify-between gap-4 text-sm font-semibold">
+          <Link
+            to="/calculators/system-size"
+            className="inline-flex items-center gap-1.5 text-amber-700 hover:text-amber-600 transition-colors"
+          >
+            <span>Size your optimal solar array</span>
+            <ArrowRight className="w-4 h-4" />
+          </Link>
+          <div className="flex items-center gap-4">
+            <Link
+              to="/faq"
+              className="text-slate-600 hover:text-slate-900 transition-colors"
+            >
+              Browse All FAQs →
+            </Link>
+            <Link
+              to="/contact"
+              className="text-[#1d4ed8] hover:underline"
+            >
+              Ask Our Electricians →
+            </Link>
+          </div>
         </div>
       </div>
     </section>

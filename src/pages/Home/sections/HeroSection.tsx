@@ -20,6 +20,36 @@ const phrases = [
   'For Real Savings',
 ];
 
+const trustBeltItems = [
+  {
+    icon: ShieldCheck,
+    label: '25-Year Performance Warranty',
+    iconColor: 'text-sky-400',
+  },
+  {
+    icon: Zap,
+    label: 'Up to 85% Bill Reduction',
+    iconColor: 'text-[#f4a304]',
+  },
+  {
+    icon: CheckCircle2,
+    label: '$0 Upfront Payment Options',
+    iconColor: 'text-emerald-400',
+  },
+  {
+    icon: Sparkles,
+    label: 'Fast 3D Roof Engineering',
+    iconColor: 'text-blue-400',
+  },
+];
+
+const trustBeltRepeated = [
+  ...trustBeltItems,
+  ...trustBeltItems,
+  ...trustBeltItems,
+  ...trustBeltItems,
+];
+
 export const HeroSection: React.FC = () => {
   const [formData, setFormData] = useState({
     name: '',
@@ -71,7 +101,8 @@ export const HeroSection: React.FC = () => {
   };
 
   return (
-    <section className="relative min-h-[500px] lg:min-h-auto flex items-center overflow-hidden">
+    <>
+      <section className="relative min-h-[500px] lg:min-h-auto flex items-center overflow-hidden">
       {/* Full-width Responsive Background Image (Clearly Visible) */}
       <div className="absolute inset-0 z-0 overflow-hidden">
         <img
@@ -82,8 +113,9 @@ export const HeroSection: React.FC = () => {
 
         {/* Light Overlay to keep image clearly visible while ensuring text contrast */}
         <div className="absolute inset-0 bg-black/35 sm:bg-linear-to-t sm:from-black/85 sm:via-black/50 sm:to-black/30" />
-
         
+        {/* Subtle deep solar panel blue ambient aura */}
+        <div className="absolute -top-24 right-1/4 w-[500px] h-[500px] bg-blue-600/15 rounded-full blur-[140px] pointer-events-none" />
       </div>
 
       {/* Hero Content & Small Form Grid */}
@@ -96,7 +128,13 @@ export const HeroSection: React.FC = () => {
             transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
             className="lg:col-span-7 text-left space-y-4"
           >
-         
+            {/* Top Micro Eyebrow Badge */}
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-semibold text-white bg-slate-900/80 border border-white/20 backdrop-blur-md shadow-lg">
+              <span className="w-2 h-2 rounded-full bg-blue-400 animate-pulse" />
+              <span className="text-blue-300 font-bold">Tier-1 N-Type Photovoltaics</span>
+              <span className="text-white/40">•</span>
+              <span className="text-amber-300 font-medium">Smart Battery Systems</span>
+            </div>
 
             {/* Animated Headline with Dynamic Cycling Highlight */}
             <h1 className="text-3xl sm:text-4xl lg:text-5xl font-serif font-bold text-white tracking-tight leading-[1.18] drop-shadow-md min-h-[76px] sm:min-h-[92px] lg:min-h-[116px]">
@@ -169,7 +207,7 @@ export const HeroSection: React.FC = () => {
                   onClick={() => setSystemType('combo')}
                   className={`py-1.5 px-2 rounded-md transition-all flex items-center justify-center gap-1 cursor-pointer ${
                     systemType === 'combo'
-                      ? 'bg-[#ed5001] text-white shadow-xs'
+                      ? 'bg-linear-to-r from-[#ed5001] to-[#f06e02] text-white shadow-xs'
                       : 'text-slate-600 hover:text-slate-900 hover:bg-slate-200/60'
                   }`}
                 >
@@ -182,7 +220,7 @@ export const HeroSection: React.FC = () => {
                   onClick={() => setSystemType('solar')}
                   className={`py-1.5 px-2 rounded-md transition-all flex items-center justify-center gap-1 cursor-pointer ${
                     systemType === 'solar'
-                      ? 'bg-[#ed5001] text-white shadow-xs'
+                      ? 'bg-[#1d4ed8] text-white shadow-xs'
                       : 'text-slate-600 hover:text-slate-900 hover:bg-slate-200/60'
                   }`}
                 >
@@ -194,7 +232,7 @@ export const HeroSection: React.FC = () => {
                   onClick={() => setSystemType('battery')}
                   className={`py-1.5 px-2 rounded-md transition-all flex items-center justify-center gap-1 cursor-pointer ${
                     systemType === 'battery'
-                      ? 'bg-[#ed5001] text-white shadow-xs'
+                      ? 'bg-[#265e11] text-white shadow-xs'
                       : 'text-slate-600 hover:text-slate-900 hover:bg-slate-200/60'
                   }`}
                 >
@@ -303,27 +341,55 @@ export const HeroSection: React.FC = () => {
           </motion.div>
         </div>
 
-        {/* Floating Bottom Trust Strip */}
-        <div className="mt-8 pt-5 border-t border-white/15 grid grid-cols-2 md:grid-cols-4 gap-3 text-white/90 text-xs">
-          <div className="flex items-center gap-2 justify-center sm:justify-start">
-            <ShieldCheck className="w-4 h-4 text-[#265e11] shrink-0" />
-            <span>25-Year Performance Warranty</span>
-          </div>
-          <div className="flex items-center gap-2 justify-center sm:justify-start">
-            <Zap className="w-4 h-4 text-[#f4a304] shrink-0" />
-            <span>Up to 85% Bill Reduction</span>
-          </div>
-          <div className="flex items-center gap-2 justify-center sm:justify-start">
-            <CheckCircle2 className="w-4 h-4 text-[#265e11] shrink-0" />
-            <span>$0 Upfront Payment Options</span>
-          </div>
-          <div className="flex items-center gap-2 justify-center sm:justify-start">
-            <Sparkles className="w-4 h-4 text-[#f4a304] shrink-0" />
-            <span>Fast 3D Roof Engineering</span>
-          </div>
-        </div>
+     
       </div>
     </section>
+
+    {/* Running Belt Below Hero Section */}
+    <div 
+      className="w-full bg-[#0a0f1d] border-y border-white/10 py-3 sm:py-3.5 relative overflow-hidden z-20 shadow-md select-none group"
+      aria-label="Sunny Solar Guarantees and Key Benefits"
+    >
+      {/* Subtle edge fade masks */}
+      <div className="pointer-events-none absolute inset-y-0 left-0 w-12 sm:w-28 bg-gradient-to-r from-[#0a0f1d] to-transparent z-10" />
+      <div className="pointer-events-none absolute inset-y-0 right-0 w-12 sm:w-28 bg-gradient-to-l from-[#0a0f1d] to-transparent z-10" />
+
+      {/* Infinite Marquee Track */}
+      <div className="flex w-max animate-marquee">
+        {/* Track 1 */}
+        <div className="flex items-center shrink-0">
+          {trustBeltRepeated.map((item, idx) => {
+            const Icon = item.icon;
+            return (
+              <div key={`belt-track1-${idx}`} className="flex items-center">
+                <div className="flex items-center gap-2 px-4 sm:px-6 text-white/90 text-xs sm:text-sm font-medium tracking-wide">
+                  <Icon className={`w-4 h-4 ${item.iconColor} shrink-0`} />
+                  <span className="whitespace-nowrap">{item.label}</span>
+                </div>
+                <span className="w-1.5 h-1.5 rounded-full bg-white/20 mx-1 sm:mx-2 shrink-0" />
+              </div>
+            );
+          })}
+        </div>
+
+        {/* Track 2 (Clone for seamless infinite loop) */}
+        <div className="flex items-center shrink-0" aria-hidden="true">
+          {trustBeltRepeated.map((item, idx) => {
+            const Icon = item.icon;
+            return (
+              <div key={`belt-track2-${idx}`} className="flex items-center">
+                <div className="flex items-center gap-2 px-4 sm:px-6 text-white/90 text-xs sm:text-sm font-medium tracking-wide">
+                  <Icon className={`w-4 h-4 ${item.iconColor} shrink-0`} />
+                  <span className="whitespace-nowrap">{item.label}</span>
+                </div>
+                <span className="w-1.5 h-1.5 rounded-full bg-white/20 mx-1 sm:mx-2 shrink-0" />
+              </div>
+            );
+          })}
+        </div>
+      </div>
+    </div>
+  </>
   );
 };
 

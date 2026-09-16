@@ -69,8 +69,23 @@ export const TrentBioPage: React.FC = () => {
                 variant="primary"
                 size="md"
                 icon={<ArrowRight className="w-4 h-4" />}
+                className="shadow-md"
               >
                 Request a Design Consultation
+              </Button>
+              <Button
+                to="/projects"
+                variant="outline"
+                size="md"
+              >
+                View Completed Projects
+              </Button>
+              <Button
+                to="/reviews"
+                variant="outline"
+                size="md"
+              >
+                Read Homeowner Reviews
               </Button>
             </div>
           </div>

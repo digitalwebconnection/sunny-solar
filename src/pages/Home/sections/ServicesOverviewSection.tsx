@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import {
   ShieldCheck,
   ArrowRight,
@@ -15,6 +16,7 @@ export const ServicesOverviewSection: React.FC = () => {
       {/* Subtle Ambient Glows - no extra containers/content */}
       <div className="absolute top-1/4 -left-32 w-96 h-96 bg-[#265e11]/5 rounded-full blur-3xl pointer-events-none" />
       <div className="absolute bottom-10 right-0 w-[480px] h-[480px] bg-[#ed5001]/5 rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute top-1/3 right-1/4 w-80 h-80 bg-blue-600/5 rounded-full blur-3xl pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
@@ -22,8 +24,8 @@ export const ServicesOverviewSection: React.FC = () => {
           {/* Left Column: Story & Information */}
           <div className="lg:col-span-6 space-y-6">
             {/* Eyebrow Pill Badge */}
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-bold uppercase tracking-wider text-[#265e11] bg-emerald-50/80 border border-emerald-200/60 shadow-xs">
-              <span className="w-2 h-2 rounded-full bg-[#ed5001] animate-pulse" />
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-bold uppercase tracking-wider text-[#1d4ed8] bg-blue-50/90 border border-blue-200/60 shadow-xs">
+              <span className="w-2 h-2 rounded-full bg-[#1d4ed8] animate-pulse" />
               <Sun className="w-3.5 h-3.5 text-[#ed5001]" />
               <span>About Sunny Solar • Est. 2011</span>
             </div>
@@ -60,12 +62,12 @@ export const ServicesOverviewSection: React.FC = () => {
 
               <a
                 href="tel:1300786697"
-                className="inline-flex items-center gap-2.5 px-5 py-2.5 rounded-xl border border-slate-200 hover:border-[#ed5001] text-slate-800 hover:text-[#ed5001] font-bold text-sm bg-white hover:bg-orange-50/30 transition-all duration-300 shadow-xs hover:shadow hover:-translate-y-0.5"
+                className="inline-flex items-center gap-2.5 px-5 py-2.5 rounded-xl border border-slate-200 hover:border-[#1d4ed8] text-slate-800 hover:text-[#1d4ed8] font-bold text-sm bg-white hover:bg-blue-50/40 transition-all duration-300 shadow-xs hover:shadow hover:-translate-y-0.5"
               >
-                <div className="w-7 h-7 rounded-lg bg-orange-100/70 flex items-center justify-center text-[#ed5001]">
+                <div className="w-7 h-7 rounded-lg bg-blue-50 border border-blue-200/60 flex items-center justify-center text-[#1d4ed8]">
                   <Phone className="w-3.5 h-3.5" />
                 </div>
-                <span>Speak to Trent: <span className="text-[#ed5001]">1300 SUNNY</span></span>
+                <span>Speak to Trent: <span className="text-[#1d4ed8]">1300 SUNNY</span></span>
               </a>
             </div>
           </div>
@@ -73,7 +75,7 @@ export const ServicesOverviewSection: React.FC = () => {
           {/* Right Column: Sleek Modern Visual Showcase */}
           <div className="lg:col-span-6 relative">
             {/* Offset Decorative Layered Backdrop */}
-            <div className="absolute -bottom-4 -right-4 w-full h-full rounded-xl bg-gradient-to-br from-[#265e11]/10 via-[#f4a304]/20 to-[#ed5001]/25 border border-slate-200/50 -z-10 hidden lg:block" />
+            <div className="absolute -bottom-4 -right-4 w-full h-full rounded-xl bg-gradient-to-br from-[#1d4ed8]/15 via-[#f4a304]/15 to-[#ed5001]/20 border border-slate-200/50 -z-10 hidden lg:block" />
 
             {/* Ambient Background Aura */}
             <div className="absolute -top-6 -left-6 w-84 h-84 bg-[#265e11]/50 rounded-full blur-2xl -z-10 hidden lg:block" />
@@ -88,23 +90,34 @@ export const ServicesOverviewSection: React.FC = () => {
               />
 
               {/* Floating Verified Badge (Top Right) */}
-              <div className="absolute top-4 right-4 bg-white/95 backdrop-blur-md border border-slate-200/80 rounded-full px-3.5 py-1.5 shadow-md flex items-center gap-2">
+              <Link
+                to="/solar/installation"
+                className="absolute top-4 right-4 bg-white/95 hover:bg-white backdrop-blur-md border border-slate-200/80 hover:border-emerald-300 rounded-full px-3.5 py-1.5 shadow-md flex items-center gap-2 transition-all duration-200 hover:scale-105"
+                title="View CEC Accreditation & Installation Standards"
+              >
                 <ShieldCheck className="w-4 h-4 text-[#265e11]" />
                 <span className="text-xs font-bold text-slate-800">
                   CEC Approved Retailer 
                 </span>
-              </div>
+              </Link>
 
               {/* Compact Floating Trust Chip (Bottom Left) */}
-              <div className="absolute bottom-4 left-4 bg-white/95 backdrop-blur-md border border-slate-200/80 rounded-2xl p-3 shadow-xl flex items-center gap-3 max-w-67.5">
-                <div className="w-9 h-9 rounded-xl bg-linear-to-br from-[#ed5001] to-[#f06e02] flex items-center justify-center text-white shrink-0 shadow-sm shadow-[#ed5001]/25">
+              <Link
+                to="/about/trent"
+                className="absolute bottom-4 left-4 bg-white/95 hover:bg-white backdrop-blur-md border border-slate-200/80 hover:border-blue-300 rounded-2xl p-3 shadow-xl flex items-center gap-3 max-w-67.5 transition-all duration-200 hover:scale-105 group/chip"
+                title="Meet Trent Palmer, Master Certified Installer"
+              >
+                <div className="w-9 h-9 rounded-xl bg-linear-to-br from-[#1d4ed8] via-[#2563eb] to-[#0284c7] flex items-center justify-center text-white shrink-0 shadow-sm shadow-blue-500/25 group-hover/chip:scale-105 transition-transform">
                   <Award className="w-4 h-4" />
                 </div>
                 <div className="min-w-0">
-                  <div className="text-xs font-bold text-slate-900 leading-tight truncate">Master Certified Installer</div>
-                  <div className="text-[11px] text-slate-500 font-medium truncate mt-0.5">Trent Palmer </div>
+                  <div className="text-xs font-bold text-slate-900 leading-tight truncate group-hover/chip:text-[#1d4ed8] transition-colors">Master Certified Installer</div>
+                  <div className="text-[11px] text-slate-500 font-medium truncate mt-0.5 flex items-center gap-1">
+                    <span>Trent Palmer</span>
+                    <span className="text-[#1d4ed8] font-bold">→</span>
+                  </div>
                 </div>
-              </div>
+              </Link>
             </div>
           </div>
 

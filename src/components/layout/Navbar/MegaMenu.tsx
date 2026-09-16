@@ -92,8 +92,8 @@ export const MegaMenu: React.FC<MegaMenuProps> = ({ section, isOpen, onClose }) 
       <div className={`mx-auto px-4 sm:px-6 transition-all duration-200 ${isLargeSet ? 'max-w-5xl' : 'max-w-4xl'}`}>
         <div className="bg-white rounded-lg shadow-[0_20px_50px_-12px_rgba(0,0,0,0.22),0_0_0_1px_rgba(0,0,0,0.06)] border border-slate-100 overflow-hidden">
           
-          {/* Top subtle gradient highlight rim with Logo colors (Green to Solar Orange) */}
-          <div className="h-1 w-full bg-gradient-to-r from-[#265e11] via-[#f06e02] to-[#ed5001]" />
+          {/* Top subtle gradient highlight rim with Brand colors (Green to Solar Blue to Solar Orange) */}
+          <div className="h-1 w-full bg-gradient-to-r from-[#265e11] via-[#1d4ed8] via-[#f06e02] to-[#ed5001]" />
 
           <div className="grid grid-cols-1 lg:grid-cols-12 items-stretch">
             {/* Left Zone: Nav Items */}
@@ -157,8 +157,8 @@ export const MegaMenu: React.FC<MegaMenuProps> = ({ section, isOpen, onClose }) 
 
               {/* Bottom Micro Trust Line */}
               <div className="mt-4 pt-3 border-t border-slate-100 flex items-center justify-between text-xs text-slate-500">
-                <div className="flex items-center gap-1.5 text-[#265e11] font-medium">
-                  <ShieldCheck className="w-3.5 h-3.5 text-[#265e11]" />
+                <div className="flex items-center gap-1.5 text-[#1d4ed8] font-semibold">
+                  <ShieldCheck className="w-3.5 h-3.5 text-[#1d4ed8]" />
                   <span>CEC Accredited • 25-Yr Performance Guarantee</span>
                 </div>
                 <Link
@@ -173,13 +173,13 @@ export const MegaMenu: React.FC<MegaMenuProps> = ({ section, isOpen, onClose }) 
 
             {/* Right Zone: Integrated Featured Panel */}
             {featured && (
-              <div className="lg:col-span-4 bg-gradient-to-br from-slate-950 via-[#072838] to-slate-900 text-white p-6 flex flex-col justify-between relative overflow-hidden border-t lg:border-t-0 lg:border-l border-slate-800">
+              <div className="lg:col-span-4 bg-gradient-to-br from-[#071328] via-[#0b1f3a] to-slate-950 text-white p-6 flex flex-col justify-between relative overflow-hidden border-t lg:border-t-0 lg:border-l border-slate-800">
                 {/* Subtle radial glow */}
-                <div className="absolute top-0 right-0 w-36 h-36 bg-[#ed5001]/10 rounded-full blur-2xl pointer-events-none" />
+                <div className="absolute top-0 right-0 w-36 h-36 bg-blue-600/15 rounded-full blur-2xl pointer-events-none" />
 
                 <div className="relative z-10">
-                  <div className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-[#ed5001]/15 border border-[#ed5001]/30 text-[#f4a304] text-[10px] font-bold uppercase tracking-wider mb-3">
-                    <Sparkles className="w-3 h-3 text-[#f06e02]" />
+                  <div className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-blue-500/20 border border-blue-400/40 text-blue-300 text-[10px] font-bold uppercase tracking-wider mb-3">
+                    <Sparkles className="w-3 h-3 text-sky-400" />
                     Featured Spotlight
                   </div>
 
@@ -207,7 +207,7 @@ export const MegaMenu: React.FC<MegaMenuProps> = ({ section, isOpen, onClose }) 
                   <Link
                     to={featured.href}
                     onClick={onClose}
-                    className="inline-flex items-center gap-1.5 text-xs font-bold text-[#f4a304] hover:text-[#f06e02] transition-colors group/cta"
+                    className="inline-flex items-center gap-1.5 text-xs font-bold text-sky-400 hover:text-sky-300 transition-colors group/cta"
                   >
                     <span>{featured.ctaText}</span>
                     <ArrowRight className="w-3.5 h-3.5 transition-transform duration-150 group-hover/cta:translate-x-1" />

@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { AlertTriangle, Flame, TrendingDown, SunDim, CloudRain, ArrowRight, ShieldAlert } from 'lucide-react';
 import { Button } from '../../../components/ui/Button';
 
@@ -10,6 +11,8 @@ export interface WarningSign {
   title: string;
   symptom: string;
   remedy: string;
+  linkTo: string;
+  linkText: string;
 }
 
 export const ExistingSolarWarningSignsSection: React.FC = () => {
@@ -23,6 +26,8 @@ export const ExistingSolarWarningSignsSection: React.FC = () => {
       symptom:
         'The inverter shows an intermittent red error LED, ground fault error, or shuts down during hot midday hours without alerting you.',
       remedy: 'Full DC string voltage testing, error log extraction, and capacitor diagnostics by a Master Electrician.',
+      linkTo: '/existing-solar/health-check',
+      linkText: 'Book Inverter Diagnostics',
     },
     {
       icon: Flame,
@@ -33,6 +38,8 @@ export const ExistingSolarWarningSignsSection: React.FC = () => {
       symptom:
         'Queensland summer UV cracks switch housings, causing water ingress, internal arcing, and severe switchboard fire hazards.',
       remedy: 'Immediate replacement with certified weatherproof IP66 rotary isolators compliant with AS/NZS 5033.',
+      linkTo: '/existing-solar/health-check',
+      linkText: 'Inspect DC Isolators',
     },
     {
       icon: TrendingDown,
@@ -43,6 +50,8 @@ export const ExistingSolarWarningSignsSection: React.FC = () => {
       symptom:
         'Legacy high feed-in tariffs have expired. You export surplus solar for just 3¢–5¢ while purchasing peak evening power at 45¢/kWh.',
       remedy: 'Retrofit an AC-coupled battery (Tesla Powerwall 3 or Sungrow) to store daytime solar for night use.',
+      linkTo: '/existing-solar/add-battery',
+      linkText: 'Explore Battery Retrofits',
     },
     {
       icon: SunDim,
@@ -53,6 +62,8 @@ export const ExistingSolarWarningSignsSection: React.FC = () => {
       symptom:
         'Subtle snail trails, yellowing backsheets, and cracked silicon wafers can cut total panel output by 25% to 40%.',
       remedy: 'High-resolution infrared thermal imaging to identify dead cells and claim manufacturer warranty replacements.',
+      linkTo: '/existing-solar/upgrade',
+      linkText: 'Panel Upgrade Options',
     },
     {
       icon: CloudRain,
@@ -63,6 +74,8 @@ export const ExistingSolarWarningSignsSection: React.FC = () => {
       symptom:
         'Your main switchboard or solar safety switch trips whenever it rains or morning humidity rises above 85%.',
       remedy: 'Megger high-voltage insulation resistance testing to locate cracked conduit glands or degraded cables.',
+      linkTo: '/existing-solar/health-check',
+      linkText: 'Book Insulation Test',
     },
   ];
 
@@ -107,9 +120,18 @@ export const ExistingSolarWarningSignsSection: React.FC = () => {
                 </p>
               </div>
 
-              <div className="pt-3 border-t border-slate-100 text-xs">
-                <span className="font-bold text-slate-900 block mb-0.5">Electrician Remedy:</span>
-                <span className="text-slate-600 leading-snug">{item.remedy}</span>
+              <div className="pt-3 border-t border-slate-100 text-xs flex flex-col justify-between gap-3">
+                <div>
+                  <span className="font-bold text-slate-900 block mb-0.5">Electrician Remedy:</span>
+                  <span className="text-slate-600 leading-snug">{item.remedy}</span>
+                </div>
+                <Link
+                  to={item.linkTo}
+                  className="inline-flex items-center gap-1 font-bold text-[#ed5001] hover:text-[#c44200] hover:underline transition-colors text-xs pt-1 group/wlink"
+                >
+                  <span>{item.linkText}</span>
+                  <ArrowRight className="w-3 h-3 group-hover/wlink:translate-x-1 transition-transform" />
+                </Link>
               </div>
             </div>
           );

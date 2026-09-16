@@ -1,5 +1,6 @@
 import React from 'react';
-import { Clock, CheckCircle2, ShieldCheck, Wrench, Cable, Gauge, Smartphone, Sparkles } from 'lucide-react';
+import { Clock, CheckCircle2, ShieldCheck, Wrench, Cable, Gauge, Smartphone, Sparkles, ArrowRight } from 'lucide-react';
+import { Button } from '../../../../components/ui/Button';
 
 export const SolarInstallationTimelineSection: React.FC = () => {
   const steps = [
@@ -103,6 +104,28 @@ export const SolarInstallationTimelineSection: React.FC = () => {
               </div>
             );
           })}
+        </div>
+
+        {/* Bottom CTA Row */}
+        <div className="mt-14 pt-8 border-t border-slate-100 flex flex-col sm:flex-row items-center justify-center gap-4 text-center">
+          <Button
+            to="/get-started/free-assessment"
+            variant="primary"
+            size="md"
+            icon={<ArrowRight className="w-4 h-4" />}
+            className="w-full sm:w-auto shadow-md"
+          >
+            Book My Free 3D Roof Assessment
+          </Button>
+          <Button
+            to="/about/trent"
+            variant="outline"
+            size="md"
+            icon={<ArrowRight className="w-4 h-4" />}
+            className="w-full sm:w-auto"
+          >
+            Meet Trent Palmer, Lead Electrician
+          </Button>
         </div>
       </div>
     </section>

@@ -4,7 +4,7 @@ import { Breadcrumbs } from './Breadcrumbs';
 
 export interface PageHeaderProps {
   badge?: string;
-  badgeVariant?: 'amber' | 'emerald' | 'navy' | 'slate';
+  badgeVariant?: 'amber' | 'emerald' | 'navy' | 'slate' | 'blue' | 'solar';
   title: string;
   highlightText?: string;
   description: string;
@@ -29,9 +29,10 @@ export const PageHeader: React.FC<PageHeaderProps> = ({
 
   return (
     <div className={`relative overflow-hidden pt-28 sm:pt-32 ${dark ? 'bg-slate-900 text-white' : 'bg-gradient-to-b from-[#ed5001]/5 via-slate-50 to-white text-slate-900'} border-b border-slate-200/60`}>
-      {/* Background ambient solar blur */}
+      {/* Background ambient solar and sky blue blurs */}
       <div className="absolute top-0 right-1/4 w-64 sm:w-96 h-64 sm:h-96 bg-[#f4a304]/15 rounded-full blur-3xl pointer-events-none" />
       <div className="absolute bottom-0 left-1/4 w-52 sm:w-80 h-52 sm:h-80 bg-[#ed5001]/15 rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute top-10 left-1/3 w-64 sm:w-96 h-64 sm:h-96 bg-blue-600/10 rounded-full blur-3xl pointer-events-none" />
 
       <div className={`relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-14 ${isCenter ? 'text-center' : 'text-left'}`}>
         {badge && (

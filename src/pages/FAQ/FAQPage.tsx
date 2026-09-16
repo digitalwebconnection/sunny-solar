@@ -65,6 +65,9 @@ export const FAQPage: React.FC = () => {
             <Button to="/get-started/free-assessment" variant="primary" size="md">
               Ask Via Online Assessment
             </Button>
+            <Button to="/contact" variant="outline" size="md">
+              Send Direct Message
+            </Button>
           </div>
         </div>
       </div>

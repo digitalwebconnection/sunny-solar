@@ -117,6 +117,34 @@ export const ReviewsPage: React.FC = () => {
             <ReviewCard key={review.id} review={review} />
           ))}
         </div>
+
+        {/* Bottom CTA Banner */}
+        <div className="bg-white rounded-3xl border border-slate-200/80 p-8 sm:p-12 text-center shadow-sm space-y-4">
+          <h3 className="text-2xl sm:text-3xl font-extrabold text-slate-900 font-serif">
+            Join 4,500+ Happy Queensland Solar &amp; Battery Owners
+          </h3>
+          <p className="text-sm sm:text-base text-slate-600 max-w-xl mx-auto leading-relaxed">
+            Experience our in-house master craftsmanship, zero sales pressure, and industry-leading 25-year performance warranties.
+          </p>
+          <div className="pt-3 flex flex-col sm:flex-row items-center justify-center gap-4">
+            <Button
+              to="/get-started/free-assessment"
+              variant="primary"
+              size="md"
+              icon={<ArrowRight className="w-4 h-4" />}
+              className="shadow-md"
+            >
+              Get Your Free Solar Assessment
+            </Button>
+            <Button
+              to="/projects"
+              variant="outline"
+              size="md"
+            >
+              Browse Completed Projects
+            </Button>
+          </div>
+        </div>
       </div>
     </div>
   );

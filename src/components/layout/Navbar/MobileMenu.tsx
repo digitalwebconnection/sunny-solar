@@ -134,16 +134,25 @@ export const MobileMenu: React.FC<MobileMenuProps> = ({ isOpen, onClose }) => {
             );
           })}
 
-          {/* Quick Support and Legal Links */}
-          <div className="pt-4 space-y-2 text-sm text-slate-500">
-            <Link to="/about/trent" onClick={onClose} className="block py-2.5 min-h-11 items-center hover:text-[#ed5001]">
+          {/* Quick Support, Trust and Resource Links */}
+          <div className="pt-4 space-y-1 text-sm text-slate-500">
+            <Link to="/about/trent" onClick={onClose} className="block py-2 min-h-11 flex items-center hover:text-[#ed5001]">
               Meet Trent (Founder Bio)
             </Link>
-            <Link to="/service-areas" onClick={onClose} className="block py-2.5 min-h-11 items-center hover:text-[#ed5001]">
+            <Link to="/reviews" onClick={onClose} className="block py-2 min-h-11 flex items-center hover:text-[#ed5001]">
+              Verified Customer Reviews
+            </Link>
+            <Link to="/service-areas" onClick={onClose} className="block py-2 min-h-11 flex items-center hover:text-[#ed5001]">
               Service Areas & Locations
             </Link>
-            <Link to="/faq" onClick={onClose} className="py-2.5 min-h-11 flex items-center hover:text-[#ed5001]">
+            <Link to="/resources" onClick={onClose} className="block py-2 min-h-11 flex items-center hover:text-[#ed5001]">
+              Buyer Guides & Checklists
+            </Link>
+            <Link to="/faq" onClick={onClose} className="py-2 min-h-11 flex items-center hover:text-[#ed5001]">
               Frequently Asked Questions
+            </Link>
+            <Link to="/contact" onClick={onClose} className="py-2 min-h-11 flex items-center hover:text-[#ed5001]">
+              Contact Our Electricians
             </Link>
           </div>
         </div>

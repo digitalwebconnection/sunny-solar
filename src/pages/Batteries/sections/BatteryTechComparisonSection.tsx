@@ -155,9 +155,17 @@ export const BatteryTechComparisonSection: React.FC = () => {
             size="md"
             icon={<ArrowRight className="w-4 h-4" />}
           >
-            Calculate Which Battery Fits Your Kilowatt-Hours →
+            Calculate Which Battery Fits Your Kilowatt-Hours
           </Button>
-    
+          <Button
+            to="/get-started/free-assessment"
+            variant="primary"
+            size="md"
+            icon={<ArrowRight className="w-4 h-4" />}
+            className="shadow-md"
+          >
+            Request Tailored Battery Proposal
+          </Button>
         </div>
 
       </div>

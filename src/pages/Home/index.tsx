@@ -14,10 +14,10 @@ export const HomePage: React.FC = () => {
     <div className="flex flex-col min-h-screen">
       <HeroSection />
       <ServicesOverviewSection />
-      <TrustBarSection />
-      <FeaturedProjectsSection />
       <CalculatorsTeaserSection />
+      <FeaturedProjectsSection />
       <ParallaxBannerSection />
+      <TrustBarSection />
       <ServiceAreasTeaserSection />
       <TestimonialsSliderSection />
       <FAQSection />

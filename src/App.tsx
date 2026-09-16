@@ -11,7 +11,7 @@ export function App() {
     <BrowserRouter>
       <SmoothScroll>
         <ScrollToTop />
-        <div className="flex flex-col min-h-screen selection:bg-amber-400 selection:text-slate-950 font-sans">
+        <div className="flex flex-col min-h-screen selection:bg-[#1d4ed8] selection:text-white font-sans">
           <Navbar />
           <main className="grow">
             <AppRoutes />

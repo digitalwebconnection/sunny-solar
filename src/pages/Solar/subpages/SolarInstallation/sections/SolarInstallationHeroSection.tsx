@@ -5,11 +5,20 @@ import { Button } from '@/components/ui/Button';
 
 export const SolarInstallationHeroSection: React.FC = () => {
   return (
-    <div className="bg-linear-to-b from-amber-500/10 via-amber-500/5 to-white pt-4 pb-14 border-b border-slate-200/60">
+    <div className="relative bg-linear-to-b from-amber-500/10 via-amber-500/5 to-white pt-4 pb-14 border-b border-slate-200/60 overflow-hidden">
+      {/* Subtle ambient solar blue glow */}
+      <div className="absolute top-12 right-1/4 w-96 h-96 bg-blue-600/10 rounded-full blur-3xl pointer-events-none" />
+
       <Breadcrumbs />
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-26">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-26 relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
           <div className="lg:col-span-7 space-y-6">
+            {/* Eyebrow Badge */}
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-bold uppercase tracking-wider text-[#1d4ed8] bg-blue-50 border border-blue-200/90 shadow-2xs">
+              <span className="w-2 h-2 rounded-full bg-[#1d4ed8] animate-pulse" />
+              <span>CEC Master Electrician Standards</span>
+            </div>
+
             <h1 className="text-3xl sm:text-4xl lg:text-5xl font-serif font-bold text-slate-950 tracking-tight leading-tight">
               Flawless Residential{' '}
               <span className="bg-linear-to-r from-amber-500 to-orange-600 bg-clip-text text-transparent">

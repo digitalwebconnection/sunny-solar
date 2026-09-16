@@ -7,7 +7,11 @@
   --color-brand-orange: #ed5001;
   --color-brand-orange-mid: #f06e02;
   --color-brand-orange-light: #f4a304;
-  --color-brand-blue: #2431a3;
+  --color-brand-blue: #1d4ed8;
+  --color-solar-blue: #1d4ed8;
+  --color-solar-blue-deep: #0b1f3a;
+  --color-solar-blue-mid: #2563eb;
+  --color-solar-blue-light: #eff6ff;
   --color-primary: #ed5001;
   --color-accent: #265e11;
 }
@@ -19,7 +23,11 @@
   --color-brand-orange: #ed5001;
   --color-brand-orange-mid: #f06e02;
   --color-brand-orange-light: #f4a304;
-  --color-brand-blue: #2431a3;
+  --color-brand-blue: #1d4ed8;
+  --color-solar-blue: #1d4ed8;
+  --color-solar-blue-deep: #0b1f3a;
+  --color-solar-blue-mid: #2563eb;
+  --color-solar-blue-light: #eff6ff;
   --color-primary: #ed5001;
   --color-accent: #265e11;
 }
@@ -84,6 +92,21 @@
 /* Green glow - exact logo green */
 .green-glow {
   box-shadow: 0 0 50px -10px rgba(38, 94, 17, 0.25);
+}
+
+/* Solar Blue glow - photovoltaic blue */
+.solar-blue-glow {
+  box-shadow: 0 0 50px -10px rgba(29, 78, 216, 0.28);
+}
+
+.solar-blue-gradient {
+  background: linear-gradient(135deg, #1d4ed8 0%, #2563eb 50%, #0284c7 100%);
+}
+
+.text-gradient-blue {
+  background: linear-gradient(135deg, #1d4ed8 0%, #0284c7 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 /* Reference image geometric polygon badge */
@@ -206,5 +229,33 @@
 @media (max-width: 1023px) {
   .bg-fixed {
     background-attachment: scroll !important;
+  }
+}
+
+/* Running Belt / Infinite Marquee Animation */
+@keyframes marquee {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+  100% {
+    transform: translate3d(-50%, 0, 0);
+  }
+}
+
+.animate-marquee {
+  display: flex;
+  width: max-content;
+  animation: marquee 35s linear infinite;
+  will-change: transform;
+}
+
+.animate-marquee:hover,
+.group:hover .animate-marquee {
+  animation-play-state: paused;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-marquee {
+    animation: none !important;
   }
 }

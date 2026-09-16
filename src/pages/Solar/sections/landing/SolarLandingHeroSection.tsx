@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { 
   ArrowRight, 
@@ -17,7 +18,7 @@ export const SolarLandingHeroSection: React.FC = () => {
   return (
     <section className="relative pt-28 sm:pt-36 pb-12 sm:pb-16 bg-gradient-to-b from-amber-500/10 via-amber-500/5 to-white border-b border-slate-200/60 overflow-hidden">
       {/* Subtle ambient solar glow */}
-      <div className="absolute top-10 right-1/4 w-96 h-96 bg-amber-400/10 rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute top-10 right-1/4 w-96 h-96 bg-blue-600/10 rounded-full blur-3xl pointer-events-none" />
       <div className="absolute top-36 left-10 w-80 h-80 bg-orange-300/10 rounded-full blur-3xl pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
@@ -35,11 +36,15 @@ export const SolarLandingHeroSection: React.FC = () => {
               transition={{ duration: 0.4 }}
               className="flex items-center gap-2.5 flex-wrap"
             >
-              <Badge variant="amber" icon={<Sun className="w-3.5 h-3.5" />}>
+              <Badge variant="blue" icon={<Sun className="w-3.5 h-3.5 text-[#1d4ed8]" />}>
                 Master Electrician Engineered
               </Badge>
 
-              <div className="inline-flex items-center gap-1 text-xs font-semibold text-slate-700 bg-white/90 px-3 py-0.5 rounded-full border border-slate-200 shadow-2xs">
+              <Link
+                to="/reviews"
+                className="inline-flex items-center gap-1 text-xs font-semibold text-slate-700 bg-white/90 hover:bg-white px-3 py-0.5 rounded-full border border-slate-200 hover:border-amber-300 shadow-2xs transition-all duration-200 hover:scale-105 group/rev"
+                title="Read 420+ Verified Customer Reviews"
+              >
                 <div className="flex text-amber-500">
                   <Star className="w-3 h-3 fill-amber-500" />
                   <Star className="w-3 h-3 fill-amber-500" />
@@ -48,8 +53,8 @@ export const SolarLandingHeroSection: React.FC = () => {
                   <Star className="w-3 h-3 fill-amber-500" />
                 </div>
                 <span className="font-bold text-slate-900 ml-1">4.98</span>
-                <span className="text-slate-500">(420+ Reviews)</span>
-              </div>
+                <span className="text-slate-500 group-hover/rev:text-amber-600 transition-colors">(420+ Reviews)</span>
+              </Link>
             </motion.div>
 
             {/* Headline */}

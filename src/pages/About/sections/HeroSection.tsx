@@ -19,15 +19,24 @@ export const HeroSection: React.FC = () => {
 
   return (
     <section ref={sectionRef} className="relative min-h-160 bg-white overflow-hidden">
+      {/* Ambient solar blue backdrop aura */}
+      <div className="absolute top-10 left-10 w-96 h-96 bg-blue-600/10 rounded-full blur-3xl pointer-events-none" />
+
       {/* Left side — typography and Right side image */}
       <div className="relative grid grid-cols-1 lg:grid-cols-2  min-h-160 lg:min-h-155">
         {/* Left content panel */}
         <div className="relative z-20 flex items-center justify-center   px-6 sm:px-12 lg:px-16 xl:px-8 ">
           <div className="max-w-2xl ">
 
+            {/* Eyebrow Badge */}
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-bold uppercase tracking-wider text-[#1d4ed8] bg-blue-50 border border-blue-200/90 shadow-2xs mt-24 mb-4">
+              <span className="w-2 h-2 rounded-full bg-[#1d4ed8] animate-pulse" />
+              <span>Master Electrician Founded • Est. 2011</span>
+            </div>
+
             {/* Main heading — animated with FlipText */}
             <motion.h1
-              className="text-4xl sm:text-5xl mt-28 lg:text-5xl text-slate-950 leading-[1.08] font-serif font-semibold"
+              className="text-4xl sm:text-5xl lg:text-5xl text-slate-950 leading-[1.08] font-serif font-semibold"
               initial={{ opacity: 0, y: 30 }}
               animate={isVisible ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.7, delay: 0.1 }}

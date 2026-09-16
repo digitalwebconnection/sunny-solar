@@ -19,19 +19,24 @@ import { Breadcrumbs } from '../../../components/layout/Breadcrumbs';
 export const BatteriesHeroSection: React.FC = () => {
   return (
     <section className="relative pt-28 sm:pt-36 pb-16 sm:pb-20 bg-gradient-to-b from-emerald-500/10 via-amber-500/5 to-white border-b border-slate-200/60 overflow-hidden">
-      {/* Ambient solar and battery emerald glows */}
+      {/* Ambient solar, battery emerald, and solar blue glows */}
       <div className="absolute top-10 right-1/4 w-96 h-96 bg-emerald-500/10 rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute top-20 left-1/3 w-80 h-80 bg-blue-600/10 rounded-full blur-3xl pointer-events-none" />
       <div className="absolute top-40 left-10 w-80 h-80 bg-amber-400/10 rounded-full blur-3xl pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-6 relative z-10">
-
 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center mt-6">
           
           {/* Left Column: High-Impact Value Proposition */}
           <div className="lg:col-span-7 space-y-6">
             
-            
+            {/* Top Eyebrow Badge */}
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-bold uppercase tracking-wider text-[#1d4ed8] bg-blue-50 border border-blue-200/90 shadow-2xs">
+              <span className="w-2 h-2 rounded-full bg-[#1d4ed8] animate-pulse" />
+              <span>Smart Storage • Blackout Protection</span>
+            </div>
+
             {/* Headline */}
             <motion.h1
               initial={{ opacity: 0, y: 12 }}

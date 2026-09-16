@@ -9,7 +9,7 @@ export interface ReviewCardProps {
 
 export const ReviewCard: React.FC<ReviewCardProps> = ({ review }) => {
   return (
-    <div className="bg-white rounded-2xl border border-slate-200/80 p-4 sm:p-6 shadow-sm hover:shadow-lg transition-all duration-300 flex flex-col justify-between">
+    <div className="bg-white rounded-2xl border border-slate-200/80 p-4 sm:p-6 shadow-sm hover:shadow-lg hover:border-[#1d4ed8]/50 transition-all duration-300 flex flex-col justify-between">
       <div>
         {/* Top Header */}
         <div className="flex items-center justify-between gap-2 mb-3">
@@ -43,8 +43,9 @@ export const ReviewCard: React.FC<ReviewCardProps> = ({ review }) => {
             <div className="flex items-center gap-1.5 font-bold text-sm text-slate-900">
               {review.author}
               {review.verified && (
-                <span title="Verified Customer" className="inline-flex">
-                  <CheckCircle className="w-3.5 h-3.5 text-emerald-600 inline" />
+                <span title="Verified Customer" className="inline-flex items-center gap-1 text-[11px] font-semibold text-[#1d4ed8]">
+                  <CheckCircle className="w-3.5 h-3.5 text-[#1d4ed8] inline" />
+                  <span>Verified</span>
                 </span>
               )}
             </div>
@@ -53,7 +54,7 @@ export const ReviewCard: React.FC<ReviewCardProps> = ({ review }) => {
               {review.location}
             </div>
           </div>
-          <Badge variant="amber" size="sm">
+          <Badge variant="blue" size="sm">
             {review.serviceType}
           </Badge>
         </div>

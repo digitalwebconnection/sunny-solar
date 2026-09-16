@@ -1,5 +1,6 @@
 import React from 'react';
-import { DollarSign, ThermometerSun, ShieldCheck, Zap, Award, CheckCircle2 } from 'lucide-react';
+import { Link } from 'react-router-dom';
+import { DollarSign, ThermometerSun, ShieldCheck, Zap, ArrowRight } from 'lucide-react';
 import { Badge } from '../../../../components/ui/Badge';
 
 export const SolarLandingBenefitsSection: React.FC = () => {
@@ -10,6 +11,8 @@ export const SolarLandingBenefitsSection: React.FC = () => {
       highlight: 'Up to 85% Daytime Offset',
       description:
         'Run daytime power-hungry ducted air conditioning, electric heat pump hot water, and swimming pool pumps directly from free self-generated sunshine.',
+      linkTo: '/calculators/solar-savings',
+      linkText: 'Calculate Bill Savings',
     },
     {
       icon: ThermometerSun,
@@ -17,6 +20,8 @@ export const SolarLandingBenefitsSection: React.FC = () => {
       highlight: '-0.26%/°C Temp Coefficient',
       description:
         'Standard cheap solar drops 25%+ efficiency when the mercury hits 38°C. Our N-Type TOPCon panels are specifically engineered for Queensland summer heatwaves.',
+      linkTo: '/solar/systems',
+      linkText: 'View N-Type Systems',
     },
     {
       icon: ShieldCheck,
@@ -24,6 +29,8 @@ export const SolarLandingBenefitsSection: React.FC = () => {
       highlight: 'Product, Output & Labor',
       description:
         'Guaranteed minimum 89.4% electricity output after 25 years. Every single screw, bracket, and roof tile is backed by our 10-year in-house roof leak guarantee.',
+      linkTo: '/solar/installation',
+      linkText: 'Installation Standards',
     },
     {
       icon: Zap,
@@ -31,6 +38,8 @@ export const SolarLandingBenefitsSection: React.FC = () => {
       highlight: 'Hybrid & AC-Coupled Ready',
       description:
         'Every solar inverter is engineered to accept a Tesla Powerwall 3, BYD, or Sungrow high-voltage battery on day one or whenever your budget allows.',
+      linkTo: '/batteries',
+      linkText: 'Explore Battery Options',
     },
   ];
 
@@ -64,6 +73,16 @@ export const SolarLandingBenefitsSection: React.FC = () => {
                   </div>
                   <h3 className="font-bold text-lg text-slate-900 mb-2">{item.title}</h3>
                   <p className="text-sm text-slate-600 leading-relaxed">{item.description}</p>
+                </div>
+
+                <div className="mt-5 pt-3 border-t border-slate-200/80">
+                  <Link
+                    to={item.linkTo}
+                    className="inline-flex items-center gap-1.5 text-xs font-bold text-amber-700 hover:text-amber-800 transition-colors group/blink"
+                  >
+                    <span>{item.linkText}</span>
+                    <ArrowRight className="w-3.5 h-3.5 group-hover/blink:translate-x-1 transition-transform" />
+                  </Link>
                 </div>
               </div>
             );

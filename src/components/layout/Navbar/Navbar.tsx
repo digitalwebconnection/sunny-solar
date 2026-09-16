@@ -54,11 +54,14 @@ export const Navbar: React.FC = () => {
               CEC Approved Solar Retailer
             </span>
             <span
-              className={`hidden md:inline-block ${
-                isScrolled || !isHomePage ? 'text-slate-200' : 'text-slate-700'
+              className={`hidden md:inline-flex items-center gap-1.5 font-bold text-[11px] px-2.5 py-0.5 rounded-full transition-all ${
+                isScrolled || !isHomePage
+                  ? 'text-sky-300 bg-sky-950/80 border border-sky-500/40 shadow-xs'
+                  : 'text-blue-700 bg-blue-50 border border-blue-200/90 shadow-2xs'
               }`}
             >
-              • 25-Year Performance Warranty
+              <span className="w-1.5 h-1.5 rounded-full bg-[#1d4ed8] inline-block animate-pulse" />
+              25-Year Performance Warranty
             </span>
             <span
               className={`hidden lg:inline-block ${

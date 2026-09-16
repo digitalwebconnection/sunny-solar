@@ -12,7 +12,7 @@ export const CalculatorsHeroSection: React.FC = () => {
   return (
     <section className="relative pt-24 sm:pt-36 pb-12 sm:pb-16 bg-gradient-to-b from-amber-500/10 via-amber-500/5 to-white border-b border-slate-200/60 overflow-hidden">
       {/* Subtle ambient solar lighting glow */}
-      <div className="absolute top-10 right-1/4 w-96 h-96 bg-amber-400/10 rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute top-10 right-1/4 w-96 h-96 bg-blue-600/10 rounded-full blur-3xl pointer-events-none" />
       <div className="absolute top-36 left-10 w-80 h-80 bg-orange-300/10 rounded-full blur-3xl pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
@@ -23,6 +23,11 @@ export const CalculatorsHeroSection: React.FC = () => {
           {/* Left Column: High-Impact Typography & Action Group */}
           <div className="lg:col-span-7 space-y-5">
             
+            {/* Top Micro Eyebrow Badge */}
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-bold uppercase tracking-wider text-[#1d4ed8] bg-blue-50/90 border border-blue-200/70 shadow-2xs">
+              <Calculator className="w-3.5 h-3.5 text-[#1d4ed8]" />
+              <span>Independent Energy Sizing Engine</span>
+            </div>
        
 
             {/* Headline */}

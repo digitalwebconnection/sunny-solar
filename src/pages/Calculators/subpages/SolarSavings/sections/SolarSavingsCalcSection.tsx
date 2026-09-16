@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
-import { DollarSign, RotateCcw, Sun } from 'lucide-react';
+import { Link } from 'react-router-dom';
+import { DollarSign, RotateCcw, Sun, ArrowRight } from 'lucide-react';
+import { Button } from '../../../../../components/ui/Button';
 
 export const SolarSavingsCalcSection: React.FC = () => {
   const [quarterlyBill, setQuarterlyBill] = useState<number>(750);
@@ -245,8 +247,28 @@ export const SolarSavingsCalcSection: React.FC = () => {
 
             </div>
 
-     
-           
+            {/* Action Buttons & Next Step */}
+            <div className="pt-2 space-y-2.5">
+              <Button
+                to="/get-started/free-assessment"
+                variant="primary"
+                size="md"
+                fullWidth
+                icon={<ArrowRight className="w-4 h-4" />}
+                className="shadow-md"
+              >
+                Claim This System Quote
+              </Button>
+              <div className="flex items-center justify-between text-[11px] text-slate-500 px-1 pt-1">
+                <span>Want to see battery impact?</span>
+                <Link
+                  to="/calculators/battery-savings"
+                  className="text-[#ed5001] font-semibold hover:underline"
+                >
+                  Model battery ROI →
+                </Link>
+              </div>
+            </div>
 
           </div>
 

@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 export interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
-  variant?: 'primary' | 'secondary' | 'accent-green' | 'outline' | 'ghost';
+  variant?: 'primary' | 'secondary' | 'accent-green' | 'solar-blue' | 'outline' | 'ghost';
   size?: 'sm' | 'md' | 'lg';
   href?: string;
   to?: string;
@@ -36,6 +36,7 @@ export const Button: React.FC<ButtonProps> = ({
     primary: 'bg-linear-to-r from-[#ed5001] via-[#f06e02] to-[#f4a304] text-white hover:from-[#c84300] hover:to-[#ed5001] focus:ring-[#ed5001] shadow-[#ed5001]/25 hover:shadow-lg hover:shadow-[#ed5001]/35 border border-[#f4a304]/20',
     secondary: 'bg-slate-900 text-white hover:bg-slate-800 focus:ring-slate-900 shadow-slate-900/20 hover:shadow-lg hover:shadow-slate-900/30 border border-slate-800',
     'accent-green': 'bg-[#265e11] text-white hover:bg-[#1c470d] focus:ring-[#265e11] shadow-[#265e11]/25 hover:shadow-lg hover:shadow-[#265e11]/35 border border-[#265e11]/20',
+    'solar-blue': 'bg-linear-to-r from-[#1d4ed8] via-[#2563eb] to-[#0284c7] text-white hover:from-[#1e40af] hover:to-[#1d4ed8] focus:ring-[#2563eb] shadow-[#1d4ed8]/25 hover:shadow-lg hover:shadow-[#1d4ed8]/35 border border-[#3b82f6]/30',
     outline: 'border-2 border-slate-300 text-slate-700 hover:border-[#ed5001] hover:text-[#ed5001] bg-transparent focus:ring-[#ed5001]',
     ghost: 'text-slate-600 hover:text-slate-900 hover:bg-slate-100 bg-transparent focus:ring-slate-400 shadow-none',
   };

@@ -1,14 +1,15 @@
 import React from 'react';
+import { TestimonialsCard } from '@/components/ui/testimonials-card';
 import {
-  Building2,
   Clock,
   ShieldCheck,
   Sparkles,
   FileCheck2,
   UserCheck,
   Zap,
-  CheckCircle2,
+  ArrowRight,
 } from 'lucide-react';
+import { Button } from '@/components/ui/Button';
 
 interface BuilderReason {
   id: string;
@@ -65,11 +66,11 @@ const builderReasons: BuilderReason[] = [
     highlight: 'Preserves Facade Street Appeal',
     bgImage: '/images/builder/builder-design-integrity.jpg',
     icon: Sparkles,
-    iconBg: 'bg-amber-500/10',
-    iconColor: 'text-[#f4a304]',
-    badgeBg: 'bg-amber-50',
-    badgeColor: 'text-[#ed5001]',
-    badgeBorder: 'border-amber-200/60',
+    iconBg: 'bg-blue-500/10',
+    iconColor: 'text-[#1d4ed8]',
+    badgeBg: 'bg-blue-50',
+    badgeColor: 'text-[#1d4ed8]',
+    badgeBorder: 'border-blue-200/70',
   },
   {
     id: '04',
@@ -119,92 +120,73 @@ const builderReasons: BuilderReason[] = [
 ];
 
 export const FeaturedProjectsSection: React.FC = () => {
-  return (
-    <section className="py-20 lg:py-14 bg-linear-to-b from-white via-slate-50/60 to-white relative overflow-hidden border-t border-slate-200/70">
-      {/* Ambient background glows */}
-      <div className="absolute top-1/4 right-0 w-125 h-125 bg-[#ed5001]/5 rounded-full blur-3xl pointer-events-none" />
-      <div className="absolute bottom-10 left-0 w-125 h-125 bg-[#265e11]/5 rounded-full blur-3xl pointer-events-none" />
+  const items = builderReasons.map(reason => ({
+    id: reason.id,
+    title: reason.title,
+    description: reason.description,
+    image: reason.bgImage,
+  }));
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+  return (
+    <section className="py-20 lg:py-14 bg-slate-50 relative overflow-hidden border-t border-slate-200/70">
+      {/* Ambient background glows */}
+      <div className="absolute top-1/4 right-0 w-125 h-125 bg-[#ed5001]/5 rounded-full blur-[120px] pointer-events-none" />
+      <div className="absolute bottom-10 left-0 w-125 h-125 bg-[#265e11]/5 rounded-full blur-[120px] pointer-events-none" />
+      <div className="absolute top-1/2 left-1/4 w-125 h-125 bg-blue-600/10 rounded-full blur-[140px] pointer-events-none" />
+
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-4 relative z-10">
         
         {/* Section Header */}
-        <div className="text-center max-w-6xl mx-auto mb-16">
-          
+        <div className="text-center max-w-6xl mx-auto mb-12">
+          {/* Eyebrow Pill Badge */}
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-bold uppercase tracking-wider text-[#1d4ed8] bg-blue-50 border border-blue-200/90 shadow-2xs mb-4">
+            <span className="w-2 h-2 rounded-full bg-[#1d4ed8] animate-pulse" />
+            <span>Builder &amp; Developer Solar Partner</span>
+          </div>
 
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[#18181b] tracking-tight font-serif leading-[1.15]">
-            Why Queensland Builders Choose <br />
+          <h2 className="text-4xl sm:text-5xl lg:text-5xl font-extrabold text-[#18181b] tracking-tight font-serif leading-[1.15]">
+            Why Queensland Builders Choose <br className="hidden sm:block" />
             <span className="text-transparent bg-clip-text bg-linear-to-r from-[#ed5001] via-[#f06e02] to-[#f4a304]">
               Sunny Solar
             </span>
           </h2>
 
-          <p className="mt-4 text-base sm:text-lg text-slate-900 leading-relaxed max-w-5xl mx-auto">
+          <p className="mt-6 text-lg sm:text-xl text-slate-600 leading-relaxed max-w-5xl mx-auto">
             From frame-stage pre-wire to final Form 16 sign-off, we partner with custom builders, architects, and developers to deliver flawless solar without trade bottlenecks.
           </p>
         </div>
 
-        {/* 6 Core Pillars Grid with Dynamic Card Hover Background Images */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
-          {builderReasons.map((reason) => {
-            const IconComponent = reason.icon;
-            return (
-              <div
-                key={reason.id}
-                className="bg-white rounded-xl p-4 border border-slate-300/80 hover:border-[#ed5001]/60 shadow-xl shadow-black/40 hover:shadow-2xl hover:shadow-slate-950/20 hover:-translate-y-1.5 transition-all duration-500 relative overflow-hidden group flex flex-col justify-between cursor-default min-h-75"
-              >
-                {/* Hover Background Image with Dark Scrim Overlay */}
-                <div className="absolute inset-0 z-0 opacity-0 group-hover:opacity-100 active:opacity-100 transition-opacity duration-500 pointer-events-none">
-                  <img
-                    src={reason.bgImage}
-                    alt={reason.title}
-                    className="w-full h-full object-cover object-center scale-110 group-hover:scale-100 transition-transform duration-700 ease-out"
-                    loading="lazy"
-                  />
-                  {/* Dark gradient overlay ensures crystal-clear readability on hover */}
-                  <div className="absolute inset-0 bg-linear-to-t from-slate-950/65 via-slate-950/45 to-slate-950/35 " />
-                  {/* Subtle solar glow at corner */}
-                  <div className="absolute -top-10 -right-10 w-40 h-40 bg-[#ed5001]/25 rounded-full blur-xl" />
-                </div>
+        {/* Stacked Animation Carousel */}
+        <div className="mt-8 flex justify-center w-full">
+          <TestimonialsCard 
+            items={items} 
+            width={400} 
+            autoPlay={true}
+            autoPlayInterval={4000}
+            className="w-full max-w-6xl"
+          />
+        </div>
 
-                {/* Top Badge & Number */}
-                <div className="relative z-10">
-                  <div className="flex items-center justify-between gap-2 mb-5">
-                    <span
-                      className={`inline-flex items-center px-2.5 py-1 rounded-full text-xs font-bold border transition-all duration-300 ${reason.badgeBg} ${reason.badgeColor} ${reason.badgeBorder} group-hover:bg-white/15 group-hover:text-white group-hover:border-white/20`}
-                    >
-                      {reason.badge}
-                    </span>
-                    <span className="text-sm font-mono font-bold text-slate-300 group-hover:text-white/40 transition-colors duration-300">
-                      {reason.id}
-                    </span>
-                  </div>
-
-                  {/* Icon & Title */}
-                  <div className="flex items-start gap-3.5 mb-3">
-                    <div
-                      className={`w-11 h-11 rounded-xl ${reason.iconBg} ${reason.iconColor} group-hover:bg-white/15 group-hover:text-white flex items-center justify-center shrink-0 group-hover:scale-105 transition-all duration-300 shadow-xs`}
-                    >
-                      <IconComponent className="w-5 h-5" />
-                    </div>
-                    <h3 className="text-lg font-bold text-slate-900 group-hover:text-white leading-snug transition-colors duration-300 pt-1">
-                      {reason.title}
-                    </h3>
-                  </div>
-
-                  {/* Narrative Body */}
-                  <p className="text-sm text-slate-600 group-hover:text-slate-200/95 leading-relaxed mt-2.5 transition-colors duration-300">
-                    {reason.description}
-                  </p>
-                </div>
-
-                {/* Bottom Highlight Key */}
-                <div className="relative z-10 mt-6 pt-4 border-t border-slate-100 group-hover:border-white/15 flex items-center gap-2 text-xs font-semibold text-slate-800 group-hover:text-slate-100 transition-colors duration-300">
-                  <CheckCircle2 className="w-4 h-4 text-[#265e11] group-hover:text-[#265e11] shrink-0 transition-colors duration-300" />
-                  <span>{reason.highlight}</span>
-                </div>
-              </div>
-            );
-          })}
+        {/* Bottom CTA Row Linking to Projects & Quote */}
+        <div className="mt-12 flex flex-col sm:flex-row items-center justify-center gap-4 text-center">
+          <Button
+            to="/projects"
+            variant="outline"
+            size="md"
+            icon={<ArrowRight className="w-4 h-4" />}
+            className="w-full sm:w-auto bg-white border-slate-300 hover:border-[#ed5001] hover:text-[#ed5001] shadow-xs"
+          >
+            Explore Completed Installations & Case Studies
+          </Button>
+          <Button
+            to="/get-started/free-assessment"
+            variant="primary"
+            size="md"
+            icon={<ArrowRight className="w-4 h-4" />}
+            className="w-full sm:w-auto shadow-md"
+          >
+            Request Builder or Residential Quote
+          </Button>
         </div>
 
       </div>

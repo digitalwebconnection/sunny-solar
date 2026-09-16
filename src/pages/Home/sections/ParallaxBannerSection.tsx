@@ -17,12 +17,14 @@ export const ParallaxBannerSection: React.FC = () => {
       }}
     >
       {/* Upper Div Overlay (h-full with dark scrim and backdrop blur) */}
-      <div className="w-full h-full min-h-90 lg:min-h-100 bg-black/70  flex items-center justify-center text-center py-20 lg:py-14 px-4 sm:px-6 lg:px-8 relative z-10">
+      <div className="w-full h-full min-h-90 lg:min-h-100 bg-[#071328]/80 backdrop-blur-[2px] flex items-center justify-center text-center py-20 lg:py-14 px-4 sm:px-6 lg:px-8 relative z-10">
         
-      
+        {/* Subtle solar blue radial lighting */}
+        <div className="absolute inset-0 bg-radial from-blue-600/15 via-transparent to-transparent pointer-events-none" />
 
         {/* Upper Content */}
         <div className="max-w-6xl mx-auto relative z-20 space-y-6">
+          
           
 
           {/* Headline */}
@@ -38,8 +40,6 @@ export const ParallaxBannerSection: React.FC = () => {
             While cut-rate solar outfits liquidate and leave thousands with orphaned inverters, Sunny Solar remains 100% privately owned, debt-free, and dedicated to in-house master craftsmanship since 2011.
           </p>
 
-        
-
           {/* Action Buttons */}
           <div className="pt-2 flex flex-wrap items-center justify-center gap-4">
             <Button
@@ -54,9 +54,9 @@ export const ParallaxBannerSection: React.FC = () => {
 
             <a
               href="tel:1300786697"
-              className="inline-flex items-center gap-2.5 px-6 py-3 rounded-xl border border-white/20 hover:border-white/40 bg-white/10 hover:bg-white/20 text-white font-bold text-base backdrop-blur-md transition-all duration-300 hover:-translate-y-0.5"
+              className="inline-flex items-center gap-2.5 px-6 py-3 rounded-xl border border-white/20 hover:border-sky-400/60 bg-white/10 hover:bg-sky-500/15 text-white font-bold text-base backdrop-blur-md transition-all duration-300 hover:-translate-y-0.5"
             >
-              <Phone className="w-4 h-4 text-[#ed5001]" />
+              <Phone className="w-4 h-4 text-sky-400" />
               <span>Speak to Trent: 1300 SUNNY</span>
             </a>
           </div>

@@ -1,6 +1,7 @@
 import React from 'react';
-import { Search, Compass, Wrench, Smartphone, CheckCircle2 } from 'lucide-react';
+import { Search, Compass, Wrench, Smartphone, CheckCircle2, ArrowRight } from 'lucide-react';
 import { Badge } from '../../../../components/ui/Badge';
+import { Button } from '../../../../components/ui/Button';
 
 export const SolarLandingProcessSection: React.FC = () => {
   const steps = [
@@ -65,6 +66,28 @@ export const SolarLandingProcessSection: React.FC = () => {
               </div>
             );
           })}
+        </div>
+
+        {/* Bottom Process CTAs */}
+        <div className="mt-12 flex flex-col sm:flex-row items-center justify-center gap-4 text-center">
+          <Button
+            to="/solar/installation"
+            variant="outline"
+            size="md"
+            icon={<ArrowRight className="w-4 h-4" />}
+            className="w-full sm:w-auto"
+          >
+            View Full 1-Day Installation Standards
+          </Button>
+          <Button
+            to="/get-started/free-assessment"
+            variant="primary"
+            size="md"
+            icon={<ArrowRight className="w-4 h-4" />}
+            className="w-full sm:w-auto shadow-md"
+          >
+            Request Free Roof Assessment
+          </Button>
         </div>
       </div>
     </section>

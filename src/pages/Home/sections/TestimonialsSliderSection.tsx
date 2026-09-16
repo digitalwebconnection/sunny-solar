@@ -195,22 +195,15 @@ export const TestimonialsSliderSection: React.FC = () => {
 
   return (
     <section className="py-12 lg:py-14 bg-slate-50 relative overflow-hidden border-t border-slate-200/80">
+      {/* Ambient solar blue backdrop */}
+      <div className="absolute top-0 right-1/4 w-96 h-96 bg-blue-600/5 rounded-full blur-3xl pointer-events-none" />
+
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Compact Header */}
         <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-8">
           <div>
-            <div className="flex items-center gap-2 mb-2">
-              <Badge variant="amber" icon={<Sparkles className="w-3 h-3" />}>
-                Verified Stories
-              </Badge>
-              <div className="flex items-center gap-1 text-amber-500">
-                {[...Array(5)].map((_, i) => (
-                  <Star key={i} className="w-3.5 h-3.5 fill-amber-400 text-amber-400" />
-                ))}
-                <span className="text-xs font-bold text-slate-700 ml-1">4.98 / 5.0</span>
-              </div>
-            </div>
-            <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight">
+            
+            <h2 className="text-2xl sm:text-3xl font-serif font-extrabold text-slate-900 tracking-tight">
               Real Installations.{' '}
               <span className="bg-linear-to-r from-amber-600 to-orange-500 bg-clip-text text-transparent">
                 Real Customer Savings.
@@ -224,7 +217,7 @@ export const TestimonialsSliderSection: React.FC = () => {
               type="button"
               onClick={prevSlide}
               aria-label="Previous slide"
-              className="w-9 h-9 rounded-xl bg-white border border-slate-200 text-slate-700 hover:text-amber-600 hover:border-amber-300 flex items-center justify-center transition-colors shadow-xs active:scale-95 cursor-pointer"
+              className="w-9 h-9 rounded-xl bg-white border border-slate-200 text-slate-700 hover:text-[#1d4ed8] hover:border-blue-300 flex items-center justify-center transition-colors shadow-xs active:scale-95 cursor-pointer"
             >
               <ChevronLeft className="w-4 h-4" />
             </button>
@@ -232,7 +225,7 @@ export const TestimonialsSliderSection: React.FC = () => {
               type="button"
               onClick={nextSlide}
               aria-label="Next slide"
-              className="w-9 h-9 rounded-xl bg-white border border-slate-200 text-slate-700 hover:text-amber-600 hover:border-amber-300 flex items-center justify-center transition-colors shadow-xs active:scale-95 cursor-pointer"
+              className="w-9 h-9 rounded-xl bg-white border border-slate-200 text-slate-700 hover:text-[#1d4ed8] hover:border-blue-300 flex items-center justify-center transition-colors shadow-xs active:scale-95 cursor-pointer"
             >
               <ChevronRight className="w-4 h-4" />
             </button>

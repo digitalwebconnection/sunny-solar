@@ -33,9 +33,14 @@ const socialLinks = [
 export const Footer: React.FC = () => {
   return (
     <footer>
+      {/* Tricolor brand accent bar (Eco Green -> Solar Blue -> Solar Orange) */}
+      <div className="h-1 w-full bg-gradient-to-r from-[#265e11] via-[#1d4ed8] via-[#0284c7] to-[#ed5001]" />
+
       {/* Main Footer */}
-      <div className="bg-white border-t border-slate-200">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+      <div className="bg-white border-t border-slate-200 relative overflow-hidden">
+        {/* Ambient solar blue backdrop aura */}
+        <div className="absolute top-0 right-1/4 w-96 h-96 bg-blue-600/5 rounded-full blur-3xl pointer-events-none" />
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 relative z-10">
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-12">
 
             {/* Brand */}
@@ -110,7 +115,7 @@ export const Footer: React.FC = () => {
                       target="_blank"
                       rel="noopener noreferrer"
                       aria-label={`Follow Sunny Solar on ${social.label}`}
-                      className="w-11 h-11 lg:w-9 lg:h-9 rounded-full border border-slate-300 flex items-center justify-center text-slate-500 hover:bg-[#ed5001] hover:border-[#ed5001] hover:text-white transition-all duration-200"
+                      className="w-11 h-11 lg:w-9 lg:h-9 rounded-full border border-slate-300 flex items-center justify-center text-slate-500 hover:bg-[#1d4ed8] hover:border-[#1d4ed8] hover:text-white transition-all duration-200 shadow-2xs"
                     >
                       <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
                         <path d={social.path} />
@@ -126,8 +131,10 @@ export const Footer: React.FC = () => {
       </div>
 
       {/* Accreditation & Licence Strip */}
-      <div className="bg-[#0c1825] border-t border-white/10">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
+      <div className="bg-[#071328] border-t border-blue-500/20 relative overflow-hidden">
+        {/* Subtle deep solar blue ambient glow */}
+        <div className="absolute inset-0 bg-radial from-blue-600/15 via-transparent to-transparent pointer-events-none" />
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 relative z-10">
           <div className="flex flex-col lg:flex-row items-center justify-between gap-6">
 
             {/* Certification Badges */}

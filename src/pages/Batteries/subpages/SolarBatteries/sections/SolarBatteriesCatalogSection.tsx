@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { Check, ArrowRight, Sparkles } from 'lucide-react';
 import { Button } from '../../../../../components/ui/Button';
 
@@ -176,9 +177,9 @@ export const SolarBatteriesCatalogSection: React.FC = () => {
       <div className="mt-8 text-center">
         <p className="text-xs text-slate-500">
           Need help sizing?{' '}
-          <a href="/calculators/battery-size" className="text-emerald-700 font-semibold hover:underline">
+          <Link to="/calculators/battery-size" className="text-emerald-700 font-semibold hover:underline">
             Use our Free Battery Sizing Calculator
-          </a>{' '}
+          </Link>{' '}
           or send a photo of your meter box for a 24-hour assessment.
         </p>
       </div>
