@@ -172,7 +172,7 @@ export const ServiceAreasTeaserSection: React.FC = () => {
                       to={`/service-areas/${area.slug}`}
                       onMouseEnter={() => setHoveredSlug(area.slug)}
                       onMouseLeave={() => setHoveredSlug(null)}
-                      className={`group relative bg-white p-5 sm:p-6 border transition-all duration-300 flex flex-col justify-between h-full overflow-hidden shadow-black/50 shadow-lg hover:shadow-xl ${
+                      className={`group relative bg-white rounded-2xl p-5 sm:p-6 border transition-all duration-300 flex flex-col justify-between h-full overflow-hidden shadow-md shadow-slate-900/5 hover:shadow-xl ${
                         isBlue
                           ? isHovered
                             ? 'border-[#1d4ed8] ring-2 ring-[#1d4ed8]/20 shadow-blue-500/15'
@@ -298,7 +298,7 @@ export const ServiceAreasTeaserSection: React.FC = () => {
                       to={`/service-areas/${area.slug}`}
                       onMouseEnter={() => setHoveredSlug(area.slug)}
                       onMouseLeave={() => setHoveredSlug(null)}
-                      className={`group relative bg-white  p-4 sm:p-4.5 border transition-all duration-300 flex flex-col justify-between h-full overflow-hidden shadow-black/50 shadow-lg hover:shadow-lg ${
+                      className={`group relative bg-white rounded-2xl p-4 sm:p-4.5 border transition-all duration-300 flex flex-col justify-between h-full overflow-hidden shadow-md shadow-slate-900/5 hover:shadow-xl ${
                         isHovered ? theme.borderActive : `border-slate-300/80 ${theme.borderHover}`
                       } ${theme.shadowHover}`}
                     >

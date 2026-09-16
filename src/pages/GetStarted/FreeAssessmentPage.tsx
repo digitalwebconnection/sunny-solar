@@ -7,7 +7,7 @@ import {
 
 export const FreeAssessmentPage: React.FC = () => {
   return (
-    <div className="min-h-screen bg-white text-slate-900 py-10">
+    <div className="min-h-screen bg-white text-slate-900">
       {/* 1. Hero / Header Section */}
       <FreeAssessmentHeroSection />
 

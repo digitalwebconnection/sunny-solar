@@ -1,6 +1,6 @@
 import React from 'react';
 import { Clock, CheckCircle2, ShieldCheck, Wrench, Cable, Gauge, Smartphone, Sparkles, ArrowRight } from 'lucide-react';
-import { Button } from '../../../../components/ui/Button';
+import { Button } from '@/components/ui/Button';
 
 export const SolarInstallationTimelineSection: React.FC = () => {
   const steps = [

@@ -259,3 +259,76 @@
     animation: none !important;
   }
 }
+
+/* ── Global Blue Ambient Animations ── */
+@keyframes blue-beam {
+  0% {
+    transform: translateX(-100%);
+  }
+  50%, 100% {
+    transform: translateX(300%);
+  }
+}
+
+.animate-blue-beam {
+  animation: blue-beam 5s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+  will-change: transform;
+}
+
+@keyframes blue-float-1 {
+  0%, 100% {
+    transform: translate(0px, 0px) scale(1);
+    opacity: 0.75;
+  }
+  33% {
+    transform: translate(35px, -45px) scale(1.08);
+    opacity: 0.95;
+  }
+  66% {
+    transform: translate(-30px, 25px) scale(0.96);
+    opacity: 0.65;
+  }
+}
+
+.animate-blue-drift-1 {
+  animation: blue-float-1 20s ease-in-out infinite;
+}
+
+@keyframes blue-float-2 {
+  0%, 100% {
+    transform: translate(0px, 0px) scale(1);
+    opacity: 0.6;
+  }
+  50% {
+    transform: translate(-40px, -35px) scale(1.1);
+    opacity: 0.85;
+  }
+}
+
+.animate-blue-drift-2 {
+  animation: blue-float-2 24s ease-in-out infinite;
+}
+
+@keyframes blue-pulse-glow {
+  0%, 100% {
+    opacity: 0.35;
+    transform: scale(0.96);
+  }
+  50% {
+    opacity: 0.75;
+    transform: scale(1.05);
+  }
+}
+
+.animate-blue-pulse {
+  animation: blue-pulse-glow 12s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-blue-beam,
+  .animate-blue-drift-1,
+  .animate-blue-drift-2,
+  .animate-blue-pulse {
+    animation: none !important;
+  }
+}
